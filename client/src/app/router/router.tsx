@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import { Layout } from '@/app/layout/layout';
 import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
 import type { JSX } from 'react';
-import MainPage from '../../pages/MainPage/ui/MainPage';
+import {MainPage} from '@/pages/MainPage/ui/MainPage';
 
 export function RouterProvider(): JSX.Element {
   return (

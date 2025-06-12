@@ -33,4 +33,14 @@ authRouter.get('/users', async (req, res) => {
   await AuthController.getAllUsers(req, res);
 });
 
+// Подтверждение 2FA при регистрации
+authRouter.post('/signup/verify', async (req, res) => {
+  await AuthController.verifySignup2FA(req, res);
+});
+
+// Подтверждение 2FA при входе (для админа)
+authRouter.post('/signin/verify', async (req, res) => {
+  await AuthController.verifySignin2FA(req, res);
+});
+
 export default authRouter;

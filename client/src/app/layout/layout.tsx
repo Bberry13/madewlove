@@ -1,7 +1,8 @@
 // import { refreshTokensThunk } from '@/entities/user/api/userThunkApi';
 // import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 // import { Footer, Header } from '@/widgets';
-import React, { useEffect, type JSX } from 'react';
+import Header from '@/widgets/Header/ui/Header';
+import React, { type JSX } from 'react';
 import { Outlet } from 'react-router';
 
 export function Layout(): JSX.Element {
@@ -15,7 +16,7 @@ export function Layout(): JSX.Element {
 
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Outlet />
       {/* <Footer /> */}
     </div>

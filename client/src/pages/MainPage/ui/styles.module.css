@@ -1,0 +1,253 @@
+.mainPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.videoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.videoBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.centerContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.wrapper {
+  max-width: 1440px;
+}
+
+.mainPage_content {
+  text-align: center;
+  pointer-events: auto;
+}
+
+.mainPage_title {
+  font-size: 60px;
+  line-height: 64px;
+  letter-spacing: 0%;
+  color: #ede5dd;
+  margin-bottom: 12px;
+}
+
+.mainPage_subtitle {
+  margin: 16px 0 30px;
+  color: #ede5dd;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.mainPage_button {
+  background-color: #ede5dd;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #2b251f;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gradientFade {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 500px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #2b251f 100%);
+}
+.mainPage_link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.downArrow {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(16px);
+  }
+}
+
+.advantagesSection {
+  max-width: 900px;
+  margin: 80px auto 0 auto;
+  padding: 48px 40px;
+  background: rgba(34, 30, 24, 0.85);
+  border-radius: 36px;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.18), 0 1.5px 0 0 #e7c27a inset;
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  border-image: linear-gradient(120deg, #e7c27a 0%, #ede5dd 100%) 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.advantagesSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 36px;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    rgba(231, 194, 122, 0.18) 0%,
+    rgba(237, 229, 221, 0.1) 100%
+  );
+  z-index: 0;
+}
+
+.advantagesTitle {
+  text-align: center;
+  font-size: 2.7rem;
+  color: #e7c27a;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', serif;
+  font-weight: 700;
+  text-shadow: 0 2px 16px rgba(231, 194, 122, 0.18);
+  position: relative;
+  z-index: 1;
+}
+
+.advantagesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.advantagesList li {
+  font-size: 1.25rem;
+  color: #ede5dd;
+  margin-bottom: 28px;
+  padding-left: 0;
+  line-height: 1.7;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.advantagesList li::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 18px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #e7c27a 60%, #ede5dd 100%);
+  box-shadow: 0 0 8px 2px #e7c27a55;
+  flex-shrink: 0;
+}
+
+.advantagesList li strong {
+  color: #e7c27a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', serif;
+}
+
+.advantagesGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 250px;
+  margin: 80px auto 0 auto;
+  padding: 0 20px;
+}
+
+.advantageItem {
+  background: transparent;
+  text-align: left;
+  min-width: 280px;
+  max-width: 340px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.advantageTitle {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #ede5dd;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.advantageAccent {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #e7c27a;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 8px;
+}
+
+.advantageLine {
+  width: 100%;
+  height: 2px;
+  background: #ede5dd;
+  opacity: 0.5;
+  margin-bottom: 18px;
+}
+
+.advantageDesc {
+  color: #bdb7b0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 400;
+}

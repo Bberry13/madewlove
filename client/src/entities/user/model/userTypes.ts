@@ -1,12 +1,15 @@
-export interface IUserSignIn {
+// Тип авторизации
+export interface ISignInData {
     email: string;
     password: string;
 }
 
-export interface IUserSignUp extends IUserSignIn {
+// Тип регистрации
+export interface ISignUpData extends ISignInData {
     name: string;
 }
 
+// Тип юзера
 export type UserType = {
     id: string;
     email: string;
@@ -14,4 +17,9 @@ export type UserType = {
     createdAt: string;
     updatedAt: string;
 }
-
+// Тип юзера с токеном доступа
+export type UserWithTokenType = {
+    user: UserType;
+    accessToken: string;
+    // refreshToken: string;
+}

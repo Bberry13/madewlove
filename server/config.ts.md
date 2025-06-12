@@ -79,3 +79,12 @@
 ---
 
 Если потребуется — могу адаптировать конфигурацию под CJS (`CommonJS`), или SSR/Next.js/Node.js API сервер.
+
+Команды для загрузки БД на призма (если готовы модели)
+cd server
+npm install
+npx prisma generate
+npx prisma db push
+npm run dev
+
+// Установить коннект, заполнив поля по env

@@ -258,7 +258,6 @@ export function MainPage(): JSX.Element {
           ))}
         </div>
       </section>
-      <Footer />
     </>
   );
 }

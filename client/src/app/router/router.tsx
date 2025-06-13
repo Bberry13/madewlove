@@ -5,6 +5,7 @@ import { CLIENT_ROUTING } from "@/shared/enums/clientRouting";
 import type { JSX } from "react";
 import { MainPage } from "@/pages/MainPage/ui/MainPage";
 import { SignInPage, SignUpPage } from "@/pages/AuthPages";
+import { PricePage } from "@/pages/PricePage/ui/PricePage";
 
 export function RouterProvider(): JSX.Element {
   return (
@@ -13,6 +14,7 @@ export function RouterProvider(): JSX.Element {
         <Route index element={<MainPage />} />
         <Route path={CLIENT_ROUTING.SIGN_IN} element={<SignInPage />} />
         <Route path={CLIENT_ROUTING.SIGN_UP} element={<SignUpPage />} />
+        <Route path={CLIENT_ROUTING.PRICE_POST} element={<PricePage />} />
         {/* 
 
             <Route path={CLIENT_ROUTING.TASKS} element={<TasksPage />} />

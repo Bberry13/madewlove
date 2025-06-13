@@ -53,3 +53,4 @@ const priceSlice = createSlice({
 });
 
 export const { actions: priceActions } = priceSlice;
+export const priceReducer = priceSlice.reducer;

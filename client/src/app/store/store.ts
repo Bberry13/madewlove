@@ -1,9 +1,11 @@
+import { priceReducer } from '@/entities/price/slice/priceSlice';
 import { userReducer } from '@/entities/user/slice/userSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
   reducer: {
     user: userReducer,
+    price: priceReducer,
   },
 });
 

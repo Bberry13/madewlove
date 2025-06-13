@@ -2,6 +2,7 @@ import React, { type JSX, useState } from 'react';
 import styles from './styles.module.css';
 import videoBg from '@/assets/MainPage/Main_Video.mp4';
 import downArrow from '@/assets/MainPage/downArrow.svg';
+
 import photo1 from '@/assets/MainPage/Photos/mainPagePhoto1.jpg';
 import photo2 from '@/assets/MainPage/Photos/mainPagePhoto2.jpg';
 import photo3 from '@/assets/MainPage/Photos/mainPagePhoto3.jpg';

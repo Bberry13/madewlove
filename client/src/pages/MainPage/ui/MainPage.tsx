@@ -2,7 +2,6 @@ import React, { type JSX } from 'react';
 import styles from './styles.module.css';
 import videoBg from '@/assets/MainPage/Main_Video.mp4';
 import downArrow from '@/assets/MainPage/downArrow.svg';
-import { Marquee } from './marquee';
 
 export function MainPage(): JSX.Element {
   return (
@@ -66,7 +65,6 @@ export function MainPage(): JSX.Element {
             </div>
           </div>
         </section>
-        <Marquee/>
       </div>
     </>
   );

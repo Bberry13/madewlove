@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './Footer.module.css';
-import footerLogo from '@/assets/Footer/HandsMWLFooter.png';
-
 export function Footer() {
   return (
     <footer className={styles.footerSection}>

@@ -1,5 +1,5 @@
-import React, { type JSX } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, type JSX } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
 import { useAppDispatch } from '../../../shared/hooks/useAppDispatch';
 import { sendRecordingThunk } from '../api/recorderThunkApi';
 import type { TypeRecording } from '../model/TypeRecording';
@@ -11,12 +11,25 @@ export const RecordingForm = (): JSX.Element => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
+    control,
   } = useForm<TypeRecording>();
+
+  const allChecked = useWatch({
+    control,
+    name: 'agreeAll',
+    defaultValue: false,
+  });
+
+  useEffect(() => {
+    setValue('personalData', !!allChecked);
+    setValue('oferta', !!allChecked);
+    setValue('mailing', !!allChecked);
+  }, [allChecked, setValue]);
 
   const onSubmit = async (data: TypeRecording) => {
     const result = await dispatch(sendRecordingThunk(data));
     if (sendRecordingThunk.fulfilled.match(result)) {
-      alert('Заявка успешно отправлена!');
       reset();
     } else {
       alert(`Ошибка: ${result.payload?.message}`);
@@ -27,9 +40,7 @@ export const RecordingForm = (): JSX.Element => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>Имя</label>
-        <input
-          {...register('name', { required: 'Введите имя' })}
-        />
+        <input {...register('name', { required: 'Введите имя' })} />
         {errors.name && <p>{errors.name.message}</p>}
       </div>
 
@@ -50,15 +61,13 @@ export const RecordingForm = (): JSX.Element => {
 
       <div>
         <label>Телефон</label>
-        <input
-          {...register('tel', { required: 'Введите номер телефона' })}
-        />
+        <input {...register('tel', { required: 'Введите номер телефона' })} />
         {errors.tel && <p>{errors.tel.message}</p>}
       </div>
 
       <div>
         <label>Сообщение</label>
-        <textarea {...register('message')}/>
+        <textarea {...register('message')} />
       </div>
 
       <div>
@@ -69,27 +78,36 @@ export const RecordingForm = (): JSX.Element => {
           />
           Я даю согласие на обработку персональных данных
         </label>
-        {errors.personalData && (
-          <p>Обязательное соглашение</p>
-        )}
+        {errors.personalData && <p>Обязательное соглашение</p>}
 
         <label>
-          <input type="checkbox" {...register('oferta', { required: true })} />Я
-          принимаю публичную оферту
+          <input
+            type="checkbox"
+            {...register('oferta', { required: true })}
+          />
+          Я принимаю публичную оферту
         </label>
         {errors.oferta && <p>Обязательное согласие</p>}
 
         <label>
-          <input type="checkbox" {...register('mailing')} />
+          <input
+            type="checkbox"
+            {...register('mailing')}
+          />
           Подписаться на рассылку
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            {...register('agreeAll')}
+          />
+          Согласиться со всем
         </label>
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Отправка...' : 'Записаться'}
+      <button type="submit" disabled={isSubmitting}>
+        {'Записаться'}
       </button>
     </form>
   );

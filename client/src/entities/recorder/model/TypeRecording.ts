@@ -6,6 +6,7 @@ export type TypeRecording = {
   personalData: boolean;
   oferta: boolean;
   mailing: boolean;
+  agreeAll?: boolean;
 };
 
 export type TypeRecordingResponse = {

@@ -3,9 +3,9 @@ import { RecordingService } from '../services/Recording.service.js';
 
 export class RecordingController {
   static async sendMessage(req: Request, res: Response) {
-    const { name, email, tel, message } = req.body;
+    const { name, email, tel, message, personalData, oferta, mailing } = req.body;
     try {
-      await RecordingService.sendMessage({ name, email, tel, message });
+      await RecordingService.sendMessage({ name, email, tel, message, personalData, oferta, mailing });
       return res
         .status(200)
         .json({ success: true, message: 'Заявка успешно отправлена' });

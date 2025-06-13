@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <>
     <div className={styles.header}>
-      <div className={styles.header__logo} onClick={() => navigate('/')}><img src={logo} alt="logo" /></div>
+      <div className={styles.header__logo} onClick={() => {navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' })  }}><img src={logo} alt="logo" /></div>
       <div className={styles.header_nav}>Портфолио</div>
       <div className={styles.header_nav}>Прайс</div>
       <div className={styles.header_nav}>Отзывы</div>

@@ -11,7 +11,7 @@ export interface ISignUpData extends ISignInData {
 
 // Тип юзера
 export type UserType = {
-    id: string;
+    id: string;// точно ли стринга?
     email: string;
     name: string;
     createdAt: string;
@@ -24,7 +24,14 @@ export type UserWithTokenType = {
     // refreshToken: string;
 }
 
-// тип ответа для получения кода на почту
-export type UserCodeForTwoFAType = {
-    userId: number;
+// тип Ответа для получения кода на почту
+export type TwoFAResponseType = {
+    userId: string;// и точно ли тут стринга?
+    message: string;
+}
+
+// тип для Запроса!
+export type Verify2FADataType = {
+    userId: string;
+    code: string;
 }

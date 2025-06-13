@@ -6,6 +6,8 @@ import type {
   UserWithTokenType,
   ISignInData,
   ISignUpData,
+  Verify2FADataType,
+  TwoFAResponseType,
 } from "@/entities/user/model/userTypes";
 import { USER_THUNK_TYPES } from "@/shared/enums/userThunkTypes";
 import { AUTH_API_ROUTES } from "@/shared/enums/authApiRoutes";
@@ -14,40 +16,46 @@ import { AUTH_API_ROUTES } from "@/shared/enums/authApiRoutes";
 // ? (optional chaining) используется когда мы не уверены, существует ли свойство.
 
 // Обновление токенов
-export const refreshTokenThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, void, ({rejectValue: IApiResponseReject}) >(USER_THUNK_TYPES.REFRESH_TOKEN, async (_, {rejectWithValue}) => {
-    try {
-        const { data } = await axiosInstance.get<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.REFRESH_TOKEN)
-        setAccessToken(data.data.accessToken)
-        return data;
-    } catch (error) {
-        const err = error as AxiosError<IApiResponseReject>;
-        return rejectWithValue(err.response!.data)
-    }
+export const refreshTokenThunk = createAsyncThunk<
+  IApiResponseSuccess<UserWithTokenType>,
+  void,
+  { rejectValue: IApiResponseReject }
+>(USER_THUNK_TYPES.REFRESH_TOKEN, async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axiosInstance.get<
+      IApiResponseSuccess<UserWithTokenType>
+    >(AUTH_API_ROUTES.REFRESH_TOKEN);
+    setAccessToken(data.data.accessToken);
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<IApiResponseReject>;
+    return rejectWithValue(err.response!.data);
+  }
 });
 
-export const signUpThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignUpData , {rejectValue : IApiResponseReject}>(USER_THUNK_TYPES.SIGN_UP, async (userData, {rejectWithValue}) => {
-    try {
-        const {data} = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_UP, userData);
-        setAccessToken(data.data.accessToken)
-        return data
-    } catch (error) {
-        const err = error as AxiosError<IApiResponseReject>
-        return rejectWithValue(err.response!.data)
-    }
-})
+// export const signUpThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignUpData , {rejectValue : IApiResponseReject}>(USER_THUNK_TYPES.SIGN_UP, async (userData, {rejectWithValue}) => {
+//     try {
+//         const {data} = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_UP, userData);
+//         setAccessToken(data.data.accessToken)
+//         return data
+//     } catch (error) {
+//         const err = error as AxiosError<IApiResponseReject>
+//         return rejectWithValue(err.response!.data)
+//     }
+// })
 
-export const signInThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignInData, {rejectValue: IApiResponseReject}>(USER_THUNK_TYPES.SIGN_IN, async (userData, {rejectWithValue}) => {
-try {
-    const { data } = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_IN, userData)
-    setAccessToken(data.data.accessToken)
-    return data
-} catch (error) {
-    const err = error as AxiosError<IApiResponseReject>
-    return rejectWithValue(err.response!.data)
-}
-})
+// export const signInThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignInData, {rejectValue: IApiResponseReject}>(USER_THUNK_TYPES.SIGN_IN, async (userData, {rejectWithValue}) => {
+// try {
+//     const { data } = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_IN, userData)
+//     setAccessToken(data.data.accessToken)
+//     return data
+// } catch (error) {
+//     const err = error as AxiosError<IApiResponseReject>
+//     return rejectWithValue(err.response!.data)
+// }
+// })
 
-// в случае выхода из система лучше использовать метод delete или post,так как изменения происходят 
+// в случае выхода из система лучше использовать метод delete или post,так как изменения происходят
 // на уровне удаления текущей сессии,
 // текущего токена. Get запрос может кешироваться и менять состояние, например при перезагрзки страницы.
 // delete в свою очеред может быть заблокирован некоторыми прокси.
@@ -57,13 +65,94 @@ export const signOutThunk = createAsyncThunk<
   IApiResponseSuccess<null>,
   void,
   { rejectValue: IApiResponseReject }
->(USER_THUNK_TYPES.SIGN_OUT, async (_, {rejectWithValue}) => {
-    try {
-        const { data } = await axiosInstance.post(AUTH_API_ROUTES.SIGN_OUT);
-        setAccessToken('')
-        return data
-    } catch (error) {
-        const err = error as AxiosError<IApiResponseReject>
-        return rejectWithValue(err.response!.data);
-    }
+>(USER_THUNK_TYPES.SIGN_OUT, async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axiosInstance.post(
+      AUTH_API_ROUTES.SIGN_OUT
+    );
+    setAccessToken("");
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<IApiResponseReject>;
+    return rejectWithValue(err.response!.data);
+  }
 });
+
+// регистрация под 2FA
+export const signUpThunk = createAsyncThunk<
+  IApiResponseSuccess<TwoFAResponseType>,
+  ISignUpData,
+  { rejectValue: IApiResponseReject }
+>(USER_THUNK_TYPES.SIGN_UP, async (userData, { rejectWithValue }) => {
+  try {
+    const { data } = await axiosInstance.post<
+      IApiResponseSuccess<TwoFAResponseType>
+    >(AUTH_API_ROUTES.SIGN_UP, userData);
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<IApiResponseReject>;
+    return rejectWithValue(err.response!.data);
+  }
+});
+
+// санка на подтверждение почты при реге
+export const verifySignUp2FAThunk = createAsyncThunk<
+  IApiResponseSuccess<UserWithTokenType>,
+  Verify2FADataType,
+  { rejectValue: IApiResponseReject }
+>(
+  USER_THUNK_TYPES.SIGN_UP_VERIFY_FA,
+  async (verifyData, { rejectWithValue }) => {
+    try {
+      const { data } = await axiosInstance.post<
+        IApiResponseSuccess<UserWithTokenType>
+      >(AUTH_API_ROUTES.SIGN_UP_2FA, verifyData);
+      setAccessToken(data.data.accessToken);
+      return data;
+    } catch (error) {
+      const err = error as AxiosError<IApiResponseReject>;
+      return rejectWithValue(err.response!.data);
+    }
+  }
+);
+
+// санка на вход
+export const signInThunk = createAsyncThunk<
+  IApiResponseSuccess<UserWithTokenType | TwoFAResponseType>,
+  ISignInData,
+  { rejectValue: IApiResponseReject }
+>(USER_THUNK_TYPES.SIGN_IN, async (userData, { rejectWithValue }) => {
+  try {
+    const { data } = await axiosInstance.post<
+      IApiResponseSuccess<UserWithTokenType | TwoFAResponseType>
+    >(AUTH_API_ROUTES.SIGN_IN, userData);
+    if ("accessToken" in data.data) {
+      setAccessToken(data.data.accessToken);
+    }
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<IApiResponseReject>;
+    return rejectWithValue(err.response!.data);
+  }
+});
+
+// Подтверждение 2FA при входе (для админов)
+export const verifySignIn2FAForAdminThunk = createAsyncThunk<
+  IApiResponseSuccess<UserWithTokenType>,
+  Verify2FADataType,
+  { rejectValue: IApiResponseReject }
+>(
+  USER_THUNK_TYPES.SIGN_IN_VERIFY_FA,
+  async (verifyData, { rejectWithValue }) => {
+    try {
+      const { data } = await axiosInstance.post<
+        IApiResponseSuccess<UserWithTokenType>
+      >(AUTH_API_ROUTES.SIGN_IN_2FA, verifyData);
+      setAccessToken(data.data.accessToken);
+      return data;
+    } catch (error) {
+      const err = error as AxiosError<IApiResponseReject>;
+      return rejectWithValue(err.response!.data);
+    }
+  }
+);

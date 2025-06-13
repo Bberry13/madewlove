@@ -1,10 +1,16 @@
-import React from 'react';
-import { RouterProvider } from './router/router';
+import React from "react";
+import { RouterProvider } from "./router/router";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router";
+import store from "./store/store";
 
 function App(): React.JSX.Element {
-
   return (
-      <RouterProvider />
+    <Provider store={store}>
+      <BrowserRouter>
+        <RouterProvider />
+      </BrowserRouter>
+    </Provider>
   );
 }
 

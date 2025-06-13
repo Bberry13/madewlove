@@ -15,9 +15,9 @@ const REFRESH_SECRET = process.env.REFRESH_TOKEN_SECRET!;
 export class AuthController {
   // Регистрация с 2FA
   static async signup(req: Request, res: Response) {
-    const { email, username, password } = req.body;
+    const { email, name, password } = req.body;
 
-    if (!email || !username || !password) {
+    if (!email || !name || !password) {
       return res.status(400).json(formatResponse(400, 'Отсутствие обязательных полей'));
     }
 
@@ -33,7 +33,7 @@ export class AuthController {
       const user = await prisma.username.create({
         data: {
           email,
-          name: username,
+          name: name,
           password: hashedPassword,
           role: 'USER',
         },

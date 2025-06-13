@@ -5,10 +5,12 @@ import { sendRecordingThunk } from '../api/recorderThunkApi';
 import type { TypeRecording } from '../model/TypeRecording';
 import styles from './RecordingForm.module.css';
 import { useNavigate } from 'react-router';
+import SuccessModal from './SuccessModal';
 
 export const RecordingForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -34,103 +36,112 @@ export const RecordingForm = (): JSX.Element => {
     const result = await dispatch(sendRecordingThunk(data));
     if (sendRecordingThunk.fulfilled.match(result)) {
       reset();
+      setModalOpen(true);
     } else {
       alert(`Ошибка: ${result.payload?.message}`);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
-      <div>
-        <label>Имя</label>
-        <input
-          {...register('name', { required: 'Введите имя' })}
-          className={styles.inputField}
-        />
-        {errors.name && (
-          <p className={styles.errorText}>{errors.name.message}</p>
-        )}
-      </div>
-
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          {...register('email', {
-            required: 'Введите email',
-            pattern: {
-              value: /^[^@]+@[^@]+\.[^@]+$/,
-              message: 'Некорректный email',
-            },
-          })}
-          className={styles.inputField}
-        />
-        {errors.email && (
-          <p className={styles.errorText}>{errors.email.message}</p>
-        )}
-      </div>
-
-      <div>
-        <label>Телефон</label>
-        <input
-          {...register('tel', { required: 'Введите номер телефона' })}
-          className={styles.inputField}
-        />
-        {errors.tel && <p className={styles.errorText}>{errors.tel.message}</p>}
-      </div>
-
-      <div>
-        <label>Сообщение</label>
-        <input {...register('message')} className={styles.inputField} />
-      </div>
-
-      <div className={styles.checkboxContainer}>
-        <label className={styles.checkboxLabel}>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
+        <div>
+          <label>Имя</label>
           <input
-            type="checkbox"
-            {...register('personalData', { required: true })}
+            {...register('name', { required: 'Введите имя' })}
+            className={styles.inputField}
           />
-          Я согласен на обработку персональных данных, с условиями{' '}
-          <span className={styles.link} onClick={() => navigate('/politics')}>
-            Политики
-          </span>
-        </label>
-        {errors.personalData && (
-          <p className={styles.errorText}>Обязательное соглашение</p>
-        )}
+          {errors.name && (
+            <p className={styles.errorText}>{errors.name.message}</p>
+          )}
+        </div>
 
-        <label className={styles.checkboxLabel}>
-          <input type="checkbox" {...register('oferta', { required: true })} />Я
-          ознакомлен и согласен с{' '}
-          <span className={styles.link} onClick={() => navigate('/oferta')}>
-            Офертой
-          </span>
-        </label>
-        {errors.oferta && (
-          <p className={styles.errorText}>Обязательное согласие</p>
-        )}
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            {...register('email', {
+              required: 'Введите email',
+              pattern: {
+                value: /^[^@]+@[^@]+\.[^@]+$/,
+                message: 'Некорректный email',
+              },
+            })}
+            className={styles.inputField}
+          />
+          {errors.email && (
+            <p className={styles.errorText}>{errors.email.message}</p>
+          )}
+        </div>
 
-        <label className={styles.checkboxLabel}>
-          <input type="checkbox" {...register('mailing')} />Я{' '}
-          <span className={styles.link} onClick={() => navigate('/oferta')}>
-            согласен
-          </span>{' '}
-          на получение рассылки
-        </label>
+        <div>
+          <label>Телефон</label>
+          <input
+            {...register('tel', { required: 'Введите номер телефона' })}
+            className={styles.inputField}
+          />
+          {errors.tel && (
+            <p className={styles.errorText}>{errors.tel.message}</p>
+          )}
+        </div>
 
-        <label className={styles.checkboxLabel}>
-          <input type="checkbox" {...register('agreeAll')} />
-          Согласиться со всем
-        </label>
-      </div>
+        <div>
+          <label>Сообщение</label>
+          <input {...register('message')} className={styles.inputField} />
+        </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className={styles.submitButton}
-      >
-        Записаться
-      </button>
-    </form>
+        <div className={styles.checkboxContainer}>
+          <label className={styles.checkboxLabel}>
+            <input
+              type="checkbox"
+              {...register('personalData', { required: true })}
+            />
+            Я согласен на обработку персональных данных, с условиями{' '}
+            <span className={styles.link} onClick={() => navigate('/politics')}>
+              Политики
+            </span>
+          </label>
+          {errors.personalData && (
+            <p className={styles.errorText}>Обязательное соглашение</p>
+          )}
+
+          <label className={styles.checkboxLabel}>
+            <input
+              type="checkbox"
+              {...register('oferta', { required: true })}
+            />
+            Я ознакомлен и согласен с{' '}
+            <span className={styles.link} onClick={() => navigate('/oferta')}>
+              Офертой
+            </span>
+          </label>
+          {errors.oferta && (
+            <p className={styles.errorText}>Обязательное согласие</p>
+          )}
+
+          <label className={styles.checkboxLabel}>
+            <input type="checkbox" {...register('mailing')} />Я{' '}
+            <span className={styles.link} onClick={() => navigate('/oferta')}>
+              согласен
+            </span>{' '}
+            на получение рассылки
+          </label>
+
+          <label className={styles.checkboxLabel}>
+            <input type="checkbox" {...register('agreeAll')} />
+            Согласиться со всем
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={styles.submitButton}
+        >
+          Записаться
+        </button>
+      </form>
+      <SuccessModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 };

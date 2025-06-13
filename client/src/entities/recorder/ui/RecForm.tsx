@@ -3,9 +3,12 @@ import { useForm, useWatch } from 'react-hook-form';
 import { useAppDispatch } from '../../../shared/hooks/useAppDispatch';
 import { sendRecordingThunk } from '../api/recorderThunkApi';
 import type { TypeRecording } from '../model/TypeRecording';
+import styles from './RecordingForm.module.css';
+import { useNavigate } from 'react-router';
 
 export const RecordingForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -37,11 +40,16 @@ export const RecordingForm = (): JSX.Element => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
       <div>
         <label>Имя</label>
-        <input {...register('name', { required: 'Введите имя' })} />
-        {errors.name && <p>{errors.name.message}</p>}
+        <input
+          {...register('name', { required: 'Введите имя' })}
+          className={styles.inputField}
+        />
+        {errors.name && (
+          <p className={styles.errorText}>{errors.name.message}</p>
+        )}
       </div>
 
       <div>
@@ -55,59 +63,73 @@ export const RecordingForm = (): JSX.Element => {
               message: 'Некорректный email',
             },
           })}
+          className={styles.inputField}
         />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && (
+          <p className={styles.errorText}>{errors.email.message}</p>
+        )}
       </div>
 
       <div>
         <label>Телефон</label>
-        <input {...register('tel', { required: 'Введите номер телефона' })} />
-        {errors.tel && <p>{errors.tel.message}</p>}
+        <input
+          {...register('tel', { required: 'Введите номер телефона' })}
+          className={styles.inputField}
+        />
+        {errors.tel && <p className={styles.errorText}>{errors.tel.message}</p>}
       </div>
 
       <div>
         <label>Сообщение</label>
-        <textarea {...register('message')} />
+        <input {...register('message')} className={styles.inputField} />
       </div>
 
-      <div>
-        <label>
+      <div className={styles.checkboxContainer}>
+        <label className={styles.checkboxLabel}>
           <input
             type="checkbox"
             {...register('personalData', { required: true })}
           />
-          Я даю согласие на обработку персональных данных
+          Я согласен на обработку персональных данных, с условиями{' '}
+          <span className={styles.link} onClick={() => navigate('/politics')}>
+            Политики
+          </span>
         </label>
-        {errors.personalData && <p>Обязательное соглашение</p>}
+        {errors.personalData && (
+          <p className={styles.errorText}>Обязательное соглашение</p>
+        )}
 
-        <label>
-          <input
-            type="checkbox"
-            {...register('oferta', { required: true })}
-          />
-          Я принимаю публичную оферту
+        <label className={styles.checkboxLabel}>
+          <input type="checkbox" {...register('oferta', { required: true })} />Я
+          ознакомлен и согласен с{' '}
+          <span className={styles.link} onClick={() => navigate('/oferta')}>
+            Офертой
+          </span>
         </label>
-        {errors.oferta && <p>Обязательное согласие</p>}
+        {errors.oferta && (
+          <p className={styles.errorText}>Обязательное согласие</p>
+        )}
 
-        <label>
-          <input
-            type="checkbox"
-            {...register('mailing')}
-          />
-          Подписаться на рассылку
+        <label className={styles.checkboxLabel}>
+          <input type="checkbox" {...register('mailing')} />Я{' '}
+          <span className={styles.link} onClick={() => navigate('/oferta')}>
+            согласен
+          </span>{' '}
+          на получение рассылки
         </label>
 
-        <label>
-          <input
-            type="checkbox"
-            {...register('agreeAll')}
-          />
+        <label className={styles.checkboxLabel}>
+          <input type="checkbox" {...register('agreeAll')} />
           Согласиться со всем
         </label>
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
-        {'Записаться'}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={styles.submitButton}
+      >
+        Записаться
       </button>
     </form>
   );

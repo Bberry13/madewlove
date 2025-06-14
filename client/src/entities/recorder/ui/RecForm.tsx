@@ -86,20 +86,25 @@ export const RecordingForm = (): JSX.Element => {
         </div>
 
         <div>
-          <label>Сообщение</label>
+          <label className={styles.labelName}>Сообщение</label>
           <input {...register('message')} className={styles.inputField} />
         </div>
 
         <div className={styles.checkboxContainer}>
           <label className={styles.checkboxLabel}>
             <input
+              className={styles.realCheckbox}
               type="checkbox"
               {...register('personalData', { required: true })}
             />
-            Я согласен на обработку персональных данных, с условиями{' '}
+            <span className={styles.customCheckbox}></span>
+            <div>
+            Я согласен на обработку персональных данных, <br />с условиями{' '}
             <span className={styles.link} onClick={() => navigate('/politics')}>
               Политики
             </span>
+            {' '}ознакомлен
+            </div>
           </label>
           {errors.personalData && (
             <p className={styles.errorText}>Обязательное соглашение</p>
@@ -107,9 +112,11 @@ export const RecordingForm = (): JSX.Element => {
 
           <label className={styles.checkboxLabel}>
             <input
+              className={styles.realCheckbox}
               type="checkbox"
               {...register('oferta', { required: true })}
             />
+            <span className={styles.customCheckbox}></span>
             Я ознакомлен и согласен с{' '}
             <span className={styles.link} onClick={() => navigate('/oferta')}>
               Офертой
@@ -120,7 +127,9 @@ export const RecordingForm = (): JSX.Element => {
           )}
 
           <label className={styles.checkboxLabel}>
-            <input type="checkbox" {...register('mailing')} />Я{' '}
+            <input className={styles.realCheckbox} type="checkbox" {...register('mailing')} />
+            <span className={styles.customCheckbox}></span>
+            Я{' '}
             <span className={styles.link} onClick={() => navigate('/oferta')}>
               согласен
             </span>{' '}
@@ -128,7 +137,8 @@ export const RecordingForm = (): JSX.Element => {
           </label>
 
           <label className={styles.checkboxLabel}>
-            <input type="checkbox" {...register('agreeAll')} />
+            <input className={styles.realCheckbox} type="checkbox" {...register('agreeAll')} />
+            <span className={styles.customCheckbox}></span>
             Согласиться со всем
           </label>
         </div>

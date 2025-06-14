@@ -85,10 +85,6 @@ export function MainPage(): JSX.Element {
   // FAQ data
   const faq = [
     {
-      question: 'Что включено в съемку "Рождение"?',
-      answer: `• съемка всего процесса родов, без анатомических подробностей\n\n• трогательный фильм с родов от 2-3 минут⁃ от 40 художественных фотографий в авторской обработке (обычно выходит около 50-80, сорок - это минимальный порок, который может быть при экстренных ситуациях)\n\n• ретушь всех кадров`,
-    },
-    {
       question: 'Когда нужно записываться на съемку родов?',
       answer:
         'Запись осуществляется за 1-2 месяца ДО ПДР \n\nМеста на съемку ограничены, поэтому желательно записываться заранее, чтоб гарантированно получить съемку\n\nКак записаться? \nВы пишите нам о своем желании, мы направляем вам анкету для записи\nОтправляетеответы нам - мы подтверждаем запись, высылая Вам подробную инструкцию по вызову фотографа. \nЖелательно, чтоб Вы предупредили своего парнера \n(мужа, сестру, маму) о нашей инструкции, чтоб когда у вас начались роды Вы про нас не забыли и не вызвали в последний момент, поскольку мы можем не успеть доехать',
@@ -189,7 +185,7 @@ export function MainPage(): JSX.Element {
           play={!isPaused}
           speed={60}
           gradient={false}
-          style={{ width: '100vw', height: '100vh', alignItems: 'center' }}
+          style={{ width: '100vw', height: '70vh', alignItems: 'center' }}
         >
           {allGroups.map((group, idx) => (
             <div
@@ -206,7 +202,7 @@ export function MainPage(): JSX.Element {
                 src={group[0]}
                 className={styles.masonryLarge}
                 alt=''
-                onMouseEnter={() => setIsPaused(true)}
+                onMouseDown={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               />
               <div className={styles.masonrySmallCol}>
@@ -214,14 +210,14 @@ export function MainPage(): JSX.Element {
                   src={group[1]}
                   className={styles.masonrySmall}
                   alt=''
-                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseDown={() => setIsPaused(true)}
                   onMouseLeave={() => setIsPaused(false)}
                 />
                 <img
                   src={group[2]}
                   className={styles.masonrySmall}
                   alt=''
-                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseDown={() => setIsPaused(true)}
                   onMouseLeave={() => setIsPaused(false)}
                 />
               </div>
@@ -266,7 +262,7 @@ export function MainPage(): JSX.Element {
         </span>
         Смотреть все работы
       </button>
-
+      
       <RecordingForm />
 
       {/* FAQ Section */}

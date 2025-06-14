@@ -410,7 +410,7 @@
 
 .masonryCarouselSection {
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
   background: #2b251f;
   display: flex;
@@ -488,33 +488,6 @@
     transform: translateX(-33.3333%);
   }
 }
-
-/* .embla {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
-
-.emblaContainer {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  align-items: center;
-}
-
-.emblaSlide {
-  display: flex;
-  align-items: center;
-  min-width: 480px;
-  width: 480px;
-  margin-right: 3px;
-  flex-shrink: 0;
-}
-
-.emblaSlide:last-child {
-  margin-right: 0;
-} */
-
 .faqSection {
   max-width: 900px;
   margin: 80px auto 60px auto;

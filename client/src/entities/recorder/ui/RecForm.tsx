@@ -110,7 +110,7 @@ export const RecordingForm = (): JSX.Element => {
             />
             <span className={styles.customCheckbox}></span>
             <div>
-              Я согласен на обработку персональных данных, <br />с условиями{' '}
+              Я согласен на обработку персональных данных, с условиями{' '}
               <span
                 className={styles.link}
                 onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}
@@ -131,9 +131,10 @@ export const RecordingForm = (): JSX.Element => {
               className={styles.realCheckbox}
               {...register('oferta', { required: true })}
             />
-            <span className={styles.customCheckbox}></span>Я ознакомлен и
-            согласен с{' '}
+            
+            <span className={styles.customCheckbox}></span>Я согласен с 
             <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
+
               Офертой
             </span>
           </label>
@@ -148,11 +149,12 @@ export const RecordingForm = (): JSX.Element => {
               className={styles.realCheckbox}
               {...register('mailing')}
             />
-            <span className={styles.customCheckbox}></span>Я{' '}
+
+            <span className={styles.customCheckbox}></span>
             <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
-              согласен
-            </span>{' '}
-            на получение рассылки
+              Я согласен  на получение рассылки
+            </span>
+
           </label>
 
           <label htmlFor="agreeAll" className={styles.checkboxLabel}>

@@ -4,6 +4,8 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import React, { useEffect } from "react";
 import type { TypePrice } from "@/entities/price/model/TypePrice";
 import "./PregnancyPricePage.css";
+import { FAQ } from "@/features/FAQ/FAQ";
+import { pregnancyFAQData } from "../model/FAQ_data";
 
 // Импортируем фотографии
 import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
@@ -47,8 +49,8 @@ export function PregnancyPricePage(): React.JSX.Element {
     return <div className="error">Ошибка: {error}</div>;
   }
 
-  // Получаем первую группу (3 элемента)
-  const firstGroup = prices[0];
+  // Получаем вторую группу (группа "Беременность")
+  const pregnancyGroup = prices[1];
 
   return (
     <div className="pregnancy-page">
@@ -66,7 +68,7 @@ export function PregnancyPricePage(): React.JSX.Element {
         </p>
       </div>
       <div className="pregnancy-price-container">
-        {firstGroup.map((price: TypePrice, index: number) => (
+        {pregnancyGroup.map((price: TypePrice, index: number) => (
           <div key={price.id} className="price-card">
             <div className="image-container">
               <img
@@ -94,6 +96,21 @@ export function PregnancyPricePage(): React.JSX.Element {
             </div>
           </div>
         ))}
+      </div>
+      <FAQ faq={pregnancyFAQData} />
+      <div className="additional-info">
+        <h3>НЕ ВКЛЮЧЕНО:</h3>
+        <ul>
+          <li>
+            Визаж и укладка. Исключение в пакете «PREMIUM», где все включено.
+          </li>
+          <li>Стилист по гардеробу.</li>
+          <li>Плата за такси, парковку и т.д.</li>
+        </ul>
+        <p>
+          *Каждый дополнительный час съемки или каждое дополнительное фото на
+          обработку обсуждать с менеджером.
+        </p>
       </div>
     </div>
   );

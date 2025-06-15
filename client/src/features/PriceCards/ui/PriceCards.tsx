@@ -22,6 +22,7 @@ const priceCardsData = {
     photo: mainPagePhoto1,
     buttonText: "Узнать стоимость",
   },
+  // 1 индекс в массиве для этой категории, остальные по порядку
   birth: {
     title: "Рождение",
     photo: mainPagePhoto2,

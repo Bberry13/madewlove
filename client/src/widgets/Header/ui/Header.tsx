@@ -60,9 +60,9 @@ export function Header(): JSX.Element {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={menuOpen ? styles.header_open : styles.header}>
       <div
-        className={styles.header__logo}
+        className={menuOpen ? styles.header__logo_open : styles.header__logo}
         onClick={() => handleNavigation('/')}
       >
         <img src={logo} alt="logo" />

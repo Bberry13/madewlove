@@ -9,24 +9,11 @@ import { birthFAQData } from "../model/FAQ_data";
 
 // Импортируем фотографии
 import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
-import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
-import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
-import mainPagePhoto4 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
-import mainPagePhoto5 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
-import mainPagePhoto6 from "@/assets/MainPage/Photos/mainPagePhoto6.jpg";
-import mainPagePhoto7 from "@/assets/MainPage/Photos/mainPagePhoto7.jpg";
-import mainPagePhoto8 from "@/assets/MainPage/Photos/mainPagePhoto8.jpg";
+
 
 // Массив фотографий для случайного выбора
 const photos = [
   mainPagePhoto1,
-  mainPagePhoto2,
-  mainPagePhoto3,
-  mainPagePhoto4,
-  mainPagePhoto5,
-  mainPagePhoto6,
-  mainPagePhoto7,
-  mainPagePhoto8,
 ];
 
 export function BirthPricePage(): React.JSX.Element {

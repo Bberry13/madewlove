@@ -11,6 +11,7 @@ import NotFound from "@/pages/Not-found/ui/Not-found";
 import { Oferta } from "@/pages/Oferta/ui/Oferta";
 import { Politics } from "@/pages/Politics/ui/Politics";
 import { BirthPricePage } from "@/pages/CategoryPricePocketPages/BirthPricePage/ui/BirthPricePage";
+import { NewbornPricePage } from "@/pages/CategoryPricePocketPages/NewbornPricePage/ui/NewbornPricePage";
 
 export function RouterProvider(): JSX.Element {
   return (
@@ -28,6 +29,11 @@ export function RouterProvider(): JSX.Element {
          <Route
           path={CLIENT_ROUTING.PRICE_BIRTH}
           element={<BirthPricePage />}
+          
+        />
+         <Route
+          path={CLIENT_ROUTING.PRICE_NEWBORN}
+          element={<NewbornPricePage />}
           
         />
         <Route path={CLIENT_ROUTING.OFERTA} element={<Oferta />} />

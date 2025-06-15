@@ -113,7 +113,7 @@ export const RecordingForm = (): JSX.Element => {
               Я согласен на обработку персональных данных, <br />с условиями{' '}
               <span
                 className={styles.link}
-                onClick={() => navigate('/politics')}
+                onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}
               >
                 Политики
               </span>{' '}
@@ -133,7 +133,7 @@ export const RecordingForm = (): JSX.Element => {
             />
             <span className={styles.customCheckbox}></span>Я ознакомлен и
             согласен с{' '}
-            <span className={styles.link} onClick={() => navigate('/oferta')}>
+            <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
               Офертой
             </span>
           </label>
@@ -149,7 +149,7 @@ export const RecordingForm = (): JSX.Element => {
               {...register('mailing')}
             />
             <span className={styles.customCheckbox}></span>Я{' '}
-            <span className={styles.link} onClick={() => navigate('/oferta')}>
+            <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
               согласен
             </span>{' '}
             на получение рассылки

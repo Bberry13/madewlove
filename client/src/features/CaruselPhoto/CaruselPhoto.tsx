@@ -30,7 +30,7 @@ const CaruselPhotoComponent = ({ photos }: { photos: string[] }): JSX.Element =>
           play={!isPaused}
           speed={60}
           gradient={false}
-          style={{ width: '100vw', height: '70vh', alignItems: 'center' }}
+          style={{ width: '100vw', height: '100vh', alignItems: 'center' }}
         >
           {allGroups.map((group, idx) => (
             <div

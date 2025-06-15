@@ -25,6 +25,7 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
     analytics: false,
     marketing: false,
   });
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!open) return <></>;
 
@@ -33,10 +34,9 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
       <div className={styles.modalContent}>
         <h2>Настройки Cookie</h2>
         <p>
-          Продолжая использовать сайт, вы можете выбрать, какие cookie
-          разрешить:
+        Продолжая использовать наш сайт, вы даете согласие на обработку файлов cookie, которые обеспечивают правильную работу сайта и подтверждаете, что ознакомились и согласны с условиями Оферты и Политики обработки персональных данных
         </p>
-        <div className={styles.checkboxContainer}>
+        {isOpen && <div className={styles.checkboxContainer}>
           <label className={styles.checkboxLabel}>
             <input
               className={styles.realCheckbox}
@@ -73,17 +73,24 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
             <span className={styles.customCheckbox}></span>
             Маркетинговые
           </label>
-        </div>
+        </div>}
         <div className={styles.buttons}>
           <button
             className={styles.rejectButton}
+            onClick={() => {
+              setIsOpen((prev) => !prev);
+            }}
+          >
+            Настроить
+          </button>
+          {isOpen ? <button
+            className={styles.saveButton}
             onClick={() => {
               onSave(prefs);
             }}
           >
             Принять
-          </button>
-          <button
+          </button> : <button
             className={styles.saveButton}
             onClick={() => {
               onSave({
@@ -94,16 +101,16 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
             }}
           >
             Принять все
-          </button>
+          </button>}
         </div>
 
         <p className={styles.footnote}>
           Ознакомьтесь с{' '}
-          <span className={styles.link} onClick={() => navigate('/politics')}>
+          <span className={styles.link} onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
             Политикой конфиденциальности
           </span>{' '}
           и{' '}
-          <span className={styles.link} onClick={() => navigate('/oferta')}>
+          <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
             Офертой
           </span>
           .

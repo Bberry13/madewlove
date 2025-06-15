@@ -57,7 +57,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border 0.2s;
-  margin-top: 50px;
   margin-bottom: 100px;
   z-index: 1000;
 }
@@ -70,4 +69,9 @@
   display: flex;
   align-items: center;
   margin-right: 6px;
+}
+@media (max-height: 700px) {
+  .masonryCarouselSection {
+    height: 100vh;
+  }
 }

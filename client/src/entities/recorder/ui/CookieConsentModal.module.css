@@ -103,7 +103,6 @@
 .realCheckbox:checked + .customCheckbox::before {
   transform: translate(-50%, -50%) scale(1);
 }
-
 /* —————————————— Смартфоны (до 480px) —————————————— */
 @media (max-width: 480px) {
   .modalOverlay {

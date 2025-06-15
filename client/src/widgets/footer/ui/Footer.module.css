@@ -99,7 +99,7 @@
 .footerIconSvg {
   display: block;
   transition: filter 0.2s, fill 0.2s;
-  color: #000000
+  fill: #e3c7a3b6;
 }
 @media (max-width: 800px) {
   .footerSection {

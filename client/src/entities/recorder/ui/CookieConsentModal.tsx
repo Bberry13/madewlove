@@ -106,11 +106,11 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
 
         <p className={styles.footnote}>
           Ознакомьтесь с{' '}
-          <span className={styles.link} onClick={() => navigate('/politics')}>
+          <span className={styles.link} onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
             Политикой конфиденциальности
           </span>{' '}
           и{' '}
-          <span className={styles.link} onClick={() => navigate('/oferta')}>
+          <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
             Офертой
           </span>
           .

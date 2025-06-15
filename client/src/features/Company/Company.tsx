@@ -7,34 +7,31 @@ export function Company(): JSX.Element {
       <section className={`${styles.advantagesGrid} ${styles.wrapper}`}>
         <div className={styles.advantageItem}>
           <div className={styles.advantageTitle}>
-            <span className={styles.advantageAccent}>7</span> лет опыта
+            <span className={styles.advantageAccent}>Премиум</span> 
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-            Опыт в профессиональной
-            <br />
-            фотографии
+          Отсутствие &quot;конвейера&quot;,<br /> помощь на всех этапах, <br /> не просто фото, а ваша история &nbsp;
           </div>
         </div>
         <div className={styles.advantageItem}>
           <div className={styles.advantageTitle}>
-            <span className={styles.advantageAccent}>Премиум</span>
+            <span className={styles.advantageAccent}>10 лет опыта</span>
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-            Используем только лучшую
-            <br />и качественную технику
+          Команда из профессиональных фотографов
+          с многолетним опытом в детской съемке
           </div>
         </div>
         <div className={styles.advantageItem}>
           <div className={styles.advantageTitle}>
-            <span className={styles.advantageAccent}>Комплекс</span> услуг
+            <span className={styles.advantageAccent}>Сопровождение</span>
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-            Организация фотосессии от
-            <br />
-            платья до фотокниги
+          С первых движений в животике до первых шагов
+          снимаем с душой —оформляем фотокниги с любовью
           </div>
         </div>
       </section>

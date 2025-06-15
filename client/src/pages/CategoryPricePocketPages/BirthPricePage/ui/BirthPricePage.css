@@ -1,33 +1,53 @@
-.pregnancy-price-container {
+.birth-page {
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.birth-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(231, 194, 122, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.birth-intro {
+  max-width: 800px;
+  margin: 140px auto 40px;
+  padding: 0 20px;
+}
+
+.birth-intro p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #bdb7b0;
+  text-align: justify;
+}
+
+.birth-price-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  padding: 0 20px 20px;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .price-card {
   background-color: rgba(34, 30, 24, 0.85);
   border-radius: 24px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  position: relative;
   padding: 20px;
-  gap: 15px;
-  color: #bdb7b0;
-}
-
-.price-card:hover {
-  transform: translateY(-5px);
-}
-
-.image-container {
-  width: 100%;
   overflow: hidden;
-  border-radius: 8px;
+  position: relative;
+  color: #bdb7b0;
 }
 
 .card-title {
@@ -65,64 +85,29 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #bdb7b0;
+  color: #e7c27a;
 }
 
 .buttons-container {
   display: flex;
   gap: 10px;
-  margin-top: auto;
-  width: 100%;
-  box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .card-button {
+  flex: 1;
+  padding: 10px 20px;
   background: transparent;
   border: 1px solid #e7c27a;
   color: #e7c27a;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   transition: all 0.3s ease;
-  flex: 1;
-  box-sizing: border-box;
-  width: 100%;
 }
 
 .card-button:hover {
-  background: #e7c27a;
-  color: #000000;
-}
-
-.loading,
-.error,
-.empty {
-  text-align: center;
-  color: #ffffff;
-  font-size: 18px;
-  padding: 20px;
-}
-
-.pregnancy-page {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.pregnancy-intro {
-  margin-top: 140px;
-  padding: 0 20px;
-  margin-bottom: 40px;
-}
-
-.pregnancy-intro p {
-  color: #bdb7b0;
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+  background: rgba(231, 194, 122, 0.1);
 }
 
 .additional-info {
@@ -164,14 +149,34 @@
 }
 
 @media (max-width: 1024px) {
-  .pregnancy-price-container {
+  .birth-price-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .pregnancy-price-container {
+  .birth-intro {
+    margin: 120px auto 30px;
+  }
+
+  .birth-intro p {
+    font-size: 14px;
+  }
+
+  .birth-price-container {
     grid-template-columns: 1fr;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .price-title {
+    font-size: 18px;
+  }
+
+  .info-item {
+    font-size: 14px;
   }
 
   .additional-info {
@@ -180,53 +185,5 @@
 
   .additional-info h3 {
     font-size: 20px;
-  }
-}
-
-@media (max-width: 390px) {
-  .pregnancy-price-container {
-    padding: 5px;
-    gap: 15px;
-  }
-
-  .price-card {
-    padding: 10px;
-  }
-
-  .buttons-container {
-    flex-direction: column;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .card-button {
-    padding: 6px 10px;
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .card-title {
-    font-size: 18px;
-  }
-
-  .price-title {
-    font-size: 16px;
-  }
-
-  .info-item {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-
-  .pregnancy-intro {
-    margin-top: 120px;
-    padding: 0 15px;
-    margin-bottom: 30px;
-  }
-
-  .pregnancy-intro p {
-    font-size: 16px;
-    line-height: 1.5;
   }
 }

@@ -1,0 +1,235 @@
+.pregnancyPage {
+  min-height: 100vh;
+  padding: 20px;
+  color: #ede5dd;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.pregnancyIntro {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.pregnancyIntro p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ede5dd;
+  text-align: justify;
+}
+
+.pregnancyPriceContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.priceCard {
+  background: rgba(34, 30, 24, 0.85);
+  border-radius: 24px;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  color: #ede5dd;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.priceCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    rgba(227, 199, 163, 0.08) 0%,
+    rgba(237, 229, 221, 0.05) 100%
+  );
+  z-index: 0;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #e3c7a3;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.priceTitle {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #ede5dd;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.infoBody {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  color: #ede5dd;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.infoItem {
+  margin: 8px 0;
+  color: #ede5dd;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 15px;
+}
+
+.infoItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ede5dd;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cardButton {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px 24px;
+  background: transparent;
+  color: #e3c7a3;
+  border: 1px solid #e3c7a3;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardButton:hover {
+  background: #e3c7a3;
+  color: #2b251f;
+}
+
+.additionalInfo {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #ede5dd;
+}
+
+.additionalInfo h3 {
+  color: #e3c7a3;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.additionalInfo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.additionalInfo li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  color: #ede5dd;
+}
+
+.additionalInfo li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ede5dd;
+}
+
+.additionalInfo p {
+  margin-top: 20px;
+  font-style: italic;
+  color: #ede5dd;
+}
+
+.loading,
+.empty,
+.error {
+  text-align: center;
+  padding: 20px;
+  color: #ede5dd;
+}
+
+@media (max-width: 1024px) {
+  .pregnancyPriceContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pregnancyIntro p {
+    font-size: 14px;
+  }
+
+  .pregnancyPriceContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .priceTitle {
+    font-size: 18px;
+  }
+
+  .infoItem {
+    font-size: 14px;
+  }
+
+  .additionalInfo h3 {
+    font-size: 20px;
+  }
+
+  .cardButton {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+} 

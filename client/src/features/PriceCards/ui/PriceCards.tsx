@@ -4,7 +4,7 @@ import React from "react";
 // import { getAllPriceThunk } from "@/entities/price/api/priceThunkApi";
 // import type { TypePrice } from "@/entities/price/model/TypePrice";
 
-import "./PriceCards.css";
+import styles from "./PriceCards.module.css";
 
 // Импортируем все фотографии
 import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
@@ -80,23 +80,25 @@ export function PriceCards(): React.JSX.Element {
   };
 
   return (
-    <div className="price-cards-container">
+    <div className={styles.priceCardsContainer}>
       {Object.entries(priceCardsData).map(([key, data]) => (
-        <div key={key} className="price-card">
-          <div className="image-container">
+        <div key={key} className={styles.priceCard}>
+          <div className={styles.imageContainer}>
             <img
               src={data.photo}
               alt={data.title}
-              style={{ height: "30vh", width: "100%", objectFit: "cover" }}
+              className={styles.cardImage}
             />
           </div>
-          <h2 className="card-title">{data.title}</h2>
-          <button
-            className="card-button"
-            onClick={() => handleClick(data.path)}
-          >
-            {data.buttonText}
-          </button>
+          <h2 className={styles.cardTitle}>{data.title}</h2>
+          <div className={styles.buttonsContainer}>
+            <button
+              className={styles.cardButton}
+              onClick={() => handleClick(data.path)}
+            >
+              {data.buttonText}
+            </button>
+          </div>
         </div>
       ))}
     </div>

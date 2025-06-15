@@ -3,7 +3,7 @@ import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import React, { useEffect } from "react";
 import type { TypePrice } from "@/entities/price/model/TypePrice";
-import "./PregnancyPricePage.css";
+import styles from "./PregnancyPricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { pregnancyFAQData } from "../model/FAQ_data";
 
@@ -38,23 +38,23 @@ export function PregnancyPricePage(): React.JSX.Element {
   }, [dispatch]);
 
   if (isLoading) {
-    return <div className="loading">Загрузка</div>;
+    return <div className={styles.loading}>Загрузка</div>;
   }
 
   if (!prices.length) {
-    return <div className="empty">Цены не найдены</div>;
+    return <div className={styles.empty}>Цены не найдены</div>;
   }
 
   if (error) {
-    return <div className="error">Ошибка: {error}</div>;
+    return <div className={styles.error}>Ошибка: {error}</div>;
   }
 
   // Получаем вторую группу (группа "Беременность")
   const pregnancyGroup = prices[1];
 
   return (
-    <div className="pregnancy-page">
-      <div className="pregnancy-intro">
+    <div className={styles.pregnancyPage}>
+      <div className={styles.pregnancyIntro}>
         <p>
           Красота и чудо беременности – это настоящая магия, когда в теле
           женщины зарождается новая жизнь. Запечатлеть свою беременность для
@@ -67,38 +67,38 @@ export function PregnancyPricePage(): React.JSX.Element {
           процессом.
         </p>
       </div>
-      <div className="pregnancy-price-container">
+      <div className={styles.pregnancyPriceContainer}>
         {pregnancyGroup.map((price: TypePrice, index: number) => (
-          <div key={price.id} className="price-card">
-            <div className="image-container">
+          <div key={price.id} className={styles.priceCard}>
+            <div className={styles.imageContainer}>
               <img
-                src={photos[index % photos.length]}
+                src={photos[index]}
                 alt={price.package_title}
-                style={{ height: "30vh", width: "100%", objectFit: "cover" }}
+                className={styles.cardImage}
               />
             </div>
-            <h2 className="card-title">{price.package_title}</h2>
-            <h3 className="price-title">{price.price_title}</h3>
-            <ul className="info-body">
+            <h2 className={styles.cardTitle}>{price.package_title}</h2>
+            <h3 className={styles.priceTitle}>{price.price_title}</h3>
+            <ul className={styles.infoBody}>
               {price.info_body
                 .replace(/[[\]]/g, "")
                 .replace(/"/g, "")
                 .split(",")
                 .map((item, index) => (
-                  <li key={index} className="info-item">
+                  <li key={index} className={styles.infoItem}>
                     {item.trim()}
                   </li>
                 ))}
             </ul>
-            <div className="buttons-container">
-              <button className="card-button">Узнать стоимость</button>
-              <button className="card-button">Посмотреть фото</button>
+            <div className={styles.buttonsContainer}>
+              <button className={styles.cardButton}>Узнать стоимость</button>
+              <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>
         ))}
       </div>
       <FAQ faq={pregnancyFAQData} />
-      <div className="additional-info">
+      <div className={styles.additionalInfo}>
         <h3>НЕ ВКЛЮЧЕНО:</h3>
         <ul>
           <li>

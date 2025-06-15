@@ -1,0 +1,55 @@
+.advantagesGrid {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px auto 0 auto;
+  padding: 0 20px;
+}
+
+.wrapper {
+  max-width: 1440px;
+}
+
+.advantageItem {
+  background: transparent;
+  text-align: left;
+  min-width: 280px;
+  max-width: 340px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.advantageTitle {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #ede5dd;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.advantageAccent {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #e3c7a3;
+  font-family: 'Montserrat', sans-serif;
+  margin-right: 8px;
+}
+
+.advantageLine {
+  width: 100%;
+  height: 2px;
+  background: #ede5dd;
+  opacity: 0.5;
+  margin-bottom: 18px;
+}
+
+.advantageDesc {
+  color: #bdb7b0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+

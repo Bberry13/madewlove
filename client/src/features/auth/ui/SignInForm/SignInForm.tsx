@@ -1,8 +1,12 @@
-import { signInThunk, verifySignIn2FAForAdminThunk } from "@/entities/user/api/userThunkApi";
-import { useAppDispatch}  from "@/shared/hooks/useAppDispatch";
-import {  useAppSelector } from "@/shared/hooks/useAppSelector"
-import React, { useState, useEffect, type JSX } from "react";
-import { useNavigate } from "react-router";
+import {
+  signInThunk,
+  verifySignIn2FAForAdminThunk,
+} from '@/entities/user/api/userThunkApi';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import React, { useState, useEffect, type JSX } from 'react';
+import { useNavigate } from 'react-router';
+import styles from '../SignUpForm/RecordingForm.module.css';
 
 type InputsSignInType = {
   email: string;
@@ -14,12 +18,12 @@ type TwoFAInputType = {
 };
 
 const initialInputs: InputsSignInType = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const initial2FAInput: TwoFAInputType = {
-  code: "",
+  code: '',
 };
 
 export function SignInForm(): JSX.Element {
@@ -35,7 +39,7 @@ export function SignInForm(): JSX.Element {
   // Перенаправление после успешного входа
   useEffect(() => {
     if (isInitialized) {
-      navigate("/");
+      navigate('/');
     }
   }, [isInitialized, navigate]);
 
@@ -50,7 +54,9 @@ export function SignInForm(): JSX.Element {
   };
 
   // Сабмит формы входа
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
     try {
       await dispatch(signInThunk(inputs)).unwrap();
@@ -60,12 +66,17 @@ export function SignInForm(): JSX.Element {
   };
 
   // Сабмит формы 2FA
-  const handle2FASubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const handle2FASubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
     if (!twoFAUserId) return;
     try {
       await dispatch(
-        verifySignIn2FAForAdminThunk({ userId: twoFAUserId, code: twoFAInput.code })
+        verifySignIn2FAForAdminThunk({
+          userId: twoFAUserId,
+          code: twoFAInput.code,
+        })
       ).unwrap();
     } catch (error) {
       console.error(error);
@@ -73,50 +84,48 @@ export function SignInForm(): JSX.Element {
   };
 
   return (
-    <div className="w-50 mx-auto">
+    <div className={styles.formContainer}>
       {twoFAPending ? (
-        // Форма для ввода 2FA-кода
         <form onSubmit={handle2FASubmit}>
-          <div className="mb-3">
+          <div>
             <input
               type="text"
-              className="form-control"
               placeholder="Введите код 2FA"
               onChange={handle2FAChange}
               name="code"
               value={twoFAInput.code}
+              className={styles.inputField}
             />
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <button type="submit" className="btn btn-primary">
+          {error && <div className={styles.errorText}>{error}</div>}
+          <button type="submit" className={styles.submitButton}>
             Подтвердить
           </button>
         </form>
       ) : (
-        // Форма входа
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+          <div>
             <input
               type="email"
-              className="form-control"
               placeholder="Email"
               onChange={handleChange}
               name="email"
               value={inputs.email}
+              className={styles.inputField}
             />
           </div>
-          <div className="mb-3">
+          <div>
             <input
               type="password"
-              className="form-control"
               placeholder="Пароль"
               onChange={handleChange}
               name="password"
               value={inputs.password}
+              className={styles.inputField}
             />
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <button type="submit" className="btn btn-primary">
+          {error && <div className={styles.errorText}>{error}</div>}
+          <button type="submit" className={styles.submitButton}>
             Войти
           </button>
         </form>
@@ -124,15 +133,6 @@ export function SignInForm(): JSX.Element {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
 
 // Вход реализованный без 2FA
 // import { signInThunk } from "@/entities/user/api/userThunkApi";

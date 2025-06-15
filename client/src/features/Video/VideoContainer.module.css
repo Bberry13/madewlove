@@ -1,0 +1,107 @@
+.videoContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.videoBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.gradientFade {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 500px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #2b251f 100%);
+}
+
+.centerContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mainPage_content {
+  text-align: center;
+  pointer-events: auto;
+}
+
+.mainPage_title {
+  font-size: 60px;
+  line-height: 64px;
+  letter-spacing: 0%;
+  color: #ede5dd;
+  margin-bottom: 12px;
+}
+
+.mainPage_subtitle {
+  margin: 16px 0 30px;
+  color: #ede5dd;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.mainPage_button {
+  background-color: #ede5dd;
+  border-radius: 999px;
+  padding: 18px 24px;
+  font-size: 24px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #2b251f;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mainPage_link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  bottom: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
+
+.downArrow {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+  animation: bounce 1.5s infinite;
+}
+
+.mainPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

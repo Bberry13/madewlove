@@ -1,13 +1,13 @@
-import { AxiosError } from 'axios';
-import { axiosInstance } from '../../../shared/lib/axiosInstance';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { AxiosError } from "axios";
+import { axiosInstance } from "../../../shared/lib/axiosInstance";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import type {
   IApiResponseSuccess,
   IApiResponseReject,
-} from '../../../shared/types';
-import type { TypePrice } from '../model/TypePrice';
-import { PRICE_THUNKS_TYPES } from '../../../shared/enums/priceThunksTypes';
-import { PRICE_THUNKS_ROUTES } from '../../../shared/enums/priceThunksRoutes';
+} from "../../../shared/types";
+import type { TypePrice } from "../model/TypePrice";
+import { PRICE_THUNKS_TYPES } from "../../../shared/enums/priceThunksTypes";
+import { PRICE_THUNKS_ROUTES } from "../../../shared/enums/priceThunksRoutes";
 
 export const getAllPriceThunk = createAsyncThunk<
   IApiResponseSuccess<TypePrice[][]>,
@@ -18,7 +18,8 @@ export const getAllPriceThunk = createAsyncThunk<
     const { data } = await axiosInstance.get<IApiResponseSuccess<TypePrice[]>>(
       PRICE_THUNKS_ROUTES.GET_PRICE
     );
-    const pattern = [3, 1, 3, 3, 3, 3, 2, 2, 3, 1, 2];
+    // 1 РООЖДЕНИЕ
+    const pattern = [1, 3, 3, 3, 3, 3, 2, 2, 3, 1, 2];
     const result: TypePrice[][] = [];
     let i = 0;
     const arr = data.data;
@@ -33,9 +34,9 @@ export const getAllPriceThunk = createAsyncThunk<
     return rejectWithValue(
       err.response?.data || {
         statusCode: 500,
-        message: 'Ошибка при получении списка цен',
+        message: "Ошибка при получении списка цен",
         data: null,
-        error: err.message || 'Unknown error',
+        error: err.message || "Unknown error",
       }
     );
   }
@@ -57,9 +58,9 @@ export const updatePriceThunk = createAsyncThunk<
     return rejectWithValue(
       err.response?.data || {
         statusCode: 500,
-        message: 'Ошибка при обновлении цены',
+        message: "Ошибка при обновлении цены",
         data: null,
-        error: err.message || 'Unknown error',
+        error: err.message || "Unknown error",
       }
     );
   }

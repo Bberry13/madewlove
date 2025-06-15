@@ -5,7 +5,7 @@
   max-width: 600px;
   width: 100%;
   margin: 40px auto;
-  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.35), 0 1.5px 0 0 #e7c37a6b inset;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.35), 0 0 0 0 #e3c7a3 inset;
   border: 2px solid transparent;
   background-clip: padding-box, border-box;
   color: #ede5dd;
@@ -14,10 +14,10 @@
 }
 
 .formContainer label {
-  display: block;
+  /* display: block; */
   margin-bottom: 6px;
   font-weight: 600;
-  color: #f5f5f5;
+  color: #ede5dd;
   border-radius: 36px;
 }
 
@@ -25,9 +25,9 @@
   width: 100%;
   padding: 12px;
   border-radius: 12px;
-  border: 1px solid #bdb7b0;
+  border: 1.5px solid #929190c4;
   background: #2b251f;
-  color: #bdb7b0;
+  color: #ede5dd;
   margin-bottom: 16px;
   font-size: 1rem;
 }
@@ -41,7 +41,8 @@
 
 .checkboxLabel {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  flex-direction: row;
   gap: 8px;
   font-size: 0.95rem;
   color: #ede5dd;
@@ -79,4 +80,40 @@
 .submitButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.realCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #2b251f;
+  border: 2px solid #929190c4;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: sub; 
+}
+
+.customCheckbox::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../../assets/RecForm/Check.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in;
+}
+
+.realCheckbox:checked + .customCheckbox::before {
+  transform: translate(-50%, -50%) scale(1);
 }

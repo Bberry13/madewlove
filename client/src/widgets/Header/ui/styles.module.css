@@ -26,6 +26,15 @@
   height: 100%;
 }
 
+
+.header_price {
+  cursor: pointer;
+}
+
+.header_price:hover {
+  color: #bfa14e;
+
+
 .navMenu {
   display: flex;
   gap: 20px;
@@ -188,4 +197,9 @@
     box-shadow: none;
     gap: 24px;
   }
+
 }
+
+/* .header_nav {
+
+} */

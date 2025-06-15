@@ -1,0 +1,189 @@
+.birth-page {
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.birth-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(231, 194, 122, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.birth-intro {
+  max-width: 800px;
+  margin: 140px auto 40px;
+  padding: 0 20px;
+}
+
+.birth-intro p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #bdb7b0;
+  text-align: justify;
+}
+
+.birth-price-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.price-card {
+  background-color: rgba(34, 30, 24, 0.85);
+  border-radius: 24px;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  color: #bdb7b0;
+}
+
+.card-title {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #e7c27a;
+  font-weight: 600;
+}
+
+.price-title {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.info-body {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  color: #bdb7b0;
+}
+
+.info-item {
+  margin: 8px 0;
+  color: #bdb7b0;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 15px;
+}
+
+.info-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #e7c27a;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-button {
+  flex: 1;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #e7c27a;
+  color: #e7c27a;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  background: rgba(231, 194, 122, 0.1);
+}
+
+.additional-info {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #bdb7b0;
+}
+
+.additional-info h3 {
+  color: #e7c27a;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.additional-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.additional-info li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.additional-info li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #e7c27a;
+}
+
+.additional-info p {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .birth-price-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .birth-intro {
+    margin: 120px auto 30px;
+  }
+
+  .birth-intro p {
+    font-size: 14px;
+  }
+
+  .birth-price-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .price-title {
+    font-size: 18px;
+  }
+
+  .info-item {
+    font-size: 14px;
+  }
+
+  .additional-info {
+    margin: 30px auto;
+  }
+
+  .additional-info h3 {
+    font-size: 20px;
+  }
+}

@@ -1,25 +1,52 @@
+// src/App.tsx
 import React from 'react';
-import { RouterProvider } from './router/router';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router';
+import { RouterProvider } from './router/router';
 import store from './store/store';
-import CookieConsentModal from '../entities/recorder/ui/CookieConsentModal';
+
+import { CookieConsentModal, type CookiePreferences } from '../entities/recorder/ui/CookieConsentModal';
+import { YandexMetrika } from '@/features/Yandex/Yandex.Metrika';
 
 function App(): React.JSX.Element {
-  const [cookieOpen, setCookieOpen] = React.useState(
-    () => !localStorage.getItem('cookieAccepted')
+  const [prefs, setPrefs] = React.useState<CookiePreferences>(() => {
+    // читаем из localStorage или берём дефолт
+    const saved = localStorage.getItem('cookiePrefs');
+    return saved
+      ? JSON.parse(saved)
+      : { essential: true, analytics: false, marketing: false };
+  });
+  const [modalOpen, setModalOpen] = React.useState(
+    () => !localStorage.getItem('cookiePrefs')
   );
 
-  const handleAccept = () => {
-    localStorage.setItem('cookieAccepted', 'true');
-    setCookieOpen(false);
+  const handleSave = (newPrefs: CookiePreferences) => {
+    localStorage.setItem('cookiePrefs', JSON.stringify(newPrefs));
+    setPrefs(newPrefs);
+    setModalOpen(false);
+  };
+
+  const handleRejectAll = () => {
+    const rejectPrefs: CookiePreferences = {
+      essential: true,
+      analytics: false,
+      marketing: false,
+    };
+    localStorage.setItem('cookiePrefs', JSON.stringify(rejectPrefs));
+    setPrefs(rejectPrefs);
+    setModalOpen(false);
   };
 
   return (
     <Provider store={store}>
       <BrowserRouter>
         <RouterProvider />
-        <CookieConsentModal open={cookieOpen} onAccept={handleAccept} />
+        <CookieConsentModal
+          open={modalOpen}
+          onSave={handleSave}
+          onRejectAll={handleRejectAll}
+        />
+        <YandexMetrika consentGiven={prefs.analytics} />
       </BrowserRouter>
     </Provider>
   );

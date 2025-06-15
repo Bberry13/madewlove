@@ -4,7 +4,7 @@ import React from 'react';
 export function SignInPage(): React.JSX.Element {
     return (
         <div>
-            <h1 className='text-center mt-3'>Sign In Page</h1>
+            <h1 className='text-center mt-3'>Вход</h1>
             <SignInForm />
         </div>
     )

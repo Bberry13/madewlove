@@ -23,6 +23,7 @@
   max-width: 340px;
   text-align: center;
   pointer-events: auto;
+  line-height: 1.5;
 }
 
 .modalMessage {
@@ -57,4 +58,57 @@
 
 .link:hover {
   color: #bfa14e;
+}
+
+.saveButton, .rejectButton {
+  background-color: #e7c27a;
+  color: #2b251f;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.saveButton:hover, .rejectButton:hover {
+  background: #bfa14e;
+  color: #fff;
+}
+
+.realCheckbox {
+  display: none;
+}
+
+.customCheckbox {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #2b251f;
+  border: 2px solid #929190c4;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: sub; 
+}
+
+.customCheckbox::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url('../../../assets/RecForm/Check.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in;
+}
+
+.realCheckbox:checked + .customCheckbox::before {
+  transform: translate(-50%, -50%) scale(1);
 }

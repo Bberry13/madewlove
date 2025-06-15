@@ -18,7 +18,7 @@ export const getAllPriceThunk = createAsyncThunk<
     const { data } = await axiosInstance.get<IApiResponseSuccess<TypePrice[]>>(
       PRICE_THUNKS_ROUTES.GET_PRICE
     );
-    const pattern = [4, 1, 3, 3, 3, 3, 2, 2, 3, 1, 2];
+    const pattern = [3, 1, 3, 3, 3, 3, 2, 2, 3, 1, 2];
     const result: TypePrice[][] = [];
     let i = 0;
     const arr = data.data;

@@ -3,8 +3,6 @@ import React from "react";
 
 export function PricePage(): React.JSX.Element {
   return (
-    
       <PriceCards />
- 
   );
 }

@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, type MouseEvent, type JSX } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  type MouseEvent,
+  type JSX,
+} from 'react';
 import logo from '@/assets/Header/Header_Logo.png';
 import styles from './styles.module.css';
 import { useNavigate, useLocation } from 'react-router';
@@ -41,25 +47,19 @@ export function Header(): JSX.Element {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside as unknown as EventListener);
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside as unknown as EventListener
+    );
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside as unknown as EventListener);
+      document.removeEventListener(
+        'mousedown',
+        handleClickOutside as unknown as EventListener
+      );
     };
   }, []);
 
   return (
-
-    <>
-    <div className={styles.header}>
-      <div className={styles.header__logo} onClick={() => {navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' })  }}><img src={logo} alt="logo" /></div>
-      <div className={styles.header_nav}>Портфолио</div>
-      <div className={styles.header_price} onClick={() => {navigate('/price', {replace: true}); window.scrollTo({ top: 0, behavior: 'smooth' })} }>Прайс</div>
-      <div className={styles.header_nav}>Отзывы</div>
-      <div className={styles.header_nav}>Контакты</div>
-    </div>
-    </>
-  )
-
     <header className={styles.header}>
       <div
         className={styles.header__logo}
@@ -96,5 +96,4 @@ export function Header(): JSX.Element {
       </div>
     </header>
   );
-
 }

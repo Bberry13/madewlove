@@ -26,14 +26,13 @@
   height: 100%;
 }
 
-
 .header_price {
   cursor: pointer;
 }
 
 .header_price:hover {
   color: #bfa14e;
-
+}
 
 .navMenu {
   display: flex;
@@ -154,7 +153,6 @@
 }
 
 @media (max-width: 530px) and (min-width: 421px) {
-
   .header_nav {
     margin-top: 10px;
     margin-left: 30px;
@@ -163,7 +161,6 @@
 }
 
 @media (max-width: 620px) and (min-width: 531px) {
-
   .header_nav {
     margin-left: 40px;
   }
@@ -197,9 +194,4 @@
     box-shadow: none;
     gap: 24px;
   }
-
 }
-
-/* .header_nav {
-
-} */

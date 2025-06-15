@@ -1,5 +1,7 @@
 # Разрешаем всем роботам сканировать сайт
+
 User-agent: *
+Disallow: /
 Disallow: /admin/
 Disallow: /profile/
 Disallow: /login

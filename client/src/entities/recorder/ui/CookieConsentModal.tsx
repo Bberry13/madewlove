@@ -1,48 +1,114 @@
-import React from 'react';
+// src/entities/recorder/ui/CookieConsentModal.tsx
+import React, { useState, type JSX } from 'react';
 import styles from './CookieConsentModal.module.css';
 import { useNavigate } from 'react-router';
 
-interface CookieConsentModalProps {
-  open: boolean;
-  onAccept: () => void;
+export interface CookiePreferences {
+  analytics: boolean;
+  marketing: boolean;
+  essential: boolean; // всегда true
 }
 
-const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
+interface CookieConsentModalProps {
+  open: boolean;
+  onSave: (prefs: CookiePreferences) => void;
+  onRejectAll: () => void;
+}
+
+export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
   open,
-  onAccept,
-}) => {
+  onSave,
+}): JSX.Element => {
   const navigate = useNavigate();
-  if (!open) return null;
+  const [prefs, setPrefs] = useState<CookiePreferences>({
+    essential: true,
+    analytics: false,
+    marketing: false,
+  });
+
+  if (!open) return <></>;
+
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <div className={styles.modalMessage}>
-          Продолжая использовать наш сайт,
+        <h2>Настройки Cookie</h2>
+        <p>
+          Продолжая использовать сайт, вы можете выбрать, какие cookie
+          разрешить:
+        </p>
+        <div className={styles.checkboxContainer}>
+          <label className={styles.checkboxLabel}>
+            <input
+              className={styles.realCheckbox}
+              type="checkbox"
+              checked
+              disabled
+            />
+            <span className={styles.customCheckbox}></span>
+            Обязательные
+          </label>
           <br />
-          вы даете согласие на обработку
+          <label className={styles.checkboxLabel}>
+            <input
+              className={styles.realCheckbox}
+              type="checkbox"
+              checked={prefs.analytics}
+              onChange={() =>
+                setPrefs((p) => ({ ...p, analytics: !p.analytics }))
+              }
+            />
+            <span className={styles.customCheckbox}></span>
+            Аналитические
+          </label>
           <br />
-          файлов cookie, которые
-          <br />
-          обеспечивают правильную работу
-          <br />
-          сайта и подтверждаете, что
-          <br />
-          ознакомились и согласны с<br />
-          условиями{' '}
-          <span className={styles.link} onClick={() => navigate('/oferta')}>
-            Оферты
+          <label className={styles.checkboxLabel}>
+            <input
+              className={styles.realCheckbox}
+              type="checkbox"
+              checked={prefs.marketing}
+              onChange={() =>
+                setPrefs((p) => ({ ...p, marketing: !p.marketing }))
+              }
+            />
+            <span className={styles.customCheckbox}></span>
+            Маркетинговые
+          </label>
+        </div>
+        <div className={styles.buttons}>
+          <button
+            className={styles.rejectButton}
+            onClick={() => {
+              onSave(prefs);
+            }}
+          >
+            Принять
+          </button>
+          <button
+            className={styles.saveButton}
+            onClick={() => {
+              onSave({
+                essential: true,
+                analytics: true,
+                marketing: true,
+              });
+            }}
+          >
+            Принять все
+          </button>
+        </div>
+
+        <p className={styles.footnote}>
+          Ознакомьтесь с{' '}
+          <span className={styles.link} onClick={() => navigate('/politics')}>
+            Политикой конфиденциальности
           </span>{' '}
           и{' '}
-          <span className={styles.link} onClick={() => navigate('/politics')}>
-            Политики обработки персональных данных
+          <span className={styles.link} onClick={() => navigate('/oferta')}>
+            Офертой
           </span>
-        </div>
-        <button className={styles.okButton} onClick={onAccept}>
-          ОК
-        </button>
+          .
+        </p>
       </div>
     </div>
   );
 };
-
-export default CookieConsentModal;

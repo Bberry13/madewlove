@@ -7,9 +7,11 @@ import styles from "../../shared/styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { baptismFAQData } from "../model/FAQ_data";
 
+
 import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
 import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
 import { useNavigate } from "react-router";
+
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
 

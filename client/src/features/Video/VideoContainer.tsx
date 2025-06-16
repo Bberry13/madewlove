@@ -17,7 +17,7 @@ const VideoContainerComponent = (): JSX.Element => {
         </div>
         <div className={styles.centerContent}>
           <div className={styles.mainPage_content}>
-            <p className={styles.mainPage_title}>Ваш семейный фотограф</p>
+            <h1 className={styles.mainPage_title}>Ваш семейный фотограф</h1>
             <p className={styles.mainPage_subtitle}>
               От первых минут жизни до больших праздников —<br />
               мы рядом, чтобы сохранить главное

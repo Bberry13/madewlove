@@ -11,6 +11,7 @@ import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
 import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
 import { useNavigate } from "react-router";
 
+
 const photos = [mainPagePhoto22, mainPagePhoto23];
 
 export function OneYearPricePage(): React.JSX.Element {

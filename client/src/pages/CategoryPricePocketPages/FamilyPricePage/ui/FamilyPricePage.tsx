@@ -12,6 +12,7 @@ import mainPagePhoto25 from "@/assets/MainPage/Photos/mainPagePhoto25.jpg";
 import mainPagePhoto26 from "@/assets/MainPage/Photos/mainPagePhoto26.jpg";
 import { useNavigate } from "react-router";
 
+
 const photos = [mainPagePhoto24, mainPagePhoto25, mainPagePhoto26];
 
 export function FamilyPricePage(): React.JSX.Element {

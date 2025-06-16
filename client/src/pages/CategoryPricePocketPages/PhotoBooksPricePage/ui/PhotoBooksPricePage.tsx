@@ -7,9 +7,11 @@ import styles from "../../shared/styles/PricePage.module.css";
 // import { FAQ } from "@/features/FAQ/FAQ"; будет фака?
 // import { oneyearFAQData } from "../model/FAQ_data"; будет фака?
 
+
 import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
 import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
 import { useNavigate } from "react-router";
+
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
 

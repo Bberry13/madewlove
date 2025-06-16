@@ -58,7 +58,7 @@ export function BirthPricePage(): React.JSX.Element {
             </div>
             <h2 className={styles.cardTitle}>{price.package_title}</h2>
             {/* <h3 className="price-title">{price.price_title}</h3> */}
-            <ul className="info-body">
+            <ul className={styles.infoBody}>
               {price.info_body
                 .replace(/[[\]]/g, "")
                 .replace(/"/g, "")

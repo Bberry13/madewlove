@@ -70,9 +70,9 @@ export function PregnancyPricePage(): React.JSX.Element {
                 className={styles.cardImage}
               />
             </div>
-            <h2 className="card-title">{price.package_title}</h2>
-            <h3 className="price-title">{price.price_title}</h3>
-            <ul className="info-body">
+            <h2 className={styles.cardTitle}>{price.package_title}</h2>
+            <h3 className={styles.priceTitle}>{price.price_title}</h3>
+            <ul className={styles.infoBody}>
               {price.info_body
                 .replace(/[[\]]/g, "")
                 .replace(/"/g, "")

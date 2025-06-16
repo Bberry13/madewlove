@@ -46,7 +46,7 @@ export function CarouselServices() {
     }
   }, []);
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', overflow: 'hidden', margin: '0 80px' }}>
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;

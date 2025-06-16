@@ -46,15 +46,21 @@
   border: 1px solid #ede5dd;
   color: #ede5dd;
   border-radius: 999px;
-  padding: 10px 28px;
-  font-size: 1rem;
+  padding: 15px 28px 12px 28px;
+  font-size: 16px;
   cursor: pointer;
   margin-top: 50px;
 }
 
-.outlineButton:hover {
-  border: 1px solid #ffffff;
+.outlineButton span {
+  text-align: center;
 }
+
+.outlineButton:hover {
+  background: #ffffff;
+  color: #010000;
+}
+
 
 .cameraIcon {
   display: flex;

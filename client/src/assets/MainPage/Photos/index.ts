@@ -56,4 +56,15 @@ export const photos = [
   photo18,
 ];
 
+export const photosServices = [
+  LargePhoto1,
+  LargePhoto2,
+  LargePhoto3,
+  LargePhoto4,
+  LargePhoto5,
+  LargePhoto6,
+  LargePhoto7,
+  LargePhoto8,
+];
+
 export { LargePhoto1, photo1, photo2, LargePhoto2, photo3, photo4, LargePhoto3, photo5, photo6, LargePhoto4, photo7, photo8, LargePhoto5, photo9, photo10, LargePhoto6, photo11, photo12, LargePhoto7, photo13, photo14, LargePhoto8, photo15, photo16, LargePhoto9, photo17, photo18 };

@@ -6,7 +6,6 @@ import { Company } from '@/features/Company/Company';
 import { CarouselPhoto } from '@/features/CaruselPhoto/CaruselPhoto';
 import { FAQ } from '@/features/FAQ/FAQ';
 import { RecordingForm } from '@/entities/recorder/ui/RecForm';
-import PhotoGallery from '@/features/PhotoGallery/ui/PhotoGallery';
 import { CarouselServices } from '@/features/CarouselServices/CarouselServices';
 
 export function MainPage(): JSX.Element {
@@ -18,7 +17,6 @@ export function MainPage(): JSX.Element {
       <CarouselServices/>
       <RecordingForm />
       <FAQ faq={faqMainPage} />
-      <PhotoGallery photos={photos} />
     </>
   );
 }

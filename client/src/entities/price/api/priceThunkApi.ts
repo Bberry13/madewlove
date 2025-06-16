@@ -19,6 +19,7 @@ export const getAllPriceThunk = createAsyncThunk<
       PRICE_THUNKS_ROUTES.GET_PRICE
     );
     // 1 РООЖДЕНИЕ
+    // с 2 индекса начинабтся роддома?
     const pattern = [1, 3, 3, 3, 3, 3, 2, 2, 3, 1, 2];
     const result: TypePrice[][] = [];
     let i = 0;

@@ -7,6 +7,7 @@ import styles from "./PregnancyPricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { pregnancyFAQData } from "../model/FAQ_data";
 
+
 // Импортируем фотографии
 import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
 import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
@@ -16,6 +17,7 @@ import mainPagePhoto5 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
 import mainPagePhoto6 from "@/assets/MainPage/Photos/mainPagePhoto6.jpg";
 import mainPagePhoto7 from "@/assets/MainPage/Photos/mainPagePhoto7.jpg";
 import mainPagePhoto8 from "@/assets/MainPage/Photos/mainPagePhoto8.jpg";
+import { useNavigate } from "react-router";
 
 // Массив фотографий для случайного выбора
 const photos = [
@@ -30,6 +32,7 @@ const photos = [
 ];
 
 export function PregnancyPricePage(): React.JSX.Element {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 
@@ -81,7 +84,7 @@ export function PregnancyPricePage(): React.JSX.Element {
                 ))}
             </ul>
             <div className={styles.buttonsContainer}>
-              <button className={styles.cardButton}>Узнать стоимость</button>
+              <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
               <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>

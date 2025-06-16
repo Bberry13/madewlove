@@ -10,10 +10,12 @@ import { familyFAQData } from "../model/FAQ_data";
 import mainPagePhoto24 from "@/assets/MainPage/Photos/mainPagePhoto24.jpg";
 import mainPagePhoto25 from "@/assets/MainPage/Photos/mainPagePhoto25.jpg";
 import mainPagePhoto26 from "@/assets/MainPage/Photos/mainPagePhoto26.jpg";
+import { useNavigate } from "react-router";
 
 const photos = [mainPagePhoto24, mainPagePhoto25, mainPagePhoto26];
 
 export function FamilyPricePage(): React.JSX.Element {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 
@@ -66,7 +68,7 @@ export function FamilyPricePage(): React.JSX.Element {
                 ))}
             </ul>
             <div className={styles.buttonsContainer}>
-              <button className={styles.cardButton}>Узнать стоимость</button>
+            <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
               <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>

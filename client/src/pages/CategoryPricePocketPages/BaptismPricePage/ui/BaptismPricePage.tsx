@@ -9,10 +9,12 @@ import { baptismFAQData } from "../model/FAQ_data";
 
 import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
 import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
+import { useNavigate } from "react-router";
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
 
 export function BaptismPricePage(): React.JSX.Element {
+    const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 
@@ -65,7 +67,7 @@ export function BaptismPricePage(): React.JSX.Element {
                 ))}
             </ul>
             <div className={styles.buttonsContainer}>
-              <button className={styles.cardButton}>Узнать стоимость</button>
+            <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
               <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>

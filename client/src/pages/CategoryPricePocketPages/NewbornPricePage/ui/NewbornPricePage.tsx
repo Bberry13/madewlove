@@ -10,11 +10,13 @@ import { newbornFAQData } from "../model/FAQ_data";
 // Импортируем фотографии
 import mainPagePhoto20 from "@/assets/MainPage/Photos/mainPagePhoto20.jpg";
 import mainPagePhoto21 from "@/assets/MainPage/Photos/mainPagePhoto21.jpg";
+import { useNavigate } from "react-router";
 
 // Массив фотографий для случайного выбора
 const photos = [mainPagePhoto20, mainPagePhoto21];
 
 export function NewbornPricePage(): React.JSX.Element {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 
@@ -66,7 +68,7 @@ export function NewbornPricePage(): React.JSX.Element {
                 ))}
             </ul>
             <div className={styles.buttonsContainer}>
-              <button className={styles.cardButton}>Узнать стоимость</button>
+            <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
               <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>

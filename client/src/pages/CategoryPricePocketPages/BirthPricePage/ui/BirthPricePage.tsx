@@ -9,6 +9,7 @@ import { birthFAQData } from "../model/FAQ_data";
 
 // Импортируем фотографии
 import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import { useNavigate } from "react-router";
 
 
 // Массив фотографий для случайного выбора
@@ -17,6 +18,7 @@ const photos = [
 ];
 
 export function BirthPricePage(): React.JSX.Element {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 
@@ -68,7 +70,7 @@ export function BirthPricePage(): React.JSX.Element {
                 ))}
             </ul>
             <div className={styles.buttonsContainer}>
-              <button className={styles.cardButton}>Узнать стоимость</button>
+            <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
               <button className={styles.cardButton}>Посмотреть фото</button>
             </div>
           </div>

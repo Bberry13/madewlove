@@ -1,0 +1,31 @@
+.swiper-slide-next,
+.swiper-slide-prev,
+.swiper-slide-active {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  transform: none !important;
+  z-index: auto !important;
+}
+.mySwiper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .swiper-slide {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiperSlideImg {
+    max-width: 300px; /* уменьшил с 300 */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  

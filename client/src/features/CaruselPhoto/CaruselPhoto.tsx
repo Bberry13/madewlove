@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 import { useNavigate } from 'react-router';
 import styles from './CaruselPhoto.module.css';
 
-const CaruselPhotoComponent = ({ photos }: { photos: string[] }): JSX.Element => {
+const CarouselPhotoComponent = ({ photos }: { photos: string[] }): JSX.Element => {
   const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
 
@@ -114,4 +114,4 @@ const CaruselPhotoComponent = ({ photos }: { photos: string[] }): JSX.Element =>
   );
 };
 
-export const CaruselPhoto = React.memo(CaruselPhotoComponent);
+export const CarouselPhoto = React.memo(CarouselPhotoComponent);

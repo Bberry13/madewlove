@@ -7,9 +7,9 @@ import styles from "../../shared/styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { familyFAQData } from "../model/FAQ_data";
 
-import mainPagePhoto24 from "@/assets/MainPage/Photos/mainPagePhoto24.jpg";
-import mainPagePhoto25 from "@/assets/MainPage/Photos/mainPagePhoto25.jpg";
-import mainPagePhoto26 from "@/assets/MainPage/Photos/mainPagePhoto26.jpg";
+import mainPagePhoto24 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
+import mainPagePhoto25 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
+import mainPagePhoto26 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
 
 const photos = [mainPagePhoto24, mainPagePhoto25, mainPagePhoto26];
 

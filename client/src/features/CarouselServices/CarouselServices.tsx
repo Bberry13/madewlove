@@ -1,14 +1,14 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination } from 'swiper/modules'; // ОДИН общий импорт
-import photo1 from '../../assets/MainPage/Photos/MainPageLargePhoto2.jpg';
-import photo2 from '../../assets/MainPage/Photos/MainPageLargePhoto3.jpg';
-import photo3 from '../../assets/MainPage/Photos/MainPageLargePhoto4.jpg';
-import photo4 from '../../assets/MainPage/Photos/MainPageLargePhoto5.jpg';
-import photo5 from '../../assets/MainPage/Photos/MainPageLargePhoto6.jpg';
-import photo6 from '../../assets/MainPage/Photos/MainPageLargePhoto7.jpg';
-import photo7 from '../../assets/MainPage/Photos/MainPageLargePhoto8.jpg';
-import photo8 from '../../assets/MainPage/Photos/MainPageLargePhoto9.jpg';
+import photo1 from '../../assets/MainPage/Photos/MainPageLargePhoto1.jpg';
+import photo2 from '../../assets/MainPage/Photos/MainPageLargePhoto2.jpg';
+import photo3 from '../../assets/MainPage/Photos/MainPageLargePhoto3.jpg';
+import photo4 from '../../assets/MainPage/Photos/MainPageLargePhoto4.jpg';
+import photo5 from '../../assets/MainPage/Photos/MainPageLargePhoto5.jpg';
+import photo6 from '../../assets/MainPage/Photos/MainPageLargePhoto6.jpg';
+import photo7 from '../../assets/MainPage/Photos/MainPageLargePhoto7.jpg';
+import photo8 from '../../assets/MainPage/Photos/MainPageLargePhoto8.jpg';
 import 'swiper/css';
 import styles from './CarouselServices.module.css';
 

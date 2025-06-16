@@ -83,8 +83,7 @@
 }
 
 .submitButton:hover {
-  background: rgba(254, 217, 142, 0.174);
-  color: #ffffff;
+  background: #e3c7a3;
 }
 
 .submitButton:disabled {

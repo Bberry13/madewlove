@@ -8,8 +8,8 @@ import { FAQ } from "@/features/FAQ/FAQ";
 import { newbornFAQData } from "../model/FAQ_data";
 
 // Импортируем фотографии
-import mainPagePhoto20 from "@/assets/MainPage/Photos/mainPagePhoto20.jpg";
-import mainPagePhoto21 from "@/assets/MainPage/Photos/mainPagePhoto21.jpg";
+import mainPagePhoto20 from "@/assets/MainPage/Photos/mainPagePhoto14.jpg";
+import mainPagePhoto21 from "@/assets/MainPage/Photos/mainPagePhoto15.jpg";
 
 // Массив фотографий для случайного выбора
 const photos = [mainPagePhoto20, mainPagePhoto21];

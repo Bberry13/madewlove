@@ -7,8 +7,8 @@ import styles from "../../shared/styles/PricePage.module.css";
 // import { FAQ } from "@/features/FAQ/FAQ"; будет фака?
 // import { oneyearFAQData } from "../model/FAQ_data"; будет фака?
 
-import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
-import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
+import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
 

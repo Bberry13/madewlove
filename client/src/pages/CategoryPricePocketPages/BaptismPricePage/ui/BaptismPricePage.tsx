@@ -7,8 +7,8 @@ import styles from "../../shared/styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { baptismFAQData } from "../model/FAQ_data";
 
-import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
-import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
+import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto17.jpg";
+import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto18.jpg";
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
 

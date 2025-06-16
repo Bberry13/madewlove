@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getProfileThunk,
   refreshTokenThunk,
   signInThunk,
   signOutThunk,
@@ -39,7 +40,35 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // токены
+    // Получение профиля 
+    .addCase(getProfileThunk.pending, (state) => {
+      state.loading = true;
+    })
+    .addCase(getProfileThunk.fulfilled, (state, action) => {
+      state.loading = false;
+      state.isInitialized = true;
+      state.user = action.payload.data;
+    })
+    .addCase(getProfileThunk.rejected, (state, action) => {
+      state.loading = false;
+      state.isInitialized = true;
+      state.user = null;
+      state.error = action.payload?.message || "Ошибка получения профиля";
+    })
+      // токены старое состояние
+      // .addCase(refreshTokenThunk.pending, (state) => {
+      //   state.loading = true;
+      // })
+      // .addCase(refreshTokenThunk.fulfilled, (state, action) => {
+      //   state.loading = false;
+      //   state.isInitialized = true;
+      //   state.user = action.payload.data.user;
+      // })
+      // .addCase(refreshTokenThunk.rejected, (state, action) => {
+      //   state.error = action.payload?.message || "Ошибка получения токена";
+
+      // })
+      // обновка токена для отлова ошибок
       .addCase(refreshTokenThunk.pending, (state) => {
         state.loading = true;
       })
@@ -47,8 +76,12 @@ const userSlice = createSlice({
         state.loading = false;
         state.isInitialized = true;
         state.user = action.payload.data.user;
+        console.log("refreshTokenThunk fulfilled, state.user:", state.user); // Для отладки
       })
       .addCase(refreshTokenThunk.rejected, (state, action) => {
+        state.loading = false;
+        state.isInitialized = true;
+        state.user = null;
         state.error = action.payload?.message || "Ошибка получения токена";
       })
       // рега

@@ -46,7 +46,8 @@ axiosInstance.interceptors.response.use(
         if (error.response?.status === 403 && prevRequest && !prevRequest.sent) {
             try {
                 // Делаем запрос для обновления пары токенов
-                const response = await axios.get('/api/tokens/refresh');
+                // const response = await axios.post('/api/tokens/refresh'); - неверная ручка?
+                const response = await axios.post('/api/auth/refresh');
 
                 // Получаем новый токен из ответа
                 accessToken = response.data.accessToken;

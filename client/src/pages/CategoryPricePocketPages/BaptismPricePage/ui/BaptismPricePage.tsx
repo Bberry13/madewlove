@@ -1,6 +1,7 @@
 import React from "react";
-import { CommonPricePage } from "../../shared/components/CommonPricePage";
+// import { CommonPricePage } from "../../shared/components/CommonPricePage";
 import { baptismData } from "../model/baptismData";
+import { CommonPricePage } from "../../shared/components/CommonPricePage";
 
 export function BaptismPricePage(): React.JSX.Element {
   return (

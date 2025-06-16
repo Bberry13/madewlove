@@ -183,7 +183,7 @@ export class AuthController {
 
       return res
         .cookie('refreshToken', refreshToken, cookieConfig.refresh)
-        .json(formatResponse(200, 'Жетоны обновлены', { accessToken }));
+        .json(formatResponse(200, 'Жетоны обновлены', { accessToken, user }));
     } catch (error) {
       console.error(error);
       return res.status(500).json(formatResponse(500, 'Ошибка сервера'));

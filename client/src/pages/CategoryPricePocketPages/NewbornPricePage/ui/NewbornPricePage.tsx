@@ -9,13 +9,12 @@ import { newbornFAQData } from "../model/FAQ_data";
 
 // Импортируем фотографии
 
-import mainPagePhoto20 from "@/assets/MainPage/Photos/mainPagePhoto20.jpg";
-import mainPagePhoto21 from "@/assets/MainPage/Photos/mainPagePhoto21.jpg";
+import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
+import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
 import { useNavigate } from "react-router";
 
-
-// Массив фотографий для случайного выбора
-const photos = [mainPagePhoto20, mainPagePhoto21];
+const photos = [mainPagePhoto1, mainPagePhoto2, mainPagePhoto3];
 
 export function NewbornPricePage(): React.JSX.Element {
   const navigate = useNavigate()

@@ -8,12 +8,12 @@ import styles from "../../shared/styles/PricePage.module.css";
 // import { oneyearFAQData } from "../model/FAQ_data"; будет фака?
 
 
-import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
-import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
+import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
+import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
 import { useNavigate } from "react-router";
 
-
-const photos = [mainPagePhoto22, mainPagePhoto23];
+const photos = [mainPagePhoto1, mainPagePhoto2, mainPagePhoto3];
 
 export function PhotoBookPricePage(): React.JSX.Element {
   const navigate = useNavigate()

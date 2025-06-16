@@ -7,13 +7,12 @@ import styles from "../../shared/styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { familyFAQData } from "../model/FAQ_data";
 
-import mainPagePhoto24 from "@/assets/MainPage/Photos/mainPagePhoto24.jpg";
-import mainPagePhoto25 from "@/assets/MainPage/Photos/mainPagePhoto25.jpg";
-import mainPagePhoto26 from "@/assets/MainPage/Photos/mainPagePhoto26.jpg";
+import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
+import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
 import { useNavigate } from "react-router";
 
-
-const photos = [mainPagePhoto24, mainPagePhoto25, mainPagePhoto26];
+const photos = [mainPagePhoto1, mainPagePhoto2, mainPagePhoto3];
 
 export function FamilyPricePage(): React.JSX.Element {
   const navigate = useNavigate()

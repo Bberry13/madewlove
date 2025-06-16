@@ -7,12 +7,12 @@ import styles from "../../../shared/styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
 import { mdFAQData } from "../model/FAQ_data";
 
-import mainPagePhoto22 from "@/assets/MainPage/Photos/mainPagePhoto22.jpg";
-import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
-import mainPagePhoto24 from "@/assets/MainPage/Photos/mainPagePhoto24.jpg";
+import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
+import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
 import { useNavigate } from "react-router";
 // Видос в цетральной карточки?
-const photos = [mainPagePhoto22, mainPagePhoto23, mainPagePhoto24];
+const photos = [mainPagePhoto1, mainPagePhoto2, mainPagePhoto3];
 
 export function MDPricePage(): React.JSX.Element {
   const navigate = useNavigate();

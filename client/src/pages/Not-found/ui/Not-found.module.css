@@ -38,3 +38,12 @@
   text-align: center;
   margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 10rem;
+  }
+  .description {
+    font-size: 1.5rem;
+  }
+}

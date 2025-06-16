@@ -12,4 +12,7 @@ export enum CLIENT_ROUTING {
   PRICE_FAMILY = "/price/family",
   PRICE_ONE_YEAR = "/price/one-year",
   PRICE_PHOTO_BOOKS = "/price/photo-books",
+  CONTACTS = "/contacts",
+  REVIEWS = "/reviews",
+  PORTFOLIO = "/portfolio",
 }

@@ -75,7 +75,6 @@
   border-radius: 50%;
   background: rgba(231, 194, 122, 0.1);
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   cursor: pointer;
 }
 .footerIcon:hover {

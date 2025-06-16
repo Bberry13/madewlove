@@ -62,7 +62,7 @@ export function CarouselServices() {
           480: { slidesPerView: 2.4 },
           768: { slidesPerView: 3.2 },
           1024: { slidesPerView: 4.2 },
-          1280: { slidesPerView: 6 },
+          1280: { slidesPerView: 6.2 },
         }}
       >
         {photosServices.map((photo, index) => (
@@ -72,6 +72,10 @@ export function CarouselServices() {
               src={photo}
               alt="service"
               className={styles.swiperSlideImg}
+              style={{
+                margin: '16px',
+                display: 'flex',
+              }}
             />
           </SwiperSlide>
         ))}

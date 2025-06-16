@@ -1,23 +1,19 @@
 .advantagesGrid {
   display: flex;
   justify-content: space-between;
-  margin: 80px auto 0 auto;
-  padding: 0 20px;
-}
-
-.wrapper {
-  max-width: 1440px;
+  margin: 80px;
 }
 
 .advantageItem {
   background: transparent;
-  text-align: left;
-  min-width: 280px;
-  max-width: 340px;
-  flex: 1 1 0;
+  min-width: 360px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  width: 100vh;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 .advantageTitle {
@@ -28,6 +24,7 @@
   display: flex;
   align-items: baseline;
   gap: 8px;
+  margin: 4px auto;
 }
 
 .advantageAccent {

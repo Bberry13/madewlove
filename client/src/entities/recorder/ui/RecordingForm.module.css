@@ -1,11 +1,9 @@
 .formContainer {
   background: rgba(34, 30, 24, 0.85);
   border-radius: 36px;
-  padding: 40px;
+  padding: 24px;
   max-width: 600px;
-  width: 100%;
-  margin: 40px auto;
-  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.35), 0 0 0 0 #e3c7a3 inset;
+  margin: 60px auto;
   border: 2px solid transparent;
   background-clip: padding-box, border-box;
   color: #ede5dd;
@@ -14,7 +12,6 @@
 }
 
 .formContainer label {
-  /* display: block; */
   margin-bottom: 6px;
   font-weight: 600;
   color: #ede5dd;
@@ -24,7 +21,7 @@
 .inputField {
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 999px;
   border: 1.5px solid #929190c4;
   background: #2b251f;
   color: #ede5dd;
@@ -43,9 +40,21 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  gap: 8px;
-  font-size: 0.95rem;
   color: #ede5dd;
+}
+
+.formTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .link {
@@ -70,6 +79,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
+  width: 100%;
 }
 
 .submitButton:hover {

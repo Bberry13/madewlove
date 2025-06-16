@@ -9,6 +9,7 @@ import { RecordingForm } from '@/entities/recorder/ui/RecForm';
 import { CarouselServices } from '@/features/CarouselServices/CarouselServices';
 
 export function MainPage(): JSX.Element {
+
   return (
     <>
       <VideoContainer />  

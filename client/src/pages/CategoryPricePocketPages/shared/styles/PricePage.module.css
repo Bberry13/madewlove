@@ -133,7 +133,7 @@
 .cardButton {
     width: 100%;
     max-width: 200px;
-    padding: 12px 24px;
+    padding: 10px 18px;
     background: transparent;
     color: #e3c7a3;
     border: 1px solid #e3c7a3;
@@ -255,27 +255,4 @@
       font-size: 14px;
     }
   }
-/* @media (max-width: 768px) {
-  .priceContainer {
-    grid-template-columns: 1fr;
-    padding: 0 10px;
-  }
 
-  .priceCard {
-    max-width: 100%;
-  }
-
-  .mainTitle {
-    margin-top: 100px;
-  }
-
-  .intro {
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .additionalInfo {
-    margin: 20px 10px;
-    padding: 15px;
-  }
-} */

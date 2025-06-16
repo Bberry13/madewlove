@@ -15,4 +15,9 @@ export enum CLIENT_ROUTING {
   CONTACTS = "/contacts",
   REVIEWS = "/reviews",
   PORTFOLIO = "/portfolio",
+  PRICE_EXTRACTS = "/price/extracts",
+  PRICE_CKB = "/price/extracts/ckb",
+  PRICE_LAPINO = "/price/extracts/lapino",
+  PRICE_MD = "/price/extracts/md",
+  PRICE_TOWNEXTRA = "/price/extracts/townextra",
 }

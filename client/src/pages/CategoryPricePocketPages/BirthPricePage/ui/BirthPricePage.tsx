@@ -76,6 +76,7 @@ export function BirthPricePage(): React.JSX.Element {
           </div>
         ))}
       </div>
+      <div className={styles.divider} />
       <div className={styles.additionalInfo}>
         <h3>НЕ ВКЛЮЧЕНО:</h3>
         <ul>

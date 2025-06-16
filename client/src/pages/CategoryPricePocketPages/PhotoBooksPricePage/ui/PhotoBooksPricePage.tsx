@@ -12,8 +12,9 @@ import mainPagePhoto23 from "@/assets/MainPage/Photos/mainPagePhoto23.jpg";
 import { useNavigate } from "react-router";
 
 const photos = [mainPagePhoto22, mainPagePhoto23];
-const navigate = useNavigate()
+
 export function PhotoBookPricePage(): React.JSX.Element {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
 

@@ -54,18 +54,8 @@ export function PregnancyPricePage(): React.JSX.Element {
 
   return (
     <div className={styles.pregnancyPage}>
-      <div className={styles.pregnancyIntro}>
-        <p>
-          Красота и чудо беременности – это настоящая магия, когда в теле
-          женщины зарождается новая жизнь. Запечатлеть свою беременность для
-          нашей команды - это прийти расслабленной на съемку, не продумывая
-          самостоятельно кучу образов, не подбирая украшения и не придумывая
-          идеи, ведь мы как женщины, понимаем, что самое сложное на последних
-          месяцах беременности - это сборы и подготовка к съемке: наша команда
-          во всем вам поможет и берет это на себя. Вам остается только
-          максимально отдохнуть перед съемкой, приехать вовремя и насладиться
-          процессом.
-        </p>
+      <div className={styles.pregnancyMainTitle}>
+        <h1>Беремeнность</h1>
       </div>
       <div className={styles.pregnancyPriceContainer}>
         {pregnancyGroup.map((price: TypePrice, index: number) => (
@@ -77,9 +67,9 @@ export function PregnancyPricePage(): React.JSX.Element {
                 className={styles.cardImage}
               />
             </div>
-            <h2 className={styles.cardTitle}>{price.package_title}</h2>
-            <h3 className={styles.priceTitle}>{price.price_title}</h3>
-            <ul className={styles.infoBody}>
+            <h2 className="card-title">{price.package_title}</h2>
+            <h3 className="price-title">{price.price_title}</h3>
+            <ul className="info-body">
               {price.info_body
                 .replace(/[[\]]/g, "")
                 .replace(/"/g, "")
@@ -97,7 +87,6 @@ export function PregnancyPricePage(): React.JSX.Element {
           </div>
         ))}
       </div>
-      <FAQ faq={pregnancyFAQData} />
       <div className={styles.additionalInfo}>
         <h3>НЕ ВКЛЮЧЕНО:</h3>
         <ul>
@@ -112,6 +101,21 @@ export function PregnancyPricePage(): React.JSX.Element {
           обработку обсуждать с менеджером.
         </p>
       </div>
+      <div className={styles.divider} />
+      <div className={styles.pregnancyIntro}>
+        <p>
+          Красота и чудо беременности – это настоящая магия, когда в теле
+          женщины зарождается новая жизнь. Запечатлеть свою беременность для
+          нашей команды - это прийти расслабленной на съемку, не продумывая
+          самостоятельно кучу образов, не подбирая украшения и не придумывая
+          идеи, ведь мы как женщины, понимаем, что самое сложное на последних
+          месяцах беременности - это сборы и подготовка к съемке: наша команда
+          во всем вам поможет и берет это на себя. Вам остается только
+          максимально отдохнуть перед съемкой, приехать вовремя и насладиться
+          процессом.
+        </p>
+      </div>
+      <FAQ faq={pregnancyFAQData} />
     </div>
   );
 }

@@ -54,9 +54,9 @@ export function PregnancyPricePage(): React.JSX.Element {
 
   return (
     <div className={styles.pregnancyPage}>
-        <div className={styles.pregnancyMainTitle}>
-            <h1>Беремeнность</h1>
-        </div>
+      <div className={styles.pregnancyMainTitle}>
+        <h1>Беремeнность</h1>
+      </div>
       <div className={styles.pregnancyPriceContainer}>
         {pregnancyGroup.map((price: TypePrice, index: number) => (
           <div key={price.id} className={styles.priceCard}>

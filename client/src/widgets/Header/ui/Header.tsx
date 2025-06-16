@@ -61,12 +61,22 @@ export function Header(): JSX.Element {
 
   return (
     <header className={menuOpen ? styles.header_open : styles.header}>
-      <div
-        className={menuOpen ? styles.header__logo_open : styles.header__logo}
-        onClick={() => handleNavigation('/')}
-      >
-        <img src={logo} alt="logo" />
-      </div>
+      {/* Логотип: слева сверху в закрытом, по центру в открытом меню */}
+      {menuOpen ? (
+        <div
+          className={styles.header__logo_menu}
+          onClick={() => handleNavigation('/')}
+        >
+          <img src={logo} alt="logo" />
+        </div>
+      ) : (
+        <div
+          className={styles.header__logo}
+          onClick={() => handleNavigation('/')}
+        >
+          <img src={logo} alt="logo" />
+        </div>
+      )}
 
       <nav
         ref={menuRef}

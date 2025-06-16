@@ -1,19 +1,17 @@
 .mySwiper {
     width: 100%;
-    margin: 120px auto;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 60%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 60%, transparent 100%);
+    margin: 120px 80px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
   }
   
   .swiper-slide {
+    display: flex;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 16px;
     aspect-ratio: 16 / 9;
     padding: 20px;
-    display: flex;
-    
-    /* красивое соотношение */
-    width: 100%;          /* пусть Swiper сам решит ширину */
-    max-width: 180px;     /* ограничение сверху */
-    margin: 0 16px;
   }
   
   .swiperSlideImg {

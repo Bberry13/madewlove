@@ -1,7 +1,6 @@
 .priceCardsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
   padding: 150px 80px;
   max-width: 1440px;
   margin: 0px auto;

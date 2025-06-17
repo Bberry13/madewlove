@@ -16,7 +16,7 @@ interface PhotoGalleryProps {
 
 const PhotoGallery = ({ photos }: PhotoGalleryProps): React.JSX.Element => {
   return (
-    <div>
+    <div className={styles.galleryContainer}>
       <div key={photos.key}>
         <h1 className={styles.title}>{photos.title}</h1>
         <h2 className={styles.title1}>{photos.title1}</h2>

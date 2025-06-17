@@ -2,7 +2,7 @@
   /* background: rgba(34, 30, 24, 0.92); */
   /* border-radius: 36px; */
   padding: 150px 0px;
-  margin: 0px auto;
+  margin: 0px 30%;
   /* box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25); */
   color: #ede5dd;
   font-family: 'Montserrat', sans-serif;
@@ -39,6 +39,7 @@
 
 @media (max-width: 600px) {
   .ofertaContainer {
+    margin: 0px 0px;
     padding: 120px 8px;
   }
   .ofertaContainer h1 {

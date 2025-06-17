@@ -18,8 +18,8 @@
 
 .formContainer {
   max-width: 600px;
-  width: 100%;
-  margin: 17vh auto;
+  padding: 120px 0;
+  margin: 0 8px;
   color: #ede5dd;
   font-family: 'Montserrat', sans-serif;
 }

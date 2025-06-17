@@ -62,28 +62,28 @@ export const portfolioCardsData = [
 export const portfolioCardsDataExtracts = [
   {
     key: "ckb",
-    title: "Выписки",
+    title: "Роддом ЦКБ",
     photo: photosPortfolio[2],
     buttonText: "Посмотреть все работы",
     path: "/portfolio/extracts/ckb",
   },
   {
     key: "lapino",
-    title: "Выписки",
+    title: "Роддом Лапино",
     photo: photosPortfolio[2],
     buttonText: "Посмотреть все работы",
     path: "/portfolio/extracts/lapino",
   },
   {
     key: "md",
-    title: "Выписки",
+    title: "Роддом MD GROUP",
     photo: photosPortfolio[2],
     buttonText: "Посмотреть все работы",
     path: "/portfolio/extracts/md",
   },
   {
     key: "townextra",
-    title: "Выписки",
+    title: "Городские роддоа",
     photo: photosPortfolio[2],
     buttonText: "Посмотреть все работы",
     path: "/portfolio/extracts/townextra",

@@ -1,10 +1,11 @@
 .priceCardsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 40px 20px;
+
+  padding: 150px 80px;
   max-width: 1440px;
-  margin: 60px auto;
+  margin: 0px auto;
+  gap: 24px;
 }
 
 .priceCard {
@@ -85,6 +86,7 @@
 @media (max-width: 1200px) {
   .priceCardsContainer {
     grid-template-columns: repeat(3, 1fr);
+    padding: 120px 8px;
   }
 }
 

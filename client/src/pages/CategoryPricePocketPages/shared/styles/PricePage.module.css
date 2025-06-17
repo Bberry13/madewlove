@@ -262,11 +262,21 @@
 }
 
 .modalContent {
-  background: rgba(34, 30, 24, 0.85);
+  /* background: rgba(34, 30, 24, 0.85);
   padding: 20px;
   border-radius: 8px;
   width: 400px;
+  max-width: 90%; */
+  background: rgba(34, 30, 24, 0.85);
+  padding: 30px; /* Увеличил для воздуха */
+  border-radius: 24px; /* Соответствует priceCard */
+  width: 400px;
   max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  color: #ede5dd; /* Текст в модалке */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1); /* Как у priceCard */
 }
 
 .modalContent label {
@@ -321,6 +331,89 @@
 .modalButtons button:hover {
   background: rgba(254, 217, 142, 0.116);
   color: #ffffff;
+}
+
+/*Dop styles dlya modalki*/
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ede5dd;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #e3c7a3; /* Золотистый ховер, как у editIcon */
+}
+
+.modalContent h2 {
+  font-size: 24px;
+  color: #e3c7a3; /* Как cardTitle */
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.modalContent label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #ede5dd;
+}
+
+.modalContent input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #e3c7a3; /* Золотистая рамка */
+  border-radius: 8px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ede5dd;
+}
+
+.modalContent input::placeholder {
+  color: rgba(237, 229, 221, 0.5); /* Полупрозрачный placeholder */
+}
+
+/*dop knopki dlya modalki*/
+.removeButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #ede5dd;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.removeButton:hover {
+  color: #e3c7a3; /* Золотистый ховер */
+}
+
+.addButton {
+  display: block;
+  width: 255px;
+  padding: 14px 24px;
+  background-color: #ede5dd;
+  color: #2b251f;
+  border: none;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 15px 0;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-align: center;
+}
+
+.addButton:hover {
+  background: rgba(254, 217, 142, 0.174);
+  color: #ffffff; /* Как cardButton:hover */
 }
 
 @media (max-width: 1024px) {

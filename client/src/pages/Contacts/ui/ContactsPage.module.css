@@ -9,7 +9,7 @@
 
 .contactsHeader {
   text-align: center;
-  color: #a97a2c;
+  color: #e3c7a3;
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 36px;
@@ -23,12 +23,12 @@
   gap: 32px;
   margin: 24px auto;
   font-size: 1.5rem;
-  color: #bfa14e;
+  color: #ede5dd;
   font-weight: 400;
   margin-bottom: 18px;
 }
 .contactsLeft a {
-  color: #bfa14e;
+  color: #e3c7a3;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;

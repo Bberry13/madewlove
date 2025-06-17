@@ -2,14 +2,19 @@ import React, { type JSX } from 'react';
 import videoBg from '@/assets/MainPage/Main_Video.mp4';
 import downArrow from '@/assets/MainPage/downArrow.svg';
 import styles from './VideoContainer.module.css';
+import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
+import { useNavigate } from 'react-router';
+
 
 interface VideoContainerProps {
   onScrollToCompany: () => void;
 }
-
 const VideoContainerComponent = ({
   onScrollToCompany,
 }: VideoContainerProps): JSX.Element => {
+const VideoContainerComponent = (): JSX.Element => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={styles.mainPage}>
@@ -35,7 +40,7 @@ const VideoContainerComponent = ({
               От первых минут жизни до больших праздников — мы рядом,
               <br /> чтобы сохранить главное
             </p>
-            <button className={styles.mainPage_button}>Записаться</button>
+            <button className={styles.mainPage_button} onClick={() => {navigate(CLIENT_ROUTING.CONTACTS); window.scrollTo({ top: 0, behavior: 'smooth' });}}>Записаться</button>
           </div>
           <div
             className={styles.mainPage_link}

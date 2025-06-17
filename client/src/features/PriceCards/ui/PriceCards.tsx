@@ -43,18 +43,18 @@ export function PriceCards({
               alt={card.title}
               className={styles.cardImage}
             />
-          </div>
-          <h2 className={styles.cardTitle}>{card.title}</h2>
-          <div className={styles.buttonsContainer}>
-            <button
-              className={styles.cardButton}
-              onClick={() => {
-                handleClick(card.path);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              {card.buttonText}
-            </button>
+            <div className={styles.overlay}>
+              <h2 className={styles.cardTitle}>{card.title}</h2>
+              <button
+                className={styles.cardButton}
+                onClick={() => {
+                  handleClick(card.path);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                {card.buttonText}
+              </button>
+            </div>
           </div>
         </div>
       ))}

@@ -1,12 +1,16 @@
-/* Общие стили для всех страниц с ценами */
-.page {
+/* Общие стили для всех страниц с капитан прайсом */
+/* .page {
   padding: 20px;
-}
+} */
 
 .mainTitle {
     font-size: larger;
-    margin-top: 130px;
+    margin-top: 120px;
     text-align: center;
+}
+.mainTitleText{
+  font-size: 42px;
+  color: #ede5dd;
 }
 
 .intro {
@@ -35,6 +39,8 @@
 }
 
 .priceCard {
+  /* max-height: 900px;
+  max-width: 400px; */
     background: rgba(34, 30, 24, 0.85);
     border-radius: 24px;
     overflow: hidden;
@@ -130,7 +136,7 @@
   color: #2b251f;
   border: none;
   border-radius: 999px;
-  padding: 14px 24px;
+  padding: 10px 24px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
@@ -150,10 +156,7 @@
 }
 
 .cardButton:hover {
-  background: rgba(254, 217, 142, 0.174);
-  color: #ffffff;
-    /* background: #e3c7a3;
-    color: #2b251f; */
+  background: #e3c7a3;
 }
 
 .additionalInfo {
@@ -197,7 +200,7 @@
 }
 
 .divider {
-    width: 350px;
+    width: 295px;
     height: 1px;
     background: #e3c7a3;
     margin: 40px auto;

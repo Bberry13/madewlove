@@ -1,7 +1,7 @@
-import React, { type JSX } from 'react';
+import React from 'react';
 import styles from './Company.module.css';
 
-export function Company(): JSX.Element {
+export function Company(): React.JSX.Element {
   return (
     <>
       <section className={`${styles.advantagesGrid} ${styles.wrapper}`}>

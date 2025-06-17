@@ -1,8 +1,7 @@
-import React from 'react';
 import { Routes, Route } from 'react-router';
 import { Layout } from '@/app/layout/layout';
 import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
-import type { JSX } from 'react';
+import React from 'react';
 import { MainPage } from '@/pages/MainPage/ui/MainPage';
 import { SignInPage, SignUpPage } from '@/pages/AuthPages';
 import { PricePage } from '@/pages/PricePage/ui/PricePage';
@@ -25,7 +24,7 @@ import { LapinoPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/
 import { MDPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsMDPage/ui/ExtractsMDPage';
 import { TownExtraPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsTownextraPage/ui/ExtractsTownextraPage';
 
-export function RouterProvider(): JSX.Element {
+export function RouterProvider(): React.JSX.Element {
   return (
     <Routes>
       <Route path={CLIENT_ROUTING.MAIN} element={<Layout />}>

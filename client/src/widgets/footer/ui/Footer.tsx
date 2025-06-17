@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Footer.module.css';
 import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
 import { useNavigate } from 'react-router';
-export function Footer() {
+export function Footer(): React.JSX.Element {
   const navigate = useNavigate();
   return (
     <footer className={styles.footerSection}>

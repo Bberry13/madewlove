@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import  React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Pagination } from 'swiper/modules'; // ОДИН общий импорт
 import 'swiper/css';
 import 'swiper/css/navigation';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css/pagination';
 import styles from './CarouselServices.module.css';
 import { photosServices } from '@/assets/MainPage/Photos';
 import { useNavigate } from 'react-router';
 
-export function CarouselServices() {
+export function CarouselServices(): React.JSX.Element {
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -16,7 +17,20 @@ export function CarouselServices() {
 
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+
+
+  const [initialSlide, setInitialSlide] = useState(() => {
+    if (window.innerWidth >= 1024) {
+      return 2; // например, для больших экранов старт слайд 2
+    } else if (window.innerWidth >= 768) {
+      return 1; // для средних экранов старт 1
+    } else {
+      return 0; // для мобильных старт 0
+    }
+  });
+
+  console.log(setInitialSlide)
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -25,22 +39,24 @@ export function CarouselServices() {
   }, []);
 
   useEffect(() => {
+
+    if (!swiperRef.current) return;
     if (
-      swiperRef.current &&
       prevRef.current &&
-      nextRef.current
+      nextRef.current &&
+      swiperRef.current.params.navigation &&
+      typeof swiperRef.current.params.navigation !== 'boolean'
     ) {
-      const swiper = swiperRef.current;
-      swiper.params.navigation.prevEl = prevRef.current;
-      swiper.params.navigation.nextEl = nextRef.current;
-  
-      swiper.navigation.destroy();
-      swiper.navigation.init();
-      swiper.navigation.update();
+      swiperRef.current.params.navigation.prevEl = prevRef.current;
+      swiperRef.current.params.navigation.nextEl = nextRef.current;
+    
+      swiperRef.current.navigation.destroy();
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
     }
   }, [swiperRef.current]); // можно так или вообще без deps — один раз при монтировании
 
-  const updateArrows = (swiper: any) => {
+  const updateArrows = (swiper: SwiperType) => {
     const activeIndex = swiper.activeIndex;
 
     if (screenWidth >= 1024) {

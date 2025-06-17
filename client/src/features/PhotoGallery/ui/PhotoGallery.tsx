@@ -1,7 +1,7 @@
-import React, { type JSX } from 'react';
+import  React from 'react';
 import styles from './PhotoGallery.module.css';
 
-const PhotoGallery = ({ photos }: { photos: string[] }): JSX.Element => {
+const PhotoGallery = ({ photos }: { photos: string[] }): React.JSX.Element => {
   return (
     <div className={styles.gallery}>
       {photos.map((photo, index) => (

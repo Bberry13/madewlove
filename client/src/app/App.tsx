@@ -1,5 +1,4 @@
-// src/App.tsx
-import React from "react";
+import React, { type JSX } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 import { RouterProvider } from "./router/router";
@@ -11,9 +10,7 @@ import {
 } from "../entities/recorder/ui/CookieConsentModal";
 import { YandexMetrika } from "@/features/Yandex/Yandex.Metrika";
 
-// import { AuthProvider } from "../pages/CategoryPricePocketPages/shared/context/AuthContext.tsx";
-
-function App(): React.JSX.Element {
+function App(): JSX.Element {
   const [prefs, setPrefs] = React.useState<CookiePreferences>(() => {
     // читаем из localStorage или берём дефолт
     const saved = localStorage.getItem("cookiePrefs");
@@ -44,7 +41,6 @@ function App(): React.JSX.Element {
 
   return (
     <Provider store={store}>
-      {/* <AuthProvider> */}
         <BrowserRouter>
           <RouterProvider />
           <CookieConsentModal
@@ -54,7 +50,6 @@ function App(): React.JSX.Element {
           />
           <YandexMetrika consentGiven={prefs.analytics} />
         </BrowserRouter>
-      {/* </AuthProvider> */}
     </Provider>
   );
 }

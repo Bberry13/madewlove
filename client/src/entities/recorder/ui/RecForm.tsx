@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type JSX } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useAppDispatch } from '../../../shared/hooks/useAppDispatch';
 import { sendRecordingThunk } from '../api/recorderThunkApi';
@@ -7,7 +7,7 @@ import styles from './RecordingForm.module.css';
 import { useNavigate } from 'react-router';
 import SuccessModal from './SuccessModal';
 
-export const RecordingForm = (): JSX.Element => {
+export const RecordingForm = (): React.JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);

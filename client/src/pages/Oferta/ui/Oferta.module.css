@@ -1,11 +1,9 @@
 .ofertaContainer {
-  background: rgba(34, 30, 24, 0.92);
-  border-radius: 36px;
-  padding: 40px 32px;
-  max-width: 900px;
-  width: 100%;
-  margin: 200px auto;
-  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25);
+  /* background: rgba(34, 30, 24, 0.92); */
+  /* border-radius: 36px; */
+  padding: 150px 0px;
+  margin: 0px 30%;
+  /* box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25); */
   color: #ede5dd;
   font-family: 'Montserrat', sans-serif;
 }
@@ -41,8 +39,8 @@
 
 @media (max-width: 600px) {
   .ofertaContainer {
-    padding: 18px 10px;
-    border-radius: 18px;
+    margin: 0px 0px;
+    padding: 120px 8px;
   }
   .ofertaContainer h1 {
     font-size: 1.3rem;

@@ -56,6 +56,17 @@ export const photos = [
   photo18,
 ];
 
+export const photosPortfolio = [
+  LargePhoto1,
+  LargePhoto2,
+  LargePhoto3,
+  LargePhoto4,
+  LargePhoto5,
+  LargePhoto6,
+  LargePhoto7,
+  LargePhoto8,
+];
+
 export const photosServices = [
   { src: LargePhoto1, title: 'Беременность', path: '/price/pregnancy' },
   { src: LargePhoto2, title: 'Рождение', path: '/price/birth' },

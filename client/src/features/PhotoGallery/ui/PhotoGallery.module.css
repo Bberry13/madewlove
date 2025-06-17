@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+.galleryContainer {
+  padding: 120px 0;
+  margin: 0px 8px;
+}
+
 .item {
   overflow: hidden;
   border-radius: 12px;
@@ -24,6 +29,23 @@
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 600;
+  color: #ede5dd;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.title1, .title2, .title3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #e3c7a3;
+  text-align: center;
+  margin-bottom: 24px;
+  margin-top: 60px;
 }
 
 /* 🌐 Адаптация под разные экраны */

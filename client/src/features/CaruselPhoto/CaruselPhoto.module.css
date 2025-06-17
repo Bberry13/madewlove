@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 120px 0;
+  margin: 50px 0 120px;
 }
 
 .masonryGroup {
@@ -23,6 +23,13 @@
   background: #2b251f;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
+.CarouselPhotoTitle {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e3c7a3;
+}
 
 .masonrySmallCol {
   display: flex;
@@ -36,20 +43,20 @@
   object-fit: cover;
   border-radius: 18px;
   background: #2b251f;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .outlineButton {
   display: flex;
+  align-items: center;
   margin: 0px auto;
-  background: #ffffff00;
-  border: 1px solid #ede5dd;
-  color: #ede5dd;
+  background: #ede5dd;
+  color: #010000;
   border-radius: 999px;
   padding: 15px 28px 12px 28px;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   margin-top: 50px;
+  border: none;
 }
 
 .outlineButton span {
@@ -57,7 +64,7 @@
 }
 
 .outlineButton:hover {
-  background: #ffffff;
+  background: #e3c7a3;
   color: #010000;
 }
 
@@ -65,7 +72,7 @@
 .cameraIcon {
   display: flex;
   align-items: center;
-  margin-right: 6px;
+  margin-right: 10px;
 }
 @media (max-height: 700px) {
   .masonryCarouselSection {

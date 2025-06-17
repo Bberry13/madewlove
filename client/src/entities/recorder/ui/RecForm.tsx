@@ -51,7 +51,7 @@ export const RecordingForm = (): React.JSX.Element => {
             Оставьте заявку <br />
             </h3>
             <span>мы свяжемся с вами 
-            <br className={styles.mobileLineBreak} />как можно скорее</span>
+            <br className={styles.mobileLineBreak} />{' '}как можно скорее</span>
         </div>
         <div className={styles.formItem}>
           {/* <label htmlFor="name">Имя</label> */}

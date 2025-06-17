@@ -1,12 +1,16 @@
 /* Общие стили для всех страниц с капитан прайсом */
-/* .page {
-  padding: 20px;
-} */
+.page {
+  padding: 120px 0;
+  margin: 0px 8px;
+}
 
 .mainTitle {
     font-size: larger;
-    margin-top: 120px;
     text-align: center;
+}
+.mainTitleText{
+  font-size: 42px;
+  color: #ede5dd;
 }
 
 .intro {
@@ -44,7 +48,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     padding: 0 0 20px 0;
     align-items: center;
 }
@@ -56,7 +59,6 @@
 .imageContainer {
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -132,7 +134,7 @@
   color: #2b251f;
   border: none;
   border-radius: 999px;
-  padding: 14px 24px;
+  padding: 10px 24px;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
@@ -152,10 +154,7 @@
 }
 
 .cardButton:hover {
-  background: rgba(254, 217, 142, 0.174);
-  color: #ffffff;
-    /* background: #e3c7a3;
-    color: #2b251f; */
+  background: #e3c7a3;
 }
 
 .additionalInfo {

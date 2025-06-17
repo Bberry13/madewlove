@@ -1,7 +1,8 @@
 .reviewsWrapper {
-  max-width: 830px;
-  margin: 120px auto 0 auto;
-  padding: 24px 8px 64px 8px;
+  max-width: 800px;
+  min-width: 250px;
+  margin: 0 auto;
+  padding: 150px 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -20,11 +21,11 @@
 .reviewAvatar {
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 100%;
   object-fit: cover;
   border: 3px solid #ede5dd;
   background: #fff;
-  margin-top: 8px;
+  margin-top: -10px;
 }
 
 .reviewBubble {
@@ -36,15 +37,15 @@
   line-height: 1.6;
   max-width: 650px;
   position: relative;
-  min-width: 220px;
+  min-width: 200px;
   border: none;
 }
 
 .reviewItem.left .reviewBubble::before {
   content: '';
   position: absolute;
-  left: -18px;
-  top: 24px;
+  left: -12px;
+  top: 5px;
   width: 0;
   height: 0;
   border-top: 16px solid transparent;
@@ -55,8 +56,8 @@
 .reviewItem.right .reviewBubble::before {
   content: '';
   position: absolute;
-  right: -18px;
-  top: 24px;
+  right: -12px;
+  top: 5px;
   width: 0;
   height: 0;
   border-top: 16px solid transparent;
@@ -67,7 +68,8 @@
 @media (max-width: 600px) {
   .reviewsWrapper {
     gap: 24px;
-    padding: 8px 2px 32px 2px;
+    padding: 120px 8px 64px 8px;
+    margin: 0px 8px;
   }
   .reviewItem {
     gap: 10px;
@@ -79,7 +81,7 @@
   .reviewBubble {
     font-size: 0.98rem;
     padding: 14px 12px 14px 16px;
-    max-width: 95vw;
+    max-width: 80vw;
     min-width: 0;
   }
   .reviewItem.left .reviewBubble::before {

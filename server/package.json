@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node --loader ts-node/esm ./src/app.ts",
     "dev": "nodemon --exec node --loader ts-node/esm ./src/app.ts",
-    "seed": "node --loader ts-node/esm prisma/seed.ts"
+    "seed": "node --loader ts-node/esm prisma/seed.ts",
+    "build": "tsc"
+    
   },
   "keywords": [],
   "author": "",

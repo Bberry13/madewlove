@@ -23,6 +23,7 @@ import { CKBPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/Ext
 import { LapinoPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsLapinoPage/ui/ExtractsLapinoPage';
 import { MDPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsMDPage/ui/ExtractsMDPage';
 import { TownExtraPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsTownextraPage/ui/ExtractsTownextraPage';
+import { CategoryPortfolioPage } from '@/pages/PortfolioPage/ui/CategoryPage';
 
 export function RouterProvider(): React.JSX.Element {
   return (
@@ -57,27 +58,69 @@ export function RouterProvider(): React.JSX.Element {
           path={CLIENT_ROUTING.PRICE_PHOTO_BOOKS}
           element={<PhotoBookPricePage />}
         />
-         <Route
+        <Route
           path={CLIENT_ROUTING.PRICE_EXTRACTS}
           element={<ExtractsGroupPage />}
         />
-          <Route
-          path={CLIENT_ROUTING.PRICE_CKB}
-          element={<CKBPricePage />}
-        />
-          <Route
+        <Route path={CLIENT_ROUTING.PRICE_CKB} element={<CKBPricePage />} />
+        <Route
           path={CLIENT_ROUTING.PRICE_LAPINO}
           element={<LapinoPricePage />}
         />
-          <Route
-          path={CLIENT_ROUTING.PRICE_MD}
-          element={<MDPricePage />}
-        />
+        <Route path={CLIENT_ROUTING.PRICE_MD} element={<MDPricePage />} />
         <Route
           path={CLIENT_ROUTING.PRICE_TOWNEXTRA}
           element={<TownExtraPricePage />}
         />
-        <Route path={CLIENT_ROUTING.PORTFOLIO} element={<PortfolioPage />} />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO}
+          element={<CategoryPortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_PREGNANCY}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_BIRTH}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_NEWBORN}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_BAPTISM}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_FAMILY}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_ONE_YEAR}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_PHOTO_BOOKS}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_EXTRACTS}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_CKB}
+          element={<PortfolioPage />}
+        />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_LAPINO}
+          element={<PortfolioPage />}
+        />
+        <Route path={CLIENT_ROUTING.PORTFOLIO_MD} element={<PortfolioPage />} />
+        <Route
+          path={CLIENT_ROUTING.PORTFOLIO_TOWNEXTRA}
+          element={<PortfolioPage />}
+        />
         <Route path={CLIENT_ROUTING.CONTACTS} element={<ContactsPage />} />
         <Route path={CLIENT_ROUTING.REVIEWS} element={<ReviewsPage />} />
         <Route path={CLIENT_ROUTING.OFERTA} element={<Oferta />} />

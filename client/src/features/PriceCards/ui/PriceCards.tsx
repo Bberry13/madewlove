@@ -48,7 +48,10 @@ export function PriceCards({
           <div className={styles.buttonsContainer}>
             <button
               className={styles.cardButton}
-              onClick={() => handleClick(card.path)}
+              onClick={() => {
+                handleClick(card.path);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               {card.buttonText}
             </button>

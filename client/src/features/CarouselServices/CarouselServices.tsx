@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Pagination } from 'swiper/modules'; // ОДИН общий импорт
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import styles from './CarouselServices.module.css';
 import { photosServices } from '@/assets/MainPage/Photos';
-import { title } from 'process';
-import { navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 export function CarouselServices() {
   const [isAtStart, setIsAtStart] = useState(true);
@@ -18,16 +18,6 @@ export function CarouselServices() {
   const nextRef = useRef<HTMLDivElement | null>(null);
   const swiperRef = useRef<any>(null);
 
-  const [initialSlide, setInitialSlide] = useState(() => {
-    if (window.innerWidth >= 1024) {
-      return 2; // например, для больших экранов старт слайд 2
-    } else if (window.innerWidth >= 768) {
-      return 1; // для средних экранов старт 1
-    } else {
-      return 0; // для мобильных старт 0
-    }
-  });
-
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -35,16 +25,20 @@ export function CarouselServices() {
   }, []);
 
   useEffect(() => {
-    if (!swiperRef.current) return;
-    if (prevRef.current && nextRef.current) {
-      swiperRef.current.params.navigation.prevEl = prevRef.current;
-      swiperRef.current.params.navigation.nextEl = nextRef.current;
-
-      swiperRef.current.navigation.destroy();
-      swiperRef.current.navigation.init();
-      swiperRef.current.navigation.update();
+    if (
+      swiperRef.current &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      const swiper = swiperRef.current;
+      swiper.params.navigation.prevEl = prevRef.current;
+      swiper.params.navigation.nextEl = nextRef.current;
+  
+      swiper.navigation.destroy();
+      swiper.navigation.init();
+      swiper.navigation.update();
     }
-  }, [prevRef.current, nextRef.current]);
+  }, [swiperRef.current]); // можно так или вообще без deps — один раз при монтировании
 
   const updateArrows = (swiper: any) => {
     const activeIndex = swiper.activeIndex;
@@ -72,20 +66,21 @@ export function CarouselServices() {
         onSlideChange={() => {
           if (swiperRef.current) updateArrows(swiperRef.current);
         }}
-        initialSlide={initialSlide}
-        spaceBetween={20}
-        freeMode={true}
-        pagination={{ clickable: true }}
-        centeredSlides={true}
+        spaceBetween={24}
+        pagination={{
+          clickable: true,
+        }}
+        slidesOffsetBefore={80}
+        slidesOffsetAfter={80}
         grabCursor={true}
         modules={[FreeMode, Pagination, Navigation]}
         className={styles.mySwiper}
         breakpoints={{
-          320: { slidesPerView: 2.4 },
+          320: { slidesPerView: 1.4 },
           480: { slidesPerView: 2.4 },
-          768: { slidesPerView: 3.2 },
-          1024: { slidesPerView: 4.2 },
-          1280: { slidesPerView: 6.2 },
+          768: { slidesPerView: 1.8 },
+          1024: { slidesPerView: 2.2 },
+          1280: { slidesPerView: 5.6 },
         }}
       >
         {photosServices.map(({ src, title }, index) => (

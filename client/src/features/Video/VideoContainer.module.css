@@ -79,6 +79,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.mainPage_button:hover {
+  background-color: #e3c7a3;
+}
 
 .mainPage_link {
   position: absolute;
@@ -105,4 +108,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .mainPage {
+    padding: 0 16px;
+  }
 }

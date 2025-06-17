@@ -46,21 +46,26 @@ export const RecordingForm = (): JSX.Element => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
-        <div>
-          <label htmlFor="name">Имя</label>
+        <div className={styles.formTitle}>
+          <h3>Оставьте заявку - <br /><span>мы свяжемся с вами как можно скорее</span></h3>
+        </div>
+        <div className={styles.formItem}>
+          {/* <label htmlFor="name">Имя</label> */}
           <input
             id="name"
             {...register('name', { required: 'Введите имя' })}
             className={styles.inputField}
+            placeholder='Имя'
           />
           {errors.name && (
             <p className={styles.errorText}>{errors.name.message}</p>
           )}
         </div>
 
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className={styles.formItem}>
+          {/* <label htmlFor="email">Email</label> */}
           <input
+            placeholder='Email'
             id="email"
             type="email"
             {...register('email', {
@@ -77,9 +82,11 @@ export const RecordingForm = (): JSX.Element => {
           )}
         </div>
 
-        <div>
-          <label htmlFor="tel">Телефон</label>
+        <div className={styles.formItem}>
+          {/* <label htmlFor="tel">Телефон</label> */}
           <input
+            type='tel'
+            placeholder='Телефон'
             id="tel"
             {...register('tel', { required: 'Введите номер телефона' })}
             className={styles.inputField}
@@ -89,11 +96,12 @@ export const RecordingForm = (): JSX.Element => {
           )}
         </div>
 
-        <div>
-          <label htmlFor="message" className={styles.labelName}>
+        <div className={styles.formItem}>
+          {/* <label htmlFor="message" className={styles.labelName}>
             Сообщение
-          </label>
+          </label> */}
           <input
+            placeholder='Сообщение'
             id="message"
             {...register('message')}
             className={styles.inputField}
@@ -110,10 +118,13 @@ export const RecordingForm = (): JSX.Element => {
             />
             <span className={styles.customCheckbox}></span>
             <div>
-              Я согласен на обработку персональных данных, с условиями{' '}
+              Я согласен на обработку персональных данных, и с условиями{' '}
               <span
                 className={styles.link}
-                onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}
+                onClick={() => {
+                  navigate('/politics');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Политики
               </span>{' '}
@@ -131,10 +142,14 @@ export const RecordingForm = (): JSX.Element => {
               className={styles.realCheckbox}
               {...register('oferta', { required: true })}
             />
-            
-            <span className={styles.customCheckbox}></span>Я согласен с 
-            <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
-
+            <span className={styles.customCheckbox}></span>Я согласен с{' '}
+            <span
+              className={styles.link}
+              onClick={() => {
+                navigate('/oferta');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
               Офертой
             </span>
           </label>
@@ -151,10 +166,15 @@ export const RecordingForm = (): JSX.Element => {
             />
 
             <span className={styles.customCheckbox}></span>
-            <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
-              Я согласен  на получение рассылки
+            <span
+              className={styles.link}
+              onClick={() => {
+                navigate('/oferta');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              Я согласен на получение рассылки
             </span>
-
           </label>
 
           <label htmlFor="agreeAll" className={styles.checkboxLabel}>

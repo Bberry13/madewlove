@@ -3,7 +3,7 @@ import styles from './Company.module.css';
 
 export function Company(): JSX.Element {
   return (
-    <div>
+    <>
       <section className={`${styles.advantagesGrid} ${styles.wrapper}`}>
         <div className={styles.advantageItem}>
           <div className={styles.advantageTitle}>
@@ -35,6 +35,6 @@ export function Company(): JSX.Element {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

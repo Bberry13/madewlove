@@ -4,6 +4,7 @@ import { FreeMode, Navigation, Pagination } from 'swiper/modules'; // ОДИН �
 import 'swiper/css';
 import 'swiper/css/navigation';
 import type { Swiper as SwiperType } from 'swiper';
+import 'swiper/css/pagination';
 import styles from './CarouselServices.module.css';
 import { photosServices } from '@/assets/MainPage/Photos';
 import { useNavigate } from 'react-router';
@@ -17,6 +18,7 @@ export function CarouselServices(): React.JSX.Element {
   const prevRef = useRef<HTMLDivElement | null>(null);
   const nextRef = useRef<HTMLDivElement | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
+
 
   const [initialSlide, setInitialSlide] = useState(() => {
     if (window.innerWidth >= 1024) {
@@ -37,6 +39,7 @@ export function CarouselServices(): React.JSX.Element {
   }, []);
 
   useEffect(() => {
+
     if (!swiperRef.current) return;
     if (
       prevRef.current &&
@@ -51,7 +54,7 @@ export function CarouselServices(): React.JSX.Element {
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
-  }, [prevRef.current, nextRef.current]);
+  }, [swiperRef.current]); // можно так или вообще без deps — один раз при монтировании
 
   const updateArrows = (swiper: SwiperType) => {
     const activeIndex = swiper.activeIndex;
@@ -79,20 +82,21 @@ export function CarouselServices(): React.JSX.Element {
         onSlideChange={() => {
           if (swiperRef.current) updateArrows(swiperRef.current);
         }}
-        initialSlide={initialSlide}
-        spaceBetween={20}
-        freeMode={true}
-        pagination={{ clickable: true }}
-        centeredSlides={true}
+        spaceBetween={24}
+        pagination={{
+          clickable: true,
+        }}
+        slidesOffsetBefore={80}
+        slidesOffsetAfter={80}
         grabCursor={true}
         modules={[FreeMode, Pagination, Navigation]}
         className={styles.mySwiper}
         breakpoints={{
-          320: { slidesPerView: 2.4 },
+          320: { slidesPerView: 1.4 },
           480: { slidesPerView: 2.4 },
-          768: { slidesPerView: 3.2 },
-          1024: { slidesPerView: 4.2 },
-          1280: { slidesPerView: 6.2 },
+          768: { slidesPerView: 1.8 },
+          1024: { slidesPerView: 2.2 },
+          1280: { slidesPerView: 5.6 },
         }}
       >
         {photosServices.map(({ src, title }, index) => (

@@ -41,7 +41,7 @@
 
 @media (max-width: 600px) {
   .ofertaContainer {
-    padding: 18px 6px;
+    padding: 18px 10px;
     border-radius: 18px;
   }
   .ofertaContainer h1 {
@@ -52,5 +52,8 @@
   }
   .ofertaContainer p {
     font-size: 0.95rem;
+  }
+  .ofertaWrapper {
+    margin: 0 16px;
   }
 }

@@ -47,12 +47,16 @@ export const RecordingForm = (): React.JSX.Element => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
         <div className={styles.formTitle}>
-          <h3>Оставьте заявку - <br /><span>мы свяжемся с вами как можно скорее</span></h3>
+          <h3>
+            Оставьте заявку <br />
+            </h3>
+            <span>мы свяжемся с вами 
+            <br className={styles.mobileLineBreak} />как можно скорее</span>
         </div>
         <div className={styles.formItem}>
           {/* <label htmlFor="name">Имя</label> */}
           <input
-            id="name"
+            id='name'
             {...register('name', { required: 'Введите имя' })}
             className={styles.inputField}
             placeholder='Имя'
@@ -66,8 +70,8 @@ export const RecordingForm = (): React.JSX.Element => {
           {/* <label htmlFor="email">Email</label> */}
           <input
             placeholder='Email'
-            id="email"
-            type="email"
+            id='email'
+            type='email'
             {...register('email', {
               required: 'Введите email',
               pattern: {
@@ -87,7 +91,7 @@ export const RecordingForm = (): React.JSX.Element => {
           <input
             type='tel'
             placeholder='Телефон'
-            id="tel"
+            id='tel'
             {...register('tel', { required: 'Введите номер телефона' })}
             className={styles.inputField}
           />
@@ -102,23 +106,23 @@ export const RecordingForm = (): React.JSX.Element => {
           </label> */}
           <input
             placeholder='Сообщение'
-            id="message"
+            id='message'
             {...register('message')}
             className={styles.inputField}
           />
         </div>
 
         <div className={styles.checkboxContainer}>
-          <label htmlFor="personalData" className={styles.checkboxLabel}>
+          <label htmlFor='personalData' className={styles.checkboxLabel}>
             <input
-              id="personalData"
-              type="checkbox"
+              id='personalData'
+              type='checkbox'
               className={styles.realCheckbox}
               {...register('personalData', { required: true })}
             />
             <span className={styles.customCheckbox}></span>
             <div>
-              Я согласен на обработку персональных данных, и с условиями{' '}
+              Я согласен на обработку персональных данных, с условиями{' '}
               <span
                 className={styles.link}
                 onClick={() => {
@@ -135,49 +139,55 @@ export const RecordingForm = (): React.JSX.Element => {
             <p className={styles.errorText}>Обязательное соглашение</p>
           )}
 
-          <label htmlFor="oferta" className={styles.checkboxLabel}>
+          <label htmlFor='oferta' className={styles.checkboxLabel}>
             <input
-              id="oferta"
-              type="checkbox"
+              id='oferta'
+              type='checkbox'
               className={styles.realCheckbox}
               {...register('oferta', { required: true })}
             />
-            <span className={styles.customCheckbox}></span>Я согласен с{' '}
-            <span
-              className={styles.link}
-              onClick={() => {
-                navigate('/oferta');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              Офертой
+            <span className={styles.customCheckbox}></span>
+            <span>
+              Я согласен с{' '}
+              <span
+                className={styles.link}
+                onClick={() => {
+                  navigate('/oferta');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Офертой
+              </span>
             </span>
           </label>
           {errors.oferta && (
             <p className={styles.errorText}>Обязательное согласие</p>
           )}
 
-          <label htmlFor="mailing" className={styles.checkboxLabel}>
+          <label htmlFor='mailing' className={styles.checkboxLabel}>
             <input
-              id="mailing"
-              type="checkbox"
+              id='mailing'
+              type='checkbox'
               className={styles.realCheckbox}
               {...register('mailing')}
             />
 
-            <span className={styles.customCheckbox}></span>
-            <span
-              className={styles.link}
-              onClick={() => {
-                navigate('/oferta');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              Я согласен на получение рассылки
-            </span>
+<span className={styles.customCheckbox}></span>
+<span>
+  Я согласен на получение{' '}
+  <span
+    className={styles.link}
+    onClick={() => {
+      navigate('/oferta');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }}
+  >
+    рассылки
+  </span>
+</span>
           </label>
 
-          <label htmlFor="agreeAll" className={styles.checkboxLabel}>
+          {/* <label htmlFor="agreeAll" className={styles.checkboxLabel}>
             <input
               id="agreeAll"
               type="checkbox"
@@ -186,11 +196,11 @@ export const RecordingForm = (): React.JSX.Element => {
             />
             <span className={styles.customCheckbox}></span>
             Согласиться со всем
-          </label>
+          </label> */}
         </div>
 
         <button
-          type="submit"
+          type='submit'
           disabled={isSubmitting}
           className={styles.submitButton}
         >

@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+.galleryContainer {
+  padding: 120px 0;
+  margin: 0px 8px;
+}
+
 .item {
   overflow: hidden;
   border-radius: 12px;
@@ -32,7 +37,6 @@
   color: #ede5dd;
   text-align: center;
   margin-bottom: 24px;
-  margin-top: 150px;
 }
 
 .title1, .title2, .title3 {

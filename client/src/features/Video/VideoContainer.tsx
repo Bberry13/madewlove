@@ -12,7 +12,6 @@ interface VideoContainerProps {
 const VideoContainerComponent = ({
   onScrollToCompany,
 }: VideoContainerProps): JSX.Element => {
-const VideoContainerComponent = (): JSX.Element => {
   const navigate = useNavigate();
 
   return (

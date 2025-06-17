@@ -49,8 +49,9 @@ export const RecordingForm = (): JSX.Element => {
         <div className={styles.formTitle}>
           <h3>
             Оставьте заявку <br />
-            <span>мы свяжемся с вами как можно скорее</span>
-          </h3>
+            </h3>
+            <span>мы свяжемся с вами 
+            <br className={styles.mobileLineBreak} />как можно скорее</span>
         </div>
         <div className={styles.formItem}>
           {/* <label htmlFor="name">Имя</label> */}

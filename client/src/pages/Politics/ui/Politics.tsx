@@ -3,6 +3,7 @@ import styles from './Politics.module.css';
 
 export function Politics(): JSX.Element {
   return (
+    <div className={styles.politicsWrapper}>
     <div className={styles.politicsContainer}>
       <h1>Политика в отношении обработки персональных данных</h1>
 
@@ -499,6 +500,7 @@ export function Politics(): JSX.Element {
           Интернет по адресу https://madewlove.ru.
         </li>
       </ul>
+    </div>
     </div>
   );
 }

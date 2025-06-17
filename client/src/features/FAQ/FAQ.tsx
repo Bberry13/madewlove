@@ -7,18 +7,35 @@ type FAQProps = {
 
 export function FAQ({ faq }: FAQProps): JSX.Element {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  
   return (
     <section className={styles.faqSection}>
-      <h2 className={styles.faqTitle}>FAQ / Вопрос-ответ</h2>
-      <div className={styles.faqAccordion}>
-        {faq.map((item, idx) => (
+    <h2 className={styles.faqTitle}>FAQ / Вопрос-ответ</h2>
+    <div className={styles.faqAccordion}>
+      {faq.map((item, idx) => {
+        const isSpecial =
+          item.question === 'Когда нужно записываться на съемку родов?';
+
+        return (
           <div key={idx} className={styles.faqItem}>
             <button
               className={styles.faqQuestion}
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               aria-expanded={openIndex === idx}
             >
-              {item.question}
+              {isSpecial ? (
+                <>
+                  <span className={styles.desktopOnly}>
+                    Когда нужно записываться на съёмку родов?
+                  </span>
+                  <span className={styles.mobileOnly}>
+                    Когда нужно записываться <br /> на съёмку родов?
+                  </span>
+                </>
+              ) : (
+                item.question
+              )}
               <span className={styles.faqArrow}>
                 {openIndex === idx ? '▲' : '▼'}
               </span>
@@ -34,8 +51,9 @@ export function FAQ({ faq }: FAQProps): JSX.Element {
               </div>
             )}
           </div>
-        ))}
-      </div>
-    </section>
+        );
+      })}
+    </div>
+  </section>
   );
 }

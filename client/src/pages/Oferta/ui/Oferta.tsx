@@ -3,6 +3,7 @@ import styles from './Oferta.module.css';
 
 export function Oferta(): React.JSX.Element {
   return (
+    <div className={styles.ofertaWrapper}>
     <div className={styles.ofertaContainer}>
       <h1>Оферта на оказание услуг</h1>
       <p>
@@ -626,6 +627,7 @@ export function Oferta(): React.JSX.Element {
         <p>Российская Федерация, г. Москва,</p>
         <p>ул. Херсонская, д. 41</p>
       </div>
+    </div>
     </div>
   );
 }

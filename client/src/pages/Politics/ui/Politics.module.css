@@ -48,7 +48,7 @@
 
 @media (max-width: 600px) {
   .politicsContainer {
-    padding: 18px 6px;
+    padding: 18px 10px;
     border-radius: 18px;
   }
   .politicsContainer h1 {
@@ -61,5 +61,8 @@
   .politicsContainer ul,
   .politicsContainer ol {
     font-size: 0.95rem;
+  }
+  .politicsWrapper {
+    margin: 0 16px;
   }
 }

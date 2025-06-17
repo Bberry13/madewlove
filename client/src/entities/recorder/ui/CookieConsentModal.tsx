@@ -32,48 +32,52 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <h2>Настройки Cookie</h2>
+        <h2 className={styles.modalTitle}>Настройки Cookie</h2>
         <p>
-        Продолжая использовать наш сайт, вы даете согласие на обработку файлов cookie, которые обеспечивают правильную работу сайта и подтверждаете, что ознакомились и согласны с условиями Оферты и Политики обработки персональных данных
+          Продолжая использовать наш сайт, вы даете согласие на обработку файлов cookie, которые обеспечивают правильную работу сайта и подтверждаете, что ознакомились и согласны с условиями Оферты и Политики обработки персональных данных
         </p>
-        {isOpen && <div className={styles.checkboxContainer}>
-          <label className={styles.checkboxLabel}>
-            <input
-              className={styles.realCheckbox}
-              type="checkbox"
-              checked
-              disabled
-            />
-            <span className={styles.customCheckbox}></span>
-            Обязательные
-          </label>
-          <br />
-          <label className={styles.checkboxLabel}>
-            <input
-              className={styles.realCheckbox}
-              type="checkbox"
-              checked={prefs.analytics}
-              onChange={() =>
-                setPrefs((p) => ({ ...p, analytics: !p.analytics }))
-              }
-            />
-            <span className={styles.customCheckbox}></span>
-            Аналитические
-          </label>
-          <br />
-          <label className={styles.checkboxLabel}>
-            <input
-              className={styles.realCheckbox}
-              type="checkbox"
-              checked={prefs.marketing}
-              onChange={() =>
-                setPrefs((p) => ({ ...p, marketing: !p.marketing }))
-              }
-            />
-            <span className={styles.customCheckbox}></span>
-            Маркетинговые
-          </label>
-        </div>}
+
+        {isOpen && (
+          <div className={styles.checkboxContainer}>
+            <label className={styles.checkboxLabel}>
+              <input
+                className={styles.realCheckbox}
+                type="checkbox"
+                checked
+                disabled
+              />
+              <span className={styles.customCheckbox}></span>
+              <span>Обязательные</span>
+            </label>
+
+            <label className={styles.checkboxLabel}>
+              <input
+                className={styles.realCheckbox}
+                type="checkbox"
+                checked={prefs.analytics}
+                onChange={() =>
+                  setPrefs((p) => ({ ...p, analytics: !p.analytics }))
+                }
+              />
+              <span className={styles.customCheckbox}></span>
+              <span>Аналитические</span>
+            </label>
+
+            <label className={styles.checkboxLabel}>
+              <input
+                className={styles.realCheckbox}
+                type="checkbox"
+                checked={prefs.marketing}
+                onChange={() =>
+                  setPrefs((p) => ({ ...p, marketing: !p.marketing }))
+                }
+              />
+              <span className={styles.customCheckbox}></span>
+              <span>Маркетинговые</span>
+            </label>
+          </div>
+        )}
+
         <div className={styles.buttons}>
           <button
             className={styles.rejectButton}
@@ -83,34 +87,51 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
           >
             Настроить
           </button>
-          {isOpen ? <button
-            className={styles.saveButton}
-            onClick={() => {
-              onSave(prefs);
-            }}
-          >
-            Принять
-          </button> : <button
-            className={styles.saveButton}
-            onClick={() => {
-              onSave({
-                essential: true,
-                analytics: true,
-                marketing: true,
-              });
-            }}
-          >
-            Принять все
-          </button>}
+
+          {isOpen ? (
+            <button
+              className={styles.saveButton}
+              onClick={() => {
+                onSave(prefs);
+              }}
+            >
+              Принять
+            </button>
+          ) : (
+            <button
+              className={styles.saveButton}
+              onClick={() => {
+                onSave({
+                  essential: true,
+                  analytics: true,
+                  marketing: true,
+                });
+              }}
+            >
+              Принять все
+            </button>
+          )}
         </div>
 
         <p className={styles.footnote}>
           Ознакомьтесь с{' '}
-          <span className={styles.link} onClick={() => {navigate('/politics'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
+          <span
+            className={styles.link}
+            onClick={() => {
+              navigate('/politics');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             Политикой конфиденциальности
           </span>{' '}
           и{' '}
-          <span className={styles.link} onClick={() => {navigate('/oferta'); window.scrollTo({ top: 0, behavior: 'smooth' })}}>
+          <span
+            className={styles.link}
+            onClick={() => {
+              navigate('/oferta');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             Офертой
           </span>
           .
@@ -118,4 +139,4 @@ export const CookieConsentModal: React.FC<CookieConsentModalProps> = ({
       </div>
     </div>
   );
-};
+}

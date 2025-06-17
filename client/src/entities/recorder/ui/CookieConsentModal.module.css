@@ -12,19 +12,46 @@
   pointer-events: none;
 }
 
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  line-height:;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ede5dd;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #ede5dd;
+  line-height: 1.4;
+  margin-left: 150px;
+  padding-top: 10px;
+  width: 100%;
+}
+
 .modalContent {
   background: rgba(34, 30, 24, 0.95);
   border-radius: 24px;
-  padding: 24px 20px 18px 20px;
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
   color: #ede5dd;
-  font-family: 'Montserrat', sans-serif;
   min-width: 280px;
   max-width: 340px;
-  font-size: 0.8rem;
+  font-size: 14px;
   text-align: center;
   pointer-events: auto;
-  line-height: 1.2;
+  line-height: 1.5;
+  
 }
 
 .modalMessage {
@@ -39,7 +66,7 @@
 }
 
 .link {
-  color: #e7c27a;
+  color: #e3c7a3;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s;
@@ -51,7 +78,7 @@
 
 .saveButton,
 .rejectButton {
-  background-color: #e7c27a;
+  background-color: #bdb7b0;
   color: #2b251f;
   border: none;
   margin-top: 5px;
@@ -64,8 +91,8 @@
 
 .saveButton:hover,
 .rejectButton:hover {
-  background: #bfa14e;
-  color: #fff;
+  background: #e3c7a3;
+  color: #2b251f;
 }
 
 .realCheckbox {
@@ -103,6 +130,14 @@
 .realCheckbox:checked + .customCheckbox::before {
   transform: translate(-50%, -50%) scale(1);
 }
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 ;
+  padding: 0 10px;
+}
 /* —————————————— Смартфоны (до 480px) —————————————— */
 @media (max-width: 480px) {
   .modalOverlay {
@@ -114,7 +149,7 @@
   }
 
   .modalContent {
-    width: 100vw;
+    width: 90vw;
     max-width: 480px;
     padding: 16px 12px 14px;
     border-radius: 16px;
@@ -127,8 +162,8 @@
   .okButton,
   .saveButton,
   .rejectButton {
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 12px 30px;   /* больше отступы */
+    font-size: 0.9rem;    /* увеличенный размер текста */
   }
 }
 

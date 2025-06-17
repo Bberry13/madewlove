@@ -14,7 +14,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
+export function AuthProvider({ children }: { children: ReactNode }): React.JSX.Element {
 //   const dispatch = useAppDispatch();
   const { user, isInitialized, loading } = useAppSelector((state) => state.user);
 

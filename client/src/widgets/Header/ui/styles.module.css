@@ -92,11 +92,9 @@
 /* Mobile version */
 @media (max-width: 420px) {
   .header {
-    position: fixed;
-    top: 10px;
     left: 345px;
-    height: 75px;
-    width: 75px;
+    height: 50px;
+    width: 50px;
     max-width: 75px;
   }
 
@@ -112,10 +110,10 @@
 
   .header__logo {
     position: absolute;
-    top: 22px;
-    right: 120px;
-    width: 120px;
-    height: 38px;
+    top: 16px;
+    right: 150px;
+    width: 91px;
+    height: 44px;
     z-index: 2000;
     background: none;
     margin: 0;
@@ -131,10 +129,149 @@
 
   .header__logo_menu {
     position: fixed;
-    top: 22px;
-    right: 120px;
-    width: 120px;
-    height: 38px;
+    top: 16px;
+    right: 150px;
+    width: 91px;
+    height: 44px;
+    z-index: 2001;
+    background: none;
+    margin: 0 auto 32px auto;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .header__logo_menu img {
+    width: 100%;
+    height: 100%;
+    background: none;
+  }
+
+  /* Навигационное меню */
+  .navMenu {
+    position: fixed;
+    padding: 80px 0px 0px 0;
+    top: -10px;
+    right: -10px;
+    height: 100vh;
+    width: 75vw;
+    min-width: 230px;
+    max-width: 340px;
+    background: #231912e1;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    transform: translateX(110%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navMenu.open {
+    transform: translateX(0);
+  }
+
+  /* Пункты меню */
+  .header_nav {
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 45px;
+    cursor: pointer;
+    color: #f5f5f5;
+    transition: color 0.2s;
+  }
+
+  .header__logo_open {
+    display: block;
+    position: absolute;
+    bottom: 35px;
+    right: 140px;
+    z-index: 1001;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .header_open {
+    padding: 100px 0px 0px 0;
+  }
+
+  .header_nav:hover {
+    color: #cc9966;
+  }
+
+  .active {
+    color: #cc9966;
+    font-weight: 600;
+  }
+
+  /* Бургер-меню */
+  .burger {
+    position: fixed;
+    top: 3px;
+    right: 4px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  /* Полоски бургера */
+  .bar {
+    width: 22px;
+    height: 3px;
+    background-color: #ede5dd;
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+}
+
+@media (max-width: 530px) and (min-width: 421px) {
+  .header {
+    top: 10px;
+    left: 390px;
+    height: 75px;
+    width: 75px;
+    max-width: 75px;
+  }
+
+  .header_open {
+    position: fixed;
+    top: 10px;
+    left: 390px;
+    height: 75px;
+    width: 75px;
+    max-width: 75px;
+    flex-direction: column;
+  }
+
+  .header__logo {
+    position: absolute; 
+    right: 168px;
+    height: 45px;
+    z-index: 2000;
+    background: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .header__logo img {
+    width: 100%;
+    height: 100%;
+    background: none;
+  }
+
+  .header__logo_menu {
+    position: fixed;
+    top: 16px;
+    right: 168px;
+    width: 91px;
+    height: 44px;
     z-index: 2001;
     background: none;
     margin: 0 auto 32px auto;
@@ -241,14 +378,6 @@
     margin: 3px 0;
     border-radius: 2px;
     transition: 0.3s;
-  }
-}
-
-@media (max-width: 530px) and (min-width: 421px) {
-  .header_nav {
-    margin-top: 10px;
-    margin-left: 30px;
-    font-size: 20px;
   }
 }
 

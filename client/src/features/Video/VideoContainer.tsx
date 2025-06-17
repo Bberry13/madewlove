@@ -19,14 +19,14 @@ const VideoContainerComponent = (): JSX.Element => {
           <div className={styles.mainPage_content}>
             <h1 className={styles.mainPage_title}>Ваш семейный фотограф</h1>
             <p className={styles.mainPage_subtitle}>
-              От первых минут жизни до больших праздников —<br />
-              мы рядом, чтобы сохранить главное
+              От первых минут жизни до больших праздников — 
+              мы рядом,<br /> чтобы сохранить главное
             </p>
             <button className={styles.mainPage_button}>Записаться</button>
           </div>
           <div className={styles.mainPage_link}>
             <img src={downArrow} alt="downArrow" className={styles.downArrow} />
-            <p className={styles.mainPage_link_text}>узнать о нас больше</p>
+            <p className={styles.mainPage_link_text}>Узнать о нас больше</p>
           </div>
         </div>
       </div>

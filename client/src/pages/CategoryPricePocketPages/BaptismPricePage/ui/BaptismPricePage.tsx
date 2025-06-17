@@ -13,4 +13,3 @@ export function BaptismPricePage(): React.JSX.Element {
     />
   );
 }
-

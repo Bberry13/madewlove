@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  type MouseEvent,
-  type JSX,
-} from 'react';
+import React, { useState, useEffect, useRef, type MouseEvent } from 'react';
 import logo from '@/assets/Header/Header_Logo.png';
 import styles from './styles.module.css';
 import { useNavigate, useLocation } from 'react-router';
@@ -14,7 +8,7 @@ interface NavItem {
   path: string;
 }
 
-export function Header(): JSX.Element {
+export function Header(): React.JSX.Element {
   const navigate = useNavigate();
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);

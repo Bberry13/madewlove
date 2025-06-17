@@ -7,6 +7,17 @@
   z-index: 0;
 }
 
+.header__logo_menu {
+  position: absolute;
+  height: 55px;
+  z-index: 2001;
+  background: none;
+  margin: 16px 38%;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+}
+
 .videoBg {
   width: 100%;
   height: 100%;
@@ -113,5 +124,16 @@
 @media (max-width: 768px) {
   .mainPage {
     padding: 0 16px;
+  }
+
+  .mainPage_title {
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .mainPage_subtitle {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 8px 0 24px;
   }
 }

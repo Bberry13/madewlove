@@ -1,4 +1,7 @@
-import { getAllPriceThunk, updatePriceThunk } from "@/entities/price/api/priceThunkApi";
+import {
+  getAllPriceThunk,
+  updatePriceThunk,
+} from "@/entities/price/api/priceThunkApi";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import React, { useEffect, useState } from "react";
@@ -11,10 +14,11 @@ import { refreshTokenThunk } from "@/entities/user/api/userThunkApi";
 
 type PricePageProps = {
   title: string;
-  introText: string;
-  faqData: { question: string; answer: string }[];
+  introText?: string;
+  faqData?: { question: string; answer: string }[];
   priceGroupIndex: number;
   photos: string[];
+  additionalInfo?: AdditionalInfo;
 };
 
 type EditPriceForm = {
@@ -24,20 +28,54 @@ type EditPriceForm = {
   info_body: string;
 };
 
+// опц блок НЕ ВКЛЮЧЕНО - для birth
+type AdditionalInfo = {
+  title: string;
+  items?: string[]; // ли элементы
+  note: string;
+};
+
 export function CommonPricePage({
   title,
   introText,
   faqData,
   priceGroupIndex,
   photos,
+  additionalInfo,
 }: PricePageProps): React.JSX.Element {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { prices, isLoading, error } = useAppSelector((state) => state.price);
-  const { user, isInitialized, loading: userLoading } = useAppSelector((state) => state.user);
+  const {
+    user,
+    isInitialized,
+    loading: userLoading,
+  } = useAppSelector((state) => state.user);
   const isAdmin = user?.role === "ADMIN" || false;
-  console.log("CommonPricePage state:", { isAdmin, user, isInitialized, userLoading });  // Для отладки
+  console.log("CommonPricePage state:", {
+    isAdmin,
+    user,
+    isInitialized,
+    userLoading,
+  }); // Для отладки -убрать
   const [editPrice, setEditPrice] = useState<EditPriceForm | null>(null);
+  const [scrollPosition, setScrollPosition] = useState<number>(0); // Состояние для позиции скролла
+
+  // поз скрола при котрытие и закрытие моадллкли
+  useEffect(() => {
+    if (editPrice) {
+      setScrollPosition(window.scrollY);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollPosition);
+    }
+
+    // oчищаем стили при размонтировании
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [editPrice, scrollPosition]);
 
   useEffect(() => {
     if (!isInitialized) {
@@ -208,12 +246,28 @@ export function CommonPricePage({
           </div>
         </div>
       )}
-
+      {additionalInfo && (
+        <div className={styles.additionalInfo}>
+          <div className={styles.divider} />
+          <h3>{additionalInfo.title}</h3>
+          {additionalInfo.items && (
+            <ul>
+              {additionalInfo.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+          <p>{additionalInfo.note}</p>
+        </div>
+      )}
+      {introText && (
+        <div className={styles.intro}>
+          <div className={styles.divider} />
+          <p>{introText}</p>
+        </div>
+      )}
       <div className={styles.divider} />
-      <div className={styles.intro}>
-        <p>{introText}</p>
-      </div>
-      <FAQ faq={faqData} />
+      {faqData && <FAQ faq={faqData} />}
     </div>
   );
 }

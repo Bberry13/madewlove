@@ -18,7 +18,7 @@ import { PhotoBookPricePage } from '@/pages/CategoryPricePocketPages/PhotoBooksP
 import ContactsPage from '@/pages/Contacts/ui/ContactsPage';
 import ReviewsPage from '@/pages/Reviews/ui/ReviewsPage';
 import { PortfolioPage } from '@/pages/PortfolioPage/ui/PortfolioPage';
-import { ExtractsGroup } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ui/ExtractsGroup';
+import { ExtractsGroupPage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ui/ExtractsGroupPage';
 import { CKBPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsCKBPage/ui/ExtractsCKBPage';
 import { LapinoPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsLapinoPage/ui/ExtractsLapinoPage';
 import { MDPricePage } from '@/pages/CategoryPricePocketPages/ExtractsGroup/ExtractsMDPage/ui/ExtractsMDPage';
@@ -59,7 +59,7 @@ export function RouterProvider(): React.JSX.Element {
         />
          <Route
           path={CLIENT_ROUTING.PRICE_EXTRACTS}
-          element={<ExtractsGroup />}
+          element={<ExtractsGroupPage />}
         />
           <Route
           path={CLIENT_ROUTING.PRICE_CKB}

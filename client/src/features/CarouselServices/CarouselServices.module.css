@@ -1,6 +1,6 @@
 .mySwiper {
   width: 100%;
-  margin: 120px auto;
+  margin: 50px 0 120px;
   -webkit-mask-image: linear-gradient(to right, 
     transparent 0%, 
     black 5%, 
@@ -35,6 +35,13 @@
 .mySwiper :global(.swiper-pagination-bullet-active) {
   background-color: #e3c7a3;
   opacity: 1;
+}
+.servicesTitle {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e3c7a3;
 }
   
   .swiperSlideImg {

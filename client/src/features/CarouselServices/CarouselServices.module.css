@@ -1,15 +1,10 @@
 .mySwiper {
     width: 100%;
-<<<<<<< HEAD
+
     margin: 120px auto;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-=======
-    margin: 120px 80px;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
->>>>>>> 15b09846cdf1e83079cc977074581909100e1354
-  }
+}
   
   .swiper-slide {
     display: flex;
@@ -17,14 +12,7 @@
     max-width: 180px;
     margin: 0 16px;
     aspect-ratio: 16 / 9;
-<<<<<<< HEAD
-    display: flex;
-    width: 100%;
-    max-width: 180px;
-    margin: 0;
-=======
     padding: 20px;
->>>>>>> 15b09846cdf1e83079cc977074581909100e1354
   }
   
   .swiperSlideImg {

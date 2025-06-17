@@ -1,9 +1,10 @@
 .faqSection {
   max-width: 900px;
-  margin: 80px 8px;
+  margin: 60px auto;
   padding: 40px 24px;
   background: rgba(34, 30, 24, 0.85);
   border-radius: 28px;
+  position: relative;
 }
 
 .faqTitle {
@@ -64,6 +65,13 @@
   line-height: 1.6;
   animation: fadeInFaq 0.3s;
 }
+.desktopOnly {
+  display: inline;
+}
+
+.mobileOnly {
+  display: none;
+}
 
 @media (max-width: 1200px) {
   .faqSection {
@@ -80,5 +88,34 @@
   .faqAnswer {
     font-size: 0.98rem;
     padding: 0 12px 14px 12px;
+  }
+}
+@media (max-width: 760px) {
+  .faqSection {
+    padding: 24px 16px;
+    margin: 0 16px;
+  }
+
+  .faqTitle {
+    font-size: 22px;
+  }
+
+  .faqQuestion {
+    font-size: 16px;
+    padding: 14px 16px;
+    line-height: 22px;
+  }
+
+  .faqAnswer {
+    font-size: 14px;
+    padding: 0 16px 14px 16px;
+    line-height: 18px;
+  }
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: inline;
   }
 }

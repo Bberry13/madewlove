@@ -1,22 +1,41 @@
 .mySwiper {
-    width: 100%;
-    margin: 120px 80px;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 100%, transparent 100%);
-  }
-  
-  .swiper-slide {
-    display: flex;
-    width: 100%;
-    max-width: 180px;
-    margin: 0 16px;
-    aspect-ratio: 16 / 9;
-    display: flex;
-    width: 100%;
-    max-width: 180px;
-    margin: 0;
-    padding: 20px;
-  }
+  width: 100%;
+  margin: 120px auto;
+  -webkit-mask-image: linear-gradient(to right, 
+    transparent 0%, 
+    black 5%, 
+    black 95%, 
+    transparent 100%);
+  mask-image: linear-gradient(to right, 
+    transparent 0%, 
+    black 5%, 
+    black 95%, 
+    transparent 100%);
+    padding-bottom: 40px;
+} 
+.mySwiper :global(.swiper-pagination) {
+  display: none;
+  justify-content: center;
+  gap: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.mySwiper :global(.swiper-pagination-bullet) {
+  background-color: #cccccca2;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mySwiper :global(.swiper-pagination-bullet-active) {
+  background-color: #e3c7a3;
+  opacity: 1;
+}
   
   .swiperSlideImg {
     width: 100%;
@@ -27,9 +46,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     filter: brightness(0.8);
   }
-  :global(.swiper-slide-active) .swiperSlideImg {
+  :global(.swiper-slide-active) :global(.swiperSlideImg) {
     transform: scale(1.05);
-    transition: transform 0.3s ease;
   }
   .swiper-slide:first-child {
     margin-left: 0;
@@ -57,9 +75,6 @@
     width: 100%;
     padding: 0 16px;
     box-sizing: border-box;
-    /* background: rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    max-width: 300px; */
   }  
   .textContainer {
     font-size: 1.3rem;
@@ -91,10 +106,20 @@
       -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.26) 20%, rgba(0, 0, 0, 0.377) 90%, transparent 100%);
       mask-image: linear-gradient(to right, transparent 0%, rgb(0, 0, 0) 5%, rgb(0, 0, 0) 90%, transparent 100%);
     }
+    .mySwiper :global(.swiper-pagination) {
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 0 16px 0 16px;
+    }
   
     .swiper-slide {
-      max-width: 140px; /* чуть меньше слайды на мобильных */
-      aspect-ratio: 4 / 3; /* можно изменить пропорции для мобильных */
+      max-width: 140px;
+      aspect-ratio: 4 / 3;
     }
   
     .swiperSlideImg {
@@ -103,21 +128,24 @@
     }
   
     .overlay {
-      bottom: 10px;
-      padding: 0 8px;
+      bottom: 16px;
+      padding: 0 16px;
       text-align: center;
     }
   
     .textContainer {
-      font-size: 1rem;
+      font-size: 20px;
       margin-bottom: 10px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
   
     .selectButton {
-      padding: 12px 20px;
-      font-size: 11px;
-      line-height: normal;
+      padding: 18px 24px;
+      width: 100%;
+      font-size: 14px;
+      line-height: 5px;
+      font-weight: 400;
+      color: #2b251f;
     }
     
     /* Уменьшим размеры стрелок */

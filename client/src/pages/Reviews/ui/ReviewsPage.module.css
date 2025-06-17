@@ -1,8 +1,8 @@
 .reviewsWrapper {
   max-width: 800px;
   min-width: 250px;
-  margin: 120px auto 0 auto;
-  padding: 24px 8px 64px 8px;
+  margin: 0 auto;
+  padding: 150px 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -19,9 +19,9 @@
 }
 
 .reviewAvatar {
-  max-width: 64px;
-  max-height: 64px;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
   object-fit: cover;
   border: 3px solid #ede5dd;
   background: #fff;
@@ -68,8 +68,8 @@
 @media (max-width: 600px) {
   .reviewsWrapper {
     gap: 24px;
-    padding: 8px 2px 32px 2px;
-    margin: 100px 8px;
+    padding: 120px 8px 64px 8px;
+    margin: 0px 8px;
   }
   .reviewItem {
     gap: 10px;
@@ -81,7 +81,7 @@
   .reviewBubble {
     font-size: 0.98rem;
     padding: 14px 12px 14px 16px;
-    max-width: 95vw;
+    max-width: 80vw;
     min-width: 0;
   }
   .reviewItem.left .reviewBubble::before {

@@ -105,6 +105,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: end;
+  cursor: pointer;
+  pointer-events: auto;
+  unicode-bidi: isolate;
+  z-index: 1000;
 }
 
 .downArrow {

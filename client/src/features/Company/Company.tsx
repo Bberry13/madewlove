@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styles from './Company.module.css';
 
-export function Company(): React.JSX.Element {
-  return (
-    <>
+const Company = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
+  (props, ref) => (
+    <div ref={ref} {...props}>
       <section className={`${styles.advantagesGrid} ${styles.wrapper}`}>
         <div className={styles.advantageItem}>
           <div className={styles.advantageTitle}>
-            <span className={styles.advantageAccent}>Премиум</span> 
+            <span className={styles.advantageAccent}>Премиум</span>
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-          Отсутствие &quot;конвейера&quot;,<br /> помощь на всех этапах, <br /> не просто фото, а ваша история &nbsp;
+            Отсутствие &quot;конвейера&quot;,
+            <br /> помощь на всех этапах, <br /> не просто фото, а ваша история
+            &nbsp;
           </div>
         </div>
         <div className={styles.advantageItem}>
@@ -20,8 +22,8 @@ export function Company(): React.JSX.Element {
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-          Команда из профессиональных фотографов
-          с многолетним опытом в детской съемке
+            Команда из профессиональных фотографов с многолетним опытом в
+            детской съемке
           </div>
         </div>
         <div className={styles.advantageItem}>
@@ -30,11 +32,15 @@ export function Company(): React.JSX.Element {
           </div>
           <div className={styles.advantageLine}></div>
           <div className={styles.advantageDesc}>
-          С первых движений в животике до первых шагов
-          снимаем с душой —оформляем фотокниги с любовью
+            С первых движений в животике до первых шагов снимаем с душой
+            —оформляем фотокниги с любовью
           </div>
         </div>
       </section>
-    </>
-  );
-}
+    </div>
+  )
+);
+
+Company.displayName = 'Company';
+
+export { Company };

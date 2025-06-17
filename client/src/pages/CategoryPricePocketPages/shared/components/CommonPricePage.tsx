@@ -8,9 +8,10 @@ import React, { useEffect, useState } from "react";
 import type { TypePrice } from "@/entities/price/model/TypePrice";
 import styles from "../styles/PricePage.module.css";
 import { FAQ } from "@/features/FAQ/FAQ";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { FaEdit } from "react-icons/fa";
 import { refreshTokenThunk } from "@/entities/user/api/userThunkApi";
+import { CLIENT_ROUTING } from "@/shared/enums/clientRouting";
 
 type PricePageProps = {
   title: string;
@@ -132,11 +133,26 @@ export function CommonPricePage({
       console.error("Ошибка при сохранении:", error);
     }
   };
+  const location = useLocation();
+
+const handleViewPhotosClick = () => {
+  const currentPath = location.pathname; // текущий путь, например "/price/birth"
+
+  let targetPath = "/portfolio";
+
+  if (currentPath.startsWith("/price/")) {
+    const suffix = currentPath.replace("/price", ""); // /birth
+    targetPath += suffix;
+  }
+  
+  navigate(targetPath);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
   return (
     <div className={styles.page}>
       <div className={styles.mainTitle}>
-        <h1>{title}</h1>
+        <h1 className={styles.mainTitleText}>{title}</h1>
       </div>
       <div className={styles.priceContainer}>
         {priceGroup.map((price: TypePrice, index: number) => {
@@ -194,11 +210,13 @@ export function CommonPricePage({
               <div className={styles.buttonsContainer}>
                 <button
                   className={styles.cardButton}
-                  onClick={() => navigate("/contacts")}
+                  onClick={() => {navigate(CLIENT_ROUTING.CONTACTS); window.scrollTo({ top: 0, behavior: 'smooth' });}}
                 >
                   Связаться
                 </button>
-                <button className={styles.cardButton}>Посмотреть фото</button>
+                <button className={styles.cardButton}
+                onClick={handleViewPhotosClick}
+                >Посмотреть фото</button>
               </div>
             </div>
           );

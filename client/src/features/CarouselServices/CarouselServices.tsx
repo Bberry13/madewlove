@@ -71,7 +71,7 @@ export function CarouselServices(): React.JSX.Element {
   return (
     <>
     <div style={{textAlign: 'center', marginBottom: '20px'}}>
-      <h2>Наши услуги</h2>
+      <h2 className={styles.servicesTitle}>Услуги</h2>
     </div>
     <div style={{ position: 'relative' }}>
       <Swiper

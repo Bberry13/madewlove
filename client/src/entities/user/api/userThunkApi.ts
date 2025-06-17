@@ -8,6 +8,7 @@ import type {
   ISignUpData,
   Verify2FADataType,
   TwoFAResponseType,
+  UserType,
 } from "@/entities/user/model/userTypes";
 import { USER_THUNK_TYPES } from "@/shared/enums/userThunkTypes";
 import { AUTH_API_ROUTES } from "@/shared/enums/authApiRoutes";
@@ -22,38 +23,18 @@ export const refreshTokenThunk = createAsyncThunk<
   { rejectValue: IApiResponseReject }
 >(USER_THUNK_TYPES.REFRESH_TOKEN, async (_, { rejectWithValue }) => {
   try {
-    const { data } = await axiosInstance.get<
+    const { data } = await axiosInstance.post<
       IApiResponseSuccess<UserWithTokenType>
     >(AUTH_API_ROUTES.REFRESH_TOKEN);
+    console.log("refreshTokenThunk full response:", JSON.stringify(data, null, 2));  // убрать когда пофиксю ошибки
     setAccessToken(data.data.accessToken);
     return data;
   } catch (error) {
     const err = error as AxiosError<IApiResponseReject>;
+    console.error("refreshTokenThunk error:", err.response?.data);
     return rejectWithValue(err.response!.data);
   }
 });
-
-// export const signUpThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignUpData , {rejectValue : IApiResponseReject}>(USER_THUNK_TYPES.SIGN_UP, async (userData, {rejectWithValue}) => {
-//     try {
-//         const {data} = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_UP, userData);
-//         setAccessToken(data.data.accessToken)
-//         return data
-//     } catch (error) {
-//         const err = error as AxiosError<IApiResponseReject>
-//         return rejectWithValue(err.response!.data)
-//     }
-// })
-
-// export const signInThunk = createAsyncThunk<IApiResponseSuccess<UserWithTokenType>, ISignInData, {rejectValue: IApiResponseReject}>(USER_THUNK_TYPES.SIGN_IN, async (userData, {rejectWithValue}) => {
-// try {
-//     const { data } = await axiosInstance.post<IApiResponseSuccess<UserWithTokenType>>(AUTH_API_ROUTES.SIGN_IN, userData)
-//     setAccessToken(data.data.accessToken)
-//     return data
-// } catch (error) {
-//     const err = error as AxiosError<IApiResponseReject>
-//     return rejectWithValue(err.response!.data)
-// }
-// })
 
 // в случае выхода из система лучше использовать метод delete или post,так как изменения происходят
 // на уровне удаления текущей сессии,
@@ -156,3 +137,28 @@ export const verifySignIn2FAForAdminThunk = createAsyncThunk<
     }
   }
 );
+
+// получение текующего юзера
+export const getProfileThunk = createAsyncThunk<
+  IApiResponseSuccess<UserType>,
+  void,
+  { rejectValue: IApiResponseReject }
+>(USER_THUNK_TYPES.GET_PROFILE, async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axiosInstance.get<IApiResponseSuccess<UserType>>(
+      "/auth/me",
+      { withCredentials: true }
+    );
+    console.log("getProfileThunk data:", data); // Для отладки
+    return data;
+  } catch (error) {
+    const err = error as AxiosError<IApiResponseReject>;
+    console.error("getProfileThunk error:", err.response?.data);
+    return rejectWithValue(err.response?.data || {
+      statusCode: 500,
+      message: "Ошибка получения профиля",
+      data: null,
+      error: err.message || "Unknown error",
+    });
+  }
+});

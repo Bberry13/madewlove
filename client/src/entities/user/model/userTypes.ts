@@ -12,10 +12,11 @@ export interface ISignUpData extends ISignInData {
 // Тип юзера
 export type UserType = {
     id: string;// точно ли стринга?
+    role: "ADMIN" | "USER"; // проверить
     email: string;
     name: string;
-    createdAt: string;
-    updatedAt: string;
+    createdAt?: string;
+    updatedAt?: string;
 }
 // Тип юзера с токеном доступа
 export type UserWithTokenType = {

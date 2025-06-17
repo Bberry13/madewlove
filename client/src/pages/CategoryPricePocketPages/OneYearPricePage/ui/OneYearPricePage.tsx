@@ -1,90 +1,15 @@
-import { getAllPriceThunk } from "@/entities/price/api/priceThunkApi";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
-import React, { useEffect } from "react";
-import type { TypePrice } from "@/entities/price/model/TypePrice";
-import styles from "../../shared/styles/PricePage.module.css";
-import { FAQ } from "@/features/FAQ/FAQ";
-import { oneyearFAQData } from "../model/FAQ_data";
-
-import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
-import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
-import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
-import { useNavigate } from "react-router";
-
-const photos = [mainPagePhoto1, mainPagePhoto2, mainPagePhoto3];
+import React from "react";
+import { oneyearData } from "../model/oneyearData";
+import { CommonPricePage } from "../../shared/components/CommonPricePage";
 
 export function OneYearPricePage(): React.JSX.Element {
-    const navigate = useNavigate()
-  const dispatch = useAppDispatch();
-  const { prices, isLoading, error } = useAppSelector((state) => state.price);
-
-  useEffect(() => {
-    dispatch(getAllPriceThunk());
-  }, [dispatch]);
-
-  if (isLoading) {
-    return <div className={styles.loading}>Загрузка</div>;
-  }
-
-  if (!prices.length) {
-    return <div className={styles.empty}>Цены не найдены</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>Ошибка: {error}</div>;
-  }
-
-  // (группа "Годовасики-пивасики") 9 индекс?
-  // здесь логика может поменятся из-за самой карточки , где видео
-  const birthGroup = prices[9];
-
   return (
-    <div className={styles.page}>
-      <div className={styles.mainTitle}>
-        <h1>Годовасие</h1>
-      </div>
-      <div className={styles.priceContainer}>
-        {birthGroup.map((price: TypePrice, index: number) => (
-          <div key={price.id} className={styles.priceCard}>
-            <div className={styles.imageContainer}>
-              <img
-                src={photos[index]}
-                alt={price.package_title}
-                className={styles.cardImage}
-              />
-            </div>
-            <h2 className={styles.cardTitle}>{price.package_title}</h2>
-            <h3 className={styles.priceTitle}>{price.price_title}</h3>
-            <ul className={styles.infoBody}>
-              {price.info_body
-                .replace(/[[\]]/g, "")
-                .replace(/"/g, "")
-                .split(",")
-                .map((item, index) => (
-                  <li key={index} className={styles.infoItem}>
-                    {item.trim()}
-                  </li>
-                ))}
-            </ul>
-            <div className={styles.buttonsContainer}>
-            <button className={styles.cardButton} onClick={() => navigate('/contacts')}>Связаться</button>
-              <button className={styles.cardButton}>Посмотреть фото</button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className={styles.divider} />
-      <div className={styles.intro}>
-        <p>
-          Что такое один год? 1 годик - это... около 10 киллогаромов счастья,
-          малыши копируют поведение взрослых, познают мир, улыбаются, смеются и
-          резко огорчаются - эмоции, которые точно стоит запомнить навсегда...
-          Для съемки `Годовасие` мы подготовили целый пакет услуг, где от вас
-          требуется только придти на съемку, на которой будет все готово.
-        </p>
-      </div>
-      <FAQ faq={oneyearFAQData} />
-    </div>
+    <CommonPricePage
+      title={oneyearData.title}
+      introText={oneyearData.introText}
+      faqData={oneyearData.faqData}
+      priceGroupIndex={oneyearData.priceGroupIndex}
+      photos={oneyearData.photos}
+    />
   );
 }

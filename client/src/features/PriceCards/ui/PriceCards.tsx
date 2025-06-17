@@ -1,102 +1,56 @@
+// src/features/PriceCards/ui/PriceCards.tsx
 import React from "react";
-// import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-// import { useAppSelector } from "@/shared/hooks/useAppSelector";
-// import { getAllPriceThunk } from "@/entities/price/api/priceThunkApi";
-// import type { TypePrice } from "@/entities/price/model/TypePrice";
-
 import styles from "./PriceCards.module.css";
-
-// Импортируем все фотографии
-import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
-import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
-import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
-import mainPagePhoto4 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
-import mainPagePhoto5 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
-import mainPagePhoto6 from "@/assets/MainPage/Photos/mainPagePhoto6.jpg";
-import mainPagePhoto7 from "@/assets/MainPage/Photos/mainPagePhoto7.jpg";
-import mainPagePhoto8 from "@/assets/MainPage/Photos/mainPagePhoto8.jpg";
 import { useNavigate } from "react-router";
-// import { CLIENT_ROUTING } from "@/shared/enums/clientRouting";
 
-// Объект с данными для карточек
-const priceCardsData = {
-  pregnancy: {
-    title: "Беременность",
-    photo: mainPagePhoto1,
-    buttonText: "Узнать стоимость",
-    path: "/price/pregnancy",
-  },
-  // 1 индекс в массиве для этой категории, остальные по порядку
-  // цена будет вырезана , чтобы ноль не светился
-  birth: {
-    title: "Рождение",
-    photo: mainPagePhoto2,
-    buttonText: "Узнать стоимость",
-    path: "/price/birth",
-  },
-  extracts: {
-    title: "Выписки",
-    photo: mainPagePhoto3,
-    buttonText: "Выбрать роддом",
-    path: "/price/extracts",
-  },
-  newborn: {
-    title: "Ньюборн",
-    photo: mainPagePhoto4,
-    buttonText: "Узнать стоимость",
-    path: "/price/newborn",
-  },
-  baptism: {
-    title: "Крещение",
-    photo: mainPagePhoto5,
-    buttonText: "Узнать стоимость",
-    path: "/price/baptism",
-  },
-  familyPhotoShoot: {
-    title: "Семейная фотоссесия",
-    photo: mainPagePhoto6,
-    buttonText: "Узнать стоимость",
-    path: "/price/family",
-  },
-  oneYearPhoto: {
-    title: "Годовасие",
-    photo: mainPagePhoto7,
-    buttonText: "Узнать стоимость",
-    path: "/price/one-year",
-  },
-  photoBooks: {
-    title: "Фотокниги",
-    photo: mainPagePhoto8,
-    buttonText: "Узнать стоимость",
-    path: "/price/photo-books",
-  },
+
+type PriceCardData = {
+  key: string; // Уникальный ключ для рендера
+  title: string;
+  photo: string; 
+  buttonText: string;
+  path: string; 
 };
 
-export function PriceCards(): React.JSX.Element {
+type PriceCardsProps = {
+  cards: PriceCardData[]; 
+  onCardClick?: (path: string) => void; 
+  className?: string;  
+};
+
+export function PriceCards({
+  cards,
+  onCardClick,
+  className = "",
+}: PriceCardsProps): React.JSX.Element {
   const navigate = useNavigate();
 
   const handleClick = (path: string) => {
-    navigate(path);
+    if (onCardClick) {
+      onCardClick(path);
+    } else {
+      navigate(path);
+    }
   };
 
   return (
-    <div className={styles.priceCardsContainer}>
-      {Object.entries(priceCardsData).map(([key, data]) => (
-        <div key={key} className={styles.priceCard}>
+    <div className={`${styles.priceCardsContainer} ${className}`}>
+      {cards.map((card) => (
+        <div key={card.key} className={styles.priceCard}>
           <div className={styles.imageContainer}>
             <img
-              src={data.photo}
-              alt={data.title}
+              src={card.photo}
+              alt={card.title}
               className={styles.cardImage}
             />
           </div>
-          <h2 className={styles.cardTitle}>{data.title}</h2>
+          <h2 className={styles.cardTitle}>{card.title}</h2>
           <div className={styles.buttonsContainer}>
             <button
               className={styles.cardButton}
-              onClick={() => handleClick(data.path)}
+              onClick={() => handleClick(card.path)}
             >
-              {data.buttonText}
+              {card.buttonText}
             </button>
           </div>
         </div>
@@ -104,3 +58,106 @@ export function PriceCards(): React.JSX.Element {
     </div>
   );
 }
+
+// import React from "react";
+
+// import styles from "./PriceCards.module.css";
+
+// // Импортируем все фотографии
+// import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
+// import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
+// import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
+// import mainPagePhoto4 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
+// import mainPagePhoto5 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
+// import mainPagePhoto6 from "@/assets/MainPage/Photos/mainPagePhoto6.jpg";
+// import mainPagePhoto7 from "@/assets/MainPage/Photos/mainPagePhoto7.jpg";
+// import mainPagePhoto8 from "@/assets/MainPage/Photos/mainPagePhoto8.jpg";
+// import { useNavigate } from "react-router";
+// // import { CLIENT_ROUTING } from "@/shared/enums/clientRouting";
+
+// // Объект с данными для карточек
+// const priceCardsData = {
+//   pregnancy: {
+//     title: "Беременность",
+//     photo: mainPagePhoto1,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/pregnancy",
+//   },
+//   // 1 индекс в массиве для этой категории, остальные по порядку
+//   // цена будет вырезана , чтобы ноль не светился
+//   birth: {
+//     title: "Рождение",
+//     photo: mainPagePhoto2,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/birth",
+//   },
+//   extracts: {
+//     title: "Выписки",
+//     photo: mainPagePhoto3,
+//     buttonText: "Выбрать роддом",
+//     path: "/price/extracts",
+//   },
+//   newborn: {
+//     title: "Ньюборн",
+//     photo: mainPagePhoto4,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/newborn",
+//   },
+//   baptism: {
+//     title: "Крещение",
+//     photo: mainPagePhoto5,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/baptism",
+//   },
+//   familyPhotoShoot: {
+//     title: "Семейная фотоссесия",
+//     photo: mainPagePhoto6,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/family",
+//   },
+//   oneYearPhoto: {
+//     title: "Годовасие",
+//     photo: mainPagePhoto7,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/one-year",
+//   },
+//   photoBooks: {
+//     title: "Фотокниги",
+//     photo: mainPagePhoto8,
+//     buttonText: "Узнать стоимость",
+//     path: "/price/photo-books",
+//   },
+// };
+
+// export function PriceCards(): React.JSX.Element {
+//   const navigate = useNavigate();
+
+//   const handleClick = (path: string) => {
+//     navigate(path);
+//   };
+
+//   return (
+//     <div className={styles.priceCardsContainer}>
+//       {Object.entries(priceCardsData).map(([key, data]) => (
+//         <div key={key} className={styles.priceCard}>
+//           <div className={styles.imageContainer}>
+//             <img
+//               src={data.photo}
+//               alt={data.title}
+//               className={styles.cardImage}
+//             />
+//           </div>
+//           <h2 className={styles.cardTitle}>{data.title}</h2>
+//           <div className={styles.buttonsContainer}>
+//             <button
+//               className={styles.cardButton}
+//               onClick={() => handleClick(data.path)}
+//             >
+//               {data.buttonText}
+//             </button>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }

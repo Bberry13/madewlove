@@ -1,8 +1,8 @@
-import React, { type JSX } from 'react';
+import React from 'react';
 import styles from './ContactsPage.module.css';
 import { RecordingForm } from '@/entities/recorder/ui/RecForm';
 
-export default function ContactsPage(): JSX.Element {
+export default function ContactsPage(): React.JSX.Element {
   return (
     <div className={styles.contactsWrapper}>
       <div className={styles.contactsHeader}>

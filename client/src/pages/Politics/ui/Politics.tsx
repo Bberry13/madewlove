@@ -1,7 +1,7 @@
-import React, { type JSX } from 'react';
+import React from 'react';
 import styles from './Politics.module.css';
 
-export function Politics(): JSX.Element {
+export function Politics(): React.JSX.Element {
   return (
     <div className={styles.politicsContainer}>
       <h1>Политика в отношении обработки персональных данных</h1>

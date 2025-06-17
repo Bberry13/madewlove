@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function FooterIcons({ styles }: { styles: { footerIcons: string, footerIcon: string, footerIconSvg: string } }) {
+export function FooterIcons({ styles }: { styles: { footerIcons: string, footerIcon: string, footerIconSvg: string } }): React.JSX.Element {
   return (
     <div className={styles.footerIcons}>
       <a

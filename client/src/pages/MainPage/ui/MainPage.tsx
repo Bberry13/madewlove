@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import React from 'react';
 import { photos } from '@/assets/MainPage/Photos';
 import { faqMainPage } from '@/features/FAQ/FAQ_data';
 import { VideoContainer } from '@/features/Video/VideoContainer';
@@ -8,14 +8,14 @@ import { FAQ } from '@/features/FAQ/FAQ';
 import { RecordingForm } from '@/entities/recorder/ui/RecForm';
 import { CarouselServices } from '@/features/CarouselServices/CarouselServices';
 
-export function MainPage(): JSX.Element {
+export function MainPage(): React.JSX.Element {
 
   return (
     <>
-      <VideoContainer />  
+      <VideoContainer />
       <Company />
       <CarouselPhoto photos={photos} />
-      <CarouselServices/>
+      <CarouselServices />
       <RecordingForm />
       <FAQ faq={faqMainPage} />
     </>

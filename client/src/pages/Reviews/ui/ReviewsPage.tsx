@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ReviewsPage.module.css';
 import { reviews } from '../models';
 
-export default function ReviewsPage() {
+export default function ReviewsPage(): React.JSX.Element {
   return (
     <div className={styles.reviewsWrapper}>
       {reviews.map((review, idx) => (

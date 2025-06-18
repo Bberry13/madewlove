@@ -71,6 +71,7 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
+  
 }
 
 .submitButton:hover {
@@ -86,6 +87,8 @@
 .realCheckbox {
   display: none;
 }
+
+
 
 .customCheckbox {
   flex-shrink: 0;

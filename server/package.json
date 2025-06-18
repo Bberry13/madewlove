@@ -11,7 +11,6 @@
     "dev": "nodemon --exec node --loader ts-node/esm ./src/app.ts",
     "seed": "node --loader ts-node/esm prisma/seed.ts",
     "build": "tsc"
-    
   },
   "keywords": [],
   "author": "",
@@ -30,7 +29,6 @@
     "@types/morgan": "^1.9.10",
     "@types/node": "^24.0.0",
     "@types/nodemailer": "^6.4.17",
-    "@types/swiper": "^5.4.3",
     "eslint": "^9.28.0",
     "globals": "^16.2.0",
     "nodemon": "^3.1.10",

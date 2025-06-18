@@ -4,9 +4,10 @@ import styles from './SuccessModal.module.css';
 interface SuccessModalProps {
   open: boolean;
   onClose: () => void;
+  textModal: string;
 }
 
-const SuccessModal: React.FC<SuccessModalProps> = ({ open, onClose }) => {
+const SuccessModal: React.FC<SuccessModalProps> = ({ open, onClose, textModal }) => {
   useEffect(() => {
     if (!open) return;
     const timer = setTimeout(onClose, 5000);
@@ -18,7 +19,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ open, onClose }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <div className={styles.modalMessage}>Форма успешно отправлена!</div>
+        <div className={styles.modalMessage}>{textModal}</div>
         <button className={styles.okButton} onClick={onClose}>
           ОК
         </button>

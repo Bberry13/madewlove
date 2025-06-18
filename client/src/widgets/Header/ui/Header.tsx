@@ -92,15 +92,40 @@ export function Header(): JSX.Element {
           ))}
         </nav>
 
-        <div
-          ref={burgerRef}
-          className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          <span className={styles.bar}></span>
-          <span className={styles.bar}></span>
-          <span className={styles.bar}></span>
-        </div>
+        {!menuOpen ? (
+          <div
+            ref={burgerRef}
+            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+          </div>
+        ) : (
+          <div className={styles.burgerOpen} onClick={() => setMenuOpen(false)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="30px"
+              viewBox="0 -960 960 960"
+              width="30px"
+              fill="#ede5dd"
+            >
+              <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+            </svg>
+          </div>
+        )}
+        <button className={styles.backButton} onClick={() => navigate(-1)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="30px"
+            viewBox="0 -960 960 960"
+            width="30px"
+            fill="#e3e3e3"
+          >
+            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          </svg>
+        </button>
       </header>
     </>
   );

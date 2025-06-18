@@ -19,13 +19,13 @@ export default defineConfig({
         orientation: 'portrait-primary',
         icons: [
           {
-            src: '/logo-192.png',
+            src: '/src/assets/Header/Header_Logo.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: '/logo-512.png',
+            src: '/src/assets/Header/Header_Logo.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any',

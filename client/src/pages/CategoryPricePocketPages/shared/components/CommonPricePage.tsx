@@ -263,8 +263,8 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
                 Описание:
                 {editPrice.info_body.map((item, index) => (
                   <div key={index} className={styles.infoBodyItem}>
-                    <input
-                      type="text"
+                    <textarea
+                      className={styles.infoBodyItemTextarea}
                       value={item}
                       onChange={(e) => handleInfoBodyChange(index, e.target.value)}
                       placeholder={`Пункт ${index + 1}`}

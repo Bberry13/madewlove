@@ -85,7 +85,7 @@
 @media (max-width: 1200px) {
   .priceCardsContainer {
     grid-template-columns: repeat(3, 1fr);
-    padding: 120px 8px;
+    padding: 120px 16px;
   }
 }
 

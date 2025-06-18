@@ -107,7 +107,6 @@
   justify-content: end;
   cursor: pointer;
   pointer-events: auto;
-  unicode-bidi: isolate;
   z-index: 1000;
 }
 
@@ -139,5 +138,22 @@
     font-size: 18px;
     line-height: 22px;
     margin: 8px 0 24px;
+  }
+
+  .mainPage_button {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 12px 16px;
+  }
+
+  .mainPage_link {
+    bottom: 16px;
+    pointer-events: none;
+  }
+
+  .downArrow {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
   }
 }

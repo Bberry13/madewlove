@@ -2,12 +2,12 @@ import {
   signInThunk,
   signOutThunk,
   verifySignIn2FAForAdminThunk,
-} from '@/entities/user/api/userThunkApi';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import React, { useState, useEffect, type JSX } from 'react';
-import { useNavigate } from 'react-router';
-import styles from '../SignUpForm/RecordingForm.module.css';
+} from "@/entities/user/api/userThunkApi";
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import React, { useState, useEffect, type JSX } from "react";
+import { useNavigate } from "react-router";
+import styles from "../SignUpForm/RecordingForm.module.css";
 
 type InputsSignInType = {
   email: string;
@@ -19,12 +19,12 @@ type TwoFAInputType = {
 };
 
 const initialInputs: InputsSignInType = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 const initial2FAInput: TwoFAInputType = {
-  code: '',
+  code: "",
 };
 
 export function SignInForm(): JSX.Element {
@@ -40,7 +40,7 @@ export function SignInForm(): JSX.Element {
   // Перенаправление после успешного входа
   useEffect(() => {
     if (isInitialized) {
-      navigate('/');
+      navigate("/");
     }
   }, [isInitialized, navigate]);
 
@@ -126,13 +126,20 @@ export function SignInForm(): JSX.Element {
             />
           </div>
           {error && <div className={styles.errorText}>{error}</div>}
-          <button type="submit" className={styles.submitButton}>
-            Войти
-          </button>
-          <button className="nav-link" onClick={() => dispatch(signOutThunk())}>Выход</button>
+
+          <div className={styles.buttonRow}>
+            <button type="submit" className={styles.submitButton}>
+              Войти
+            </button>
+            <button
+              className={styles.logoutButton}
+              onClick={() => dispatch(signOutThunk())}
+            >
+              Выход
+            </button>
+          </div>
         </form>
       )}
     </div>
   );
 }
-

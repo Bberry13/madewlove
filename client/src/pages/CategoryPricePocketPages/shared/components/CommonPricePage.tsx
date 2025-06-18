@@ -207,25 +207,11 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
                 </div>
                 <div className={styles.priceTitleContainer}>
                   <h3 className={styles.priceTitle}>{price.price_title}</h3>
-                  {isAdmin && (
-                    <FaEdit
-                      className={styles.editIcon}
-                      onClick={() => handleEditClick(price)}
-                      title="Редактировать стоимость"
-                    />
-                  )}
                 </div>
                 <ul className={styles.infoBody}>
                   {infoBodyArray.map((item, idx) => (
                     <li key={idx} className={styles.infoItem}>
                       {item.trim()}
-                      {isAdmin && (
-                        <FaEdit
-                          className={styles.editIcon}
-                          onClick={() => handleEditClick(price)}
-                          title="Редактировать описание"
-                        />
-                      )}
                     </li>
                   ))}
                 </ul>

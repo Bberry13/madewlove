@@ -20,7 +20,7 @@ export function CarouselServices(): React.JSX.Element {
   const swiperRef = useRef<SwiperType | null>(null);
 
 
-  const [initialSlide, setInitialSlide] = useState(() => {
+  const [setInitialSlide] = useState(() => {
     if (window.innerWidth >= 1024) {
       return 2; // например, для больших экранов старт слайд 2
     } else if (window.innerWidth >= 768) {

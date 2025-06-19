@@ -10,7 +10,6 @@ export function BirthPricePage(): React.JSX.Element {
       faqData={birthData.faqData}
       priceGroupIndex={birthData.priceGroupIndex}
       photos={birthData.photos}
-      additionalInfo={birthData.additionalInfo}
     />
   );
 }

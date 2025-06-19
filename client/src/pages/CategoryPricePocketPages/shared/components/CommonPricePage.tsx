@@ -356,10 +356,59 @@ export function CommonPricePage({
               >
                 Добавить пункт
               </button>
-            </label>
-            <div className={styles.modalButtons}>
-              <button onClick={handleSave}>Сохранить</button>
-              <button onClick={() => setEditPrice(null)}>Отмена</button>
+              <h2>Редактировать пакет</h2>
+              <label>
+                Название пакета:
+                <input
+                  type="text"
+                  value={editPrice.package_title}
+                  onChange={(e) =>
+                    setEditPrice({ ...editPrice, package_title: e.target.value })
+                  }
+                />
+              </label>
+              <label>
+                Стоимость:
+                <input
+                  type="text"
+                  value={editPrice.price_title}
+                  onChange={(e) =>
+                    setEditPrice({ ...editPrice, price_title: e.target.value })
+                  }
+                />
+              </label>
+              <label>
+                Описание:
+                {editPrice.info_body.map((item, index) => (
+                  <div key={index} className={styles.infoBodyItem}>
+                    <textarea
+                      className={styles.infoBodyItemTextarea}
+                      value={item}
+                      onChange={(e) => handleInfoBodyChange(index, e.target.value)}
+                      placeholder={`Пункт ${index + 1}`}
+                    />
+                    <button
+                      type="button"
+                      className={styles.removeButton}
+                      onClick={() => handleRemoveItem(index)}
+                      title="Удалить пункт"
+                    >
+                      <FaTimes />
+                    </button>
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  className={styles.addButton}
+                  onClick={handleAddItem}
+                >
+                  Добавить пункт
+                </button>
+              </label>
+              <div className={styles.modalButtons}>
+                <button onClick={handleSave}>Сохранить</button>
+                <button onClick={() => setEditPrice(null)}>Отмена</button>
+              </div>
             </div>
           </div>
         </div>

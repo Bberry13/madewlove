@@ -84,6 +84,30 @@
   cursor: not-allowed;
 }
 
+.logoutButton {
+  background-color: #ede5dd;
+  color: #2b251f;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logoutButton:hover {
+  background: rgba(254, 217, 142, 0.174);
+  color: #ffffff;
+}
+
+/* Buttons*/
+.buttonRow {
+  display: flex;
+  justify-content: space-between; /* «Войти» слева, «Выход» справа */
+  gap: 16px; /* или меньше, если хочешь просто отступ между ними */
+  margin-top: 20px;
+}
+
 .realCheckbox {
   display: none;
 }

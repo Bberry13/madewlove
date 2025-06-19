@@ -96,7 +96,7 @@
 }
 
 /* Mobile version */
-@media (max-width: 420px) {
+@media (max-width: 425px) {
   .navMenu {
     flex-direction: column;
     position: fixed;
@@ -154,27 +154,6 @@
     max-width: 350px;
     background: rgba(0, 0, 0, 0);
   }
-}
-
-@media (max-width: 768px) {
-  .navMenu {
-    flex-direction: column;
-    position: fixed;
-    top: -20px;
-    left: 200%;
-    height: 100vh;
-    width: 60%;
-    background-color: none;
-    padding: 80px 30px;
-    gap: 10px;
-    transition: left 0.3s ease;
-    z-index: 100;
-  }
-
-  .navMenu.open {
-    left: 30%;
-  }
-
   .backButton {
     display: block;
     position: absolute;
@@ -192,6 +171,59 @@
     background: rgba(34, 30, 24, 0.7);
   }
 
+  .burgerOpen {
+    display: flex;
+    position: absolute;
+    top: 18px;
+    left: 300px;
+    z-index: 100;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
+
+  .header__logo_mini {
+    right: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navMenu {
+    flex-direction: column;
+    position: fixed;
+    top: -20px;
+    left: 200%;
+    height: 100vh;
+    width: 1000%;
+    padding: 80px 30px;
+    transition: left 0.3s ease;
+    z-index: 100;
+    background-color: rgba(34, 30, 24, 0.95);
+  }
+
+  .navMenu.open {
+    left: 30%;
+  }
+
+  .backButton {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 340px;
+    z-index: 100000;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    background: rgba(34, 30, 24, 0.7);
+  }
+  .backButtonOpen {
+    position: absolute;
+    right: 665px;
+  }
   .burger {
     display: flex;
     position: fixed;
@@ -220,7 +252,7 @@
     display: flex;
     position: absolute;
     top: 18px;
-    right: 8px;
+    left: 320px;
     z-index: 100;
     transform: rotate(90deg);
     transition: transform 0.3s ease;
@@ -233,6 +265,7 @@
 
   .header__logo {
     transition: transform 0.4s ease;
+    display: none;
   }
 
   .header__logo_open {
@@ -254,7 +287,7 @@
     position: absolute;
     display: block;
     top: 32px;
-    margin: 0px 40%;
+    margin: 0px 45%;
     width: 91px;
     height: 44px;
     cursor: pointer;

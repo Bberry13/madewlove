@@ -11,6 +11,7 @@ export const RecordingForm = (): React.JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
+  const [textModal, setTextModal] = useState('');
 
   const {
     register,
@@ -27,6 +28,25 @@ export const RecordingForm = (): React.JSX.Element => {
     defaultValue: false,
   });
 
+  const MAX_SUBMISSIONS = 5;
+  const STORAGE_KEY = 'recording_submissions';
+
+  const getSubmissions = (): TypeRecording[] => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (error) {
+      console.error('Ошибка чтения из localStorage:', error);
+      return [];
+    }
+  };
+
+  const saveSubmission = (submission: TypeRecording) => {
+    const submissions = getSubmissions();
+    submissions.push(submission);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions));
+  };
+
   useEffect(() => {
     setValue('personalData', !!allChecked);
     setValue('oferta', !!allChecked);
@@ -34,12 +54,26 @@ export const RecordingForm = (): React.JSX.Element => {
   }, [allChecked, setValue]);
 
   const onSubmit = async (data: TypeRecording) => {
+    const existingSubmissions = getSubmissions();
+
+    if (existingSubmissions.length >= MAX_SUBMISSIONS) {
+      setTextModal('Вы уже отправили 5 заявок. Спасибо!');
+      return;
+    }
+
     const result = await dispatch(sendRecordingThunk(data));
-    if (sendRecordingThunk.fulfilled.match(result)) {
+
+    if (result.meta?.requestStatus === 'fulfilled') {
+      saveSubmission(data);
       reset();
       setModalOpen(true);
-    } else {
-      alert(`Ошибка: ${result.payload?.message}`);
+      setTextModal('Форма успешно отправлена!');
+    } if (result.meta?.requestStatus === 'rejected') {
+      setModalOpen(true);
+      const message =
+        result.payload?.message || 'Произошла ошибка при отправке формы.';
+      setTextModal(`Ошибка: Возможно у вас включен VPN`);
+      console.log(message);
     }
   };
 
@@ -49,17 +83,18 @@ export const RecordingForm = (): React.JSX.Element => {
         <div className={styles.formTitle}>
           <h3>
             Оставьте заявку <br />
-            </h3>
-            <span>мы свяжемся с вами 
-            <br className={styles.mobileLineBreak} />{' '}как можно скорее</span>
+          </h3>
+          <span>
+            мы свяжемся с вами
+            <br className={styles.mobileLineBreak} /> как можно скорее
+          </span>
         </div>
         <div className={styles.formItem}>
-          {/* <label htmlFor="name">Имя</label> */}
           <input
-            id='name'
+            id="name"
             {...register('name', { required: 'Введите имя' })}
             className={styles.inputField}
-            placeholder='Имя'
+            placeholder="Имя"
           />
           {errors.name && (
             <p className={styles.errorText}>{errors.name.message}</p>
@@ -67,11 +102,10 @@ export const RecordingForm = (): React.JSX.Element => {
         </div>
 
         <div className={styles.formItem}>
-          {/* <label htmlFor="email">Email</label> */}
           <input
-            placeholder='Email'
-            id='email'
-            type='email'
+            placeholder="Email"
+            id="email"
+            type="email"
             {...register('email', {
               required: 'Введите email',
               pattern: {
@@ -87,11 +121,10 @@ export const RecordingForm = (): React.JSX.Element => {
         </div>
 
         <div className={styles.formItem}>
-          {/* <label htmlFor="tel">Телефон</label> */}
           <input
-            type='tel'
-            placeholder='Телефон'
-            id='tel'
+            type="tel"
+            placeholder="Телефон"
+            id="tel"
             {...register('tel', { required: 'Введите номер телефона' })}
             className={styles.inputField}
           />
@@ -101,22 +134,19 @@ export const RecordingForm = (): React.JSX.Element => {
         </div>
 
         <div className={styles.formItem}>
-          {/* <label htmlFor="message" className={styles.labelName}>
-            Сообщение
-          </label> */}
           <input
-            placeholder='Сообщение'
-            id='message'
+            placeholder="Сообщение"
+            id="message"
             {...register('message')}
             className={styles.inputField}
           />
         </div>
 
         <div className={styles.checkboxContainer}>
-          <label htmlFor='personalData' className={styles.checkboxLabel}>
+          <label htmlFor="personalData" className={styles.checkboxLabel}>
             <input
-              id='personalData'
-              type='checkbox'
+              id="personalData"
+              type="checkbox"
               className={styles.realCheckbox}
               {...register('personalData', { required: true })}
             />
@@ -139,10 +169,10 @@ export const RecordingForm = (): React.JSX.Element => {
             <p className={styles.errorText}>Обязательное соглашение</p>
           )}
 
-          <label htmlFor='oferta' className={styles.checkboxLabel}>
+          <label htmlFor="oferta" className={styles.checkboxLabel}>
             <input
-              id='oferta'
-              type='checkbox'
+              id="oferta"
+              type="checkbox"
               className={styles.realCheckbox}
               {...register('oferta', { required: true })}
             />
@@ -164,50 +194,37 @@ export const RecordingForm = (): React.JSX.Element => {
             <p className={styles.errorText}>Обязательное согласие</p>
           )}
 
-          <label htmlFor='mailing' className={styles.checkboxLabel}>
+          <label htmlFor="mailing" className={styles.checkboxLabel}>
             <input
-              id='mailing'
-              type='checkbox'
+              id="mailing"
+              type="checkbox"
               className={styles.realCheckbox}
               {...register('mailing')}
             />
-
-<span className={styles.customCheckbox}></span>
-<span>
-  Я согласен на получение{' '}
-  <span
-    className={styles.link}
-    onClick={() => {
-      navigate('/oferta');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }}
-  >
-    рассылки
-  </span>
-</span>
-          </label>
-
-          {/* <label htmlFor="agreeAll" className={styles.checkboxLabel}>
-            <input
-              id="agreeAll"
-              type="checkbox"
-              className={styles.realCheckbox}
-              {...register('agreeAll')}
-            />
             <span className={styles.customCheckbox}></span>
-            Согласиться со всем
-          </label> */}
+            <span>
+              Я согласен на получение{' '}
+              <span
+                className={styles.link}
+                onClick={() => {
+                  navigate('/oferta');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                рассылки
+              </span>
+            </span>
+          </label>
         </div>
-
         <button
-          type='submit'
+          type="submit"
           disabled={isSubmitting}
           className={styles.submitButton}
         >
           Записаться
         </button>
       </form>
-      <SuccessModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <SuccessModal open={modalOpen} onClose={() => setModalOpen(false)} textModal={textModal} />
     </>
   );
 };

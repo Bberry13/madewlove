@@ -1,10 +1,16 @@
 import React from 'react';
 import Masonry from '@mui/lab/Masonry';
 import styles from './PhotoGallery.module.css';
+import { VKVideoPlayer } from '@/pages/PortfolioPage/ui/VKVideoPlayer';
 
 interface PhotoItem {
   src: string;
   title: string;
+}
+
+interface VideoItem {
+  ownerId: number;
+  videoId: string;
 }
 
 interface PhotoGalleryProps {
@@ -14,6 +20,7 @@ interface PhotoGalleryProps {
   naturalPhotos?: PhotoItem[];
   homeStudioPhotos?: PhotoItem[];
   streetPhotos?: PhotoItem[];
+  video?: VideoItem[] | VideoItem;
 }
 
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({
@@ -23,6 +30,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   naturalPhotos,
   homeStudioPhotos,
   streetPhotos,
+  video,
 }) => {
   const renderMasonry = (
     photoArray: PhotoItem[],
@@ -42,7 +50,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
               src={item.src}
               alt={item.title}
               className={styles.photoImage}
-              loading='lazy'
+              loading="lazy"
             />
           </div>
         ))}
@@ -52,6 +60,13 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
 
   return (
     <div className={styles.galleryContainer}>
+      {Array.isArray(video) ? (
+        <VKVideoPlayer className={styles.videoPlayer} ownerId={video[0].ownerId} videoId={video[0].videoId} />
+      ) : (
+        video && (
+          <VKVideoPlayer className={styles.videoPlayer} ownerId={video.ownerId} videoId={video.videoId} />
+        )
+      )}
       <h1 className={styles.mainTitle}>{category}</h1>
 
       {/* Для категорий с подкатегориями */}
@@ -71,6 +86,17 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
 
       {/* Для обычных категорий */}
       {photos && renderMasonry(photos)}
+      {Array.isArray(video) ? (
+        <>
+          <VKVideoPlayer className={styles.videoPlayer} ownerId={video[1].ownerId} videoId={video[1].videoId} />
+          <VKVideoPlayer className={styles.videoPlayer} ownerId={video[2].ownerId} videoId={video[2].videoId} />
+        </>
+      ) : (
+        video && (
+          <>
+          </>
+        )
+      )}
     </div>
   );
 };

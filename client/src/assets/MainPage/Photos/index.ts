@@ -25,6 +25,14 @@ import photo16 from './mainPagePhoto16.jpg';
 import LargePhoto9 from './mainPageLargePhoto9.jpg';
 import photo17 from './mainPagePhoto17.jpg';
 import photo18 from './mainPagePhoto18.jpg';
+import MainPagePricePregnancy from './mainPage_Price_Pregnancy.jpg';
+import MainPagePriceBirth from './mainPage_Price_Birth.jpg';
+import MainPagePriceExtracts from './mainPage_Price_Extracts.jpg';
+import MainPagePriceNewborn from './mainPage_Price_newBorn.jpg';
+import MainPagePriceFamily from './mainPage_Price_Family.jpg';
+import MainPagePriceBaptism from './mainPage_Price_Baptism.jpg';
+import MainPagePriceOneYear from './mainPage_Price_OneYear.jpg';
+import MainPagePricePhotoBooks from './mainPage_Price_PhotoBook.jpg';
 
 export const photos = [
   LargePhoto1,
@@ -67,15 +75,16 @@ export const photosPortfolio = [
   LargePhoto8,
 ];
 
+
 export const photosServices = [
-  { src: LargePhoto1, title: 'Беременность', path: '/price/pregnancy' },
-  { src: LargePhoto2, title: 'Рождение', path: '/price/birth' },
-  { src: LargePhoto3, title: 'Выписки', path: '/price/extracts' },
-  { src: LargePhoto4, title: 'Ньюборн', path: '/price/newborn' },
-  { src: LargePhoto5, title: 'Крещение', path: '/price/baptism' },
-    { src: LargePhoto6, title: 'Семейная фотосессия', path: '/price/family' },
-  { src: LargePhoto7, title: 'Годовасие', path: '/price/one-year' },
-  { src: LargePhoto8, title: 'Фотокниги', path: '/price/photo-books' },
+  { src: MainPagePricePregnancy, title: 'Беременность', path: '/price/pregnancy' },
+  { src: MainPagePriceBirth, title: 'Рождение', path: '/price/birth' },
+  { src: MainPagePriceExtracts, title: 'Выписки', path: '/price/extracts' },
+  { src: MainPagePriceNewborn, title: 'Ньюборн', path: '/price/newborn' },
+  { src: MainPagePriceBaptism, title: 'Крещение', path: '/price/baptism' },
+  { src: MainPagePriceFamily, title: 'Семейная фотосессия', path: '/price/family' },
+  { src: MainPagePriceOneYear, title: 'Годовасие', path: '/price/one-year' },
+  { src: MainPagePricePhotoBooks, title: 'Фотокниги', path: '/price/photo-books' },
 ];
 
-export { LargePhoto1, photo1, photo2, LargePhoto2, photo3, photo4, LargePhoto3, photo5, photo6, LargePhoto4, photo7, photo8, LargePhoto5, photo9, photo10, LargePhoto6, photo11, photo12, LargePhoto7, photo13, photo14, LargePhoto8, photo15, photo16, LargePhoto9, photo17, photo18 };
+export { LargePhoto1, photo1, photo2, LargePhoto2, photo3, photo4, LargePhoto3, photo5, photo6, LargePhoto4, photo7, photo8, LargePhoto5, photo9, photo10, LargePhoto6, photo11, photo12, LargePhoto7, photo13, photo14, LargePhoto8, photo15, photo16, LargePhoto9, photo17, photo18, MainPagePricePregnancy, MainPagePriceBirth, MainPagePriceExtracts, MainPagePriceNewborn, MainPagePriceFamily, MainPagePriceBaptism, MainPagePriceOneYear, MainPagePricePhotoBooks };

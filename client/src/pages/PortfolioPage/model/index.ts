@@ -1,59 +1,67 @@
 import { photosPortfolio } from '@/assets/MainPage/Photos';
+import MainPagePricePregnancy from '@/assets/MainPage/Photos/mainPage_Price_Pregnancy.jpg'
+import MainPagePriceBirth from '@/assets/MainPage/Photos/mainPage_Price_Birth.jpg'
+import MainPagePriceExtracts from '@/assets/MainPage/Photos/mainPage_Price_Extracts.jpg'
+import MainPagePriceNewborn from '@/assets/MainPage/Photos/mainPage_Price_newBorn.jpg'
+import MainPagePriceBaptism from '@/assets/MainPage/Photos/mainPage_Price_Baptism.jpg'
+import MainPagePriceFamily from '@/assets/MainPage/Photos/mainPage_Price_Family.jpg'
+import MainPagePriceOneYear from '@/assets/MainPage/Photos/mainPage_Price_OneYear.jpg'
+import MainPagePricePhotoBooks from '@/assets/MainPage/Photos/mainPage_Price_PhotoBook.jpg'
 
 export const portfolioCardsData = [
   {
     key: 'pregnancy',
     title: 'Беременность',
-    photo: photosPortfolio[0],
+    photo: MainPagePricePregnancy,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/pregnancy',
   },
   {
     key: 'birth',
     title: 'Рождение',
-    photo: photosPortfolio[1],
+    photo: MainPagePriceBirth,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/birth',
   },
   {
     key: 'extracts',
     title: 'Выписки',
-    photo: photosPortfolio[2],
+    photo: MainPagePriceExtracts,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/extracts',
   },
   {
     key: 'newborn',
     title: 'Ньюборн',
-    photo: photosPortfolio[3],
+    photo: MainPagePriceNewborn,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/newborn',
   },
   {
     key: 'baptism',
     title: 'Крещение',
-    photo: photosPortfolio[4],
+    photo: MainPagePriceBaptism,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/baptism',
   },
   {
     key: 'familyPhotoShoot',
     title: 'Семейная фотосессия',
-    photo: photosPortfolio[5],
+    photo: MainPagePriceFamily,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/family',
   },
   {
     key: 'oneYearPhoto',
     title: 'Годовасие',
-    photo: photosPortfolio[6],
+    photo: MainPagePriceOneYear,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/one-year',
   },
   {
     key: 'photoBooks',
     title: 'Фотокниги',
-    photo: photosPortfolio[7],
+    photo: MainPagePricePhotoBooks,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/photo-books',
   },

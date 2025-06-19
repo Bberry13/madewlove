@@ -1,66 +1,65 @@
-import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
-import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
-import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
-import mainPagePhoto4 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
-import mainPagePhoto5 from "@/assets/MainPage/Photos/mainPagePhoto5.jpg";
-import mainPagePhoto6 from "@/assets/MainPage/Photos/mainPagePhoto6.jpg";
-import mainPagePhoto7 from "@/assets/MainPage/Photos/mainPagePhoto7.jpg";
-import mainPagePhoto8 from "@/assets/MainPage/Photos/mainPagePhoto8.jpg";
-
+import MainPagePricePregnancy from '@/assets/MainPage/Photos/mainPage_Price_Pregnancy.jpg'
+import MainPagePriceBirth from '@/assets/MainPage/Photos/mainPage_Price_Birth.jpg'
+import MainPagePriceExtracts from '@/assets/MainPage/Photos/mainPage_Price_Extracts.jpg'
+import MainPagePriceNewborn from '@/assets/MainPage/Photos/mainPage_Price_newBorn.jpg'
+import MainPagePriceBaptism from '@/assets/MainPage/Photos/mainPage_Price_Baptism.jpg'
+import MainPagePriceFamily from '@/assets/MainPage/Photos/mainPage_Price_Family.jpg'
+import MainPagePriceOneYear from '@/assets/MainPage/Photos/mainPage_Price_OneYear.jpg'
+import MainPagePricePhotoBooks from '@/assets/MainPage/Photos/mainPage_Price_PhotoBook.jpg'
 export const priceCardsData = [
   {
     key: "pregnancy",
     title: "Беременность",
-    photo: mainPagePhoto1,
+    photo: MainPagePricePregnancy,
     buttonText: "Узнать стоимость",
     path: "/price/pregnancy",
   },
   {
     key: "birth",
     title: "Рождение",
-    photo: mainPagePhoto2,
+    photo: MainPagePriceBirth,
     buttonText: "Узнать стоимость",
     path: "/price/birth",
   },
   {
     key: "extracts",
     title: "Выписки",
-    photo: mainPagePhoto3,
+    photo: MainPagePriceExtracts,
     buttonText: "Выбрать роддом",
     path: "/price/extracts",
   },
   {
     key: "newborn",
     title: "Ньюборн",
-    photo: mainPagePhoto4,
+    photo: MainPagePriceNewborn,
     buttonText: "Узнать стоимость",
     path: "/price/newborn",
   },
   {
     key: "baptism",
     title: "Крещение",
-    photo: mainPagePhoto5,
+    photo: MainPagePriceBaptism,
     buttonText: "Узнать стоимость",
     path: "/price/baptism",
   },
   {
     key: "familyPhotoShoot",
     title: "Семейная фотосессия",
-    photo: mainPagePhoto6,
+    photo: MainPagePriceFamily,
     buttonText: "Узнать стоимость",
     path: "/price/family",
   },
   {
     key: "oneYearPhoto",
     title: "Годовасие",
-    photo: mainPagePhoto7,
+    photo: MainPagePriceOneYear,
     buttonText: "Узнать стоимость",
     path: "/price/one-year",
   },
   {
     key: "photoBooks",
     title: "Фотокниги",
-    photo: mainPagePhoto8,
+    photo: MainPagePricePhotoBooks,
     buttonText: "Узнать стоимость",
     path: "/price/photo-books",
   },

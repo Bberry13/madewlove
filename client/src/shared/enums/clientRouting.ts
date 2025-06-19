@@ -34,4 +34,6 @@ export enum CLIENT_ROUTING {
   PORTFOLIO_LAPINO = "/portfolio/extracts/lapino",
   PORTFOLIO_MD = "/portfolio/extracts/md",
   PORTFOLIO_TOWNEXTRA = "/portfolio/extracts/townextra",
+
+  NOT_FOUND = "*",
 }

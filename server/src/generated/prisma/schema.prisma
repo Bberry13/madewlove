@@ -24,7 +24,7 @@ model PricePost {
   id            Int      @id @default(autoincrement())
   package_title String
   price_title   String
-  info_body     String   @db.Text // Changed to TEXT via direct SQL: ALTER TABLE PricePost MODIFY COLUMN info_body TEXT;
+  info_body     String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

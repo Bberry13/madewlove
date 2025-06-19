@@ -23,17 +23,17 @@ app.use('/api/auth', authRouter); // <== если это не внутри index
 
 // === СТАТИКА: отдача build-версии фронта ===
 // Путь до client/build (или dist, если Vite)
-const __dirname = path.resolve();
-const clientBuildPath = path.join(__dirname, 'client', 'dist'); // или 'build'
+ const __dirname = path.resolve();
+ const clientBuildPath = path.join('/root/madewlove/client/dist'); // или 'build'
 
-app.use(express.static(clientBuildPath));
+ app.use(express.static(clientBuildPath));
 
 // Если путь не начинается с /api — отдаём index.html
-app.get('*', (req, res) => {
+ app.get(/(.*)/, (req, res) => {
   if (!req.url.startsWith('/api')) {
     res.sendFile(path.join(clientBuildPath, 'index.html'));
   }
-});
+ });
 
 const PORT = process.env.PORT || 3001;
 

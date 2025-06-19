@@ -97,7 +97,7 @@ export const photosServices = [
     path: '/price/photo-books',
   },
 ];
-//чисто технический комментарий
+//чисто технический комментарий!!!
 export {
   LargePhoto1,
   photo1,

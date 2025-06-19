@@ -220,12 +220,10 @@
     border-radius: 50%;
     background: rgba(34, 30, 24, 0.7);
   }
-
   .backButtonOpen {
     position: absolute;
     right: 665px;
   }
-
   .burger {
     display: flex;
     position: fixed;

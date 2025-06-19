@@ -145,16 +145,15 @@
     line-height: 22px;
     padding: 12px 16px;
   }
-
   .videoBg {
     background: url('@/assets/MainPage/MainPage_Photo_Loader.png') center center
       no-repeat;
     background-size: cover;
   }
-
   .downArrow {
     width: 32px;
     height: 32px;
     margin-bottom: 12px;
   }
+
 }

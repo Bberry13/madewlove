@@ -1,47 +1,80 @@
-import { CLIENT_ROUTING } from '@/shared/enums/clientRouting'
-import PhotoGallery from '@/features/PhotoGallery/ui/PhotoGallery'
-import React from 'react'
-import { useLocation } from 'react-router'
-import { CategoryExtracts } from './CategoryExtracts'
-import { titlesPortfolioCards } from '../model'
+import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
+import PhotoGallery from '@/features/PhotoGallery/ui/PhotoGallery';
+import React from 'react';
+import { useLocation } from 'react-router';
+import { CategoryExtracts } from './CategoryExtracts';
+import {
+  pregnancyHomePhotos,
+  birthPhotos,
+  newbornClassicPhotos,
+  newbornNaturalPhotos,
+  baptismPhotos,
+  familyHomeStudioPhotos,
+  familyStreetPhotos,
+  oneYearPhotos,
+  photoBookPhotos,
+  extractsCKBPhotos,
+  extractsLapinoPhotos,
+  extractsMDPhotos,
+  extractsTownPhotos,
+} from '../model';
 
 export function PortfolioPage(): React.JSX.Element {
-  const location = useLocation()
+  const location = useLocation();
+
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PREGNANCY) {
-    return <PhotoGallery photos={titlesPortfolioCards[0]} />
+    return (
+      <PhotoGallery category='Беременность' photos={pregnancyHomePhotos} />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_BIRTH) {
-    return <PhotoGallery photos={titlesPortfolioCards[1]} />
+    return <PhotoGallery category='Рождение' photos={birthPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_NEWBORN) {
-    return <PhotoGallery photos={titlesPortfolioCards[3]} />
+    return (
+      <PhotoGallery
+        category='Ньюборн'
+        classicPhotos={newbornClassicPhotos}
+        naturalPhotos={newbornNaturalPhotos}
+      />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_BAPTISM) {
-    return <PhotoGallery photos={titlesPortfolioCards[4]} />
+    return <PhotoGallery category='Крещение' photos={baptismPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_FAMILY) {
-    return <PhotoGallery photos={titlesPortfolioCards[5]} />
+    return (
+      <PhotoGallery
+        category='Семейная фотосессия'
+        homeStudioPhotos={familyHomeStudioPhotos}
+        streetPhotos={familyStreetPhotos}
+      />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_ONE_YEAR) {
-    return <PhotoGallery photos={titlesPortfolioCards[6]} />
+    return <PhotoGallery category='Годовасие' photos={oneYearPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PHOTO_BOOKS) {
-    return <PhotoGallery photos={titlesPortfolioCards[7]} />
+    return <PhotoGallery category='Фотокниги' photos={photoBookPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_EXTRACTS) {
-    return <CategoryExtracts />
+    return <CategoryExtracts />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_TOWNEXTRA) {
-    return <PhotoGallery photos={titlesPortfolioCards[2]} />
+    return (
+      <PhotoGallery category='Городские роддома' photos={extractsTownPhotos} />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_CKB) {
-    return <PhotoGallery photos={titlesPortfolioCards[2]} />
+    return <PhotoGallery category='Роддом ЦКБ' photos={extractsCKBPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_LAPINO) {
-    return <PhotoGallery photos={titlesPortfolioCards[2]} />
+    return (
+      <PhotoGallery category='Роддом Лапино' photos={extractsLapinoPhotos} />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_MD) {
-    return <PhotoGallery photos={titlesPortfolioCards[2]} />
+    return <PhotoGallery category='MD GROUP' photos={extractsMDPhotos} />;
   }
-  return <PhotoGallery photos={titlesPortfolioCards[0]} />
+  return <PhotoGallery category='Беременность' photos={pregnancyHomePhotos} />;
 }

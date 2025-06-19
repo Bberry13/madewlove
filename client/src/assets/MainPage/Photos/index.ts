@@ -86,5 +86,5 @@ export const photosServices = [
   { src: MainPagePriceOneYear, title: 'Годовасие', path: '/price/one-year' },
   { src: MainPagePricePhotoBooks, title: 'Фотокниги', path: '/price/photo-books' },
 ];
-
+//технический комментарий
 export { LargePhoto1, photo1, photo2, LargePhoto2, photo3, photo4, LargePhoto3, photo5, photo6, LargePhoto4, photo7, photo8, LargePhoto5, photo9, photo10, LargePhoto6, photo11, photo12, LargePhoto7, photo13, photo14, LargePhoto8, photo15, photo16, LargePhoto9, photo17, photo18, MainPagePricePregnancy, MainPagePriceBirth, MainPagePriceExtracts, MainPagePriceNewborn, MainPagePriceFamily, MainPagePriceBaptism, MainPagePriceOneYear, MainPagePricePhotoBooks };

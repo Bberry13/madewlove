@@ -381,7 +381,9 @@ export function CommonPricePage({
       {introText && (
         <div className={styles.intro}>
           <div className={styles.divider} />
-          <p>{introText}</p>
+          {introText.split('\n\n').map((part, idx) => (
+            <p key={idx}>{part}</p>
+          ))}
         </div>
       )}
       {faqData && (

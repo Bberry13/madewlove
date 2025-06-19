@@ -22,25 +22,29 @@ import {
 export function PortfolioPage(): React.JSX.Element {
   const location = useLocation();
   //pregnancy
-  const pregnancyVideo1 = {ownerId: -231076513, videoId: "456239017"}
-  const pregnancyVideo2 = {ownerId: -231076513, videoId: "456239018"}
-  const pregnancyVideo3 = {ownerId: -231076513, videoId: "456239019"}
+  const pregnancyVideo1 = { ownerId: -231076513, videoId: '456239017' };
+  const pregnancyVideo2 = { ownerId: -231076513, videoId: '456239018' };
+  const pregnancyVideo3 = { ownerId: -231076513, videoId: '456239019' };
 
   //extracts CKB
-  const extractsCKBVideo1 = {ownerId: -231076513, videoId: "456239020"}
+  const extractsCKBVideo1 = { ownerId: -231076513, videoId: '456239020' };
   //extracts Lapino
-  const extractsLapinoVideo1 = {ownerId: -231076513, videoId: "456239021"}
+  const extractsLapinoVideo1 = { ownerId: -231076513, videoId: '456239021' };
   //extracts MD
-  const extractsMDVideo1 = {ownerId: -231076513, videoId: "456239022"}
+  const extractsMDVideo1 = { ownerId: -231076513, videoId: '456239022' };
   //extracts Town
-  const extractsTownVideo1 = {ownerId: -231076513, videoId: "456239023"}
+  const extractsTownVideo1 = { ownerId: -231076513, videoId: '456239023' };
   // baptism
-  const baptismVideo1 = {ownerId: -231076513, videoId: "456239024"}
+  const baptismVideo1 = { ownerId: -231076513, videoId: '456239024' };
   //Books
-  const booksVideo1 = {ownerId: -231076513, videoId: "456239025"}
+  const booksVideo1 = { ownerId: -231076513, videoId: '456239025' };
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PREGNANCY) {
     return (
-      <PhotoGallery video={[pregnancyVideo1, pregnancyVideo2, pregnancyVideo3]} category='Беременность' photos={pregnancyHomePhotos} />
+      <PhotoGallery
+        video={[pregnancyVideo1, pregnancyVideo2, pregnancyVideo3]}
+        category='Беременность'
+        photos={pregnancyHomePhotos}
+      />
     );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_BIRTH) {
@@ -56,7 +60,13 @@ export function PortfolioPage(): React.JSX.Element {
     );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_BAPTISM) {
-    return <PhotoGallery video={baptismVideo1} category='Крещение' photos={baptismPhotos} />;
+    return (
+      <PhotoGallery
+        video={baptismVideo1}
+        category='Крещение'
+        photos={baptismPhotos}
+      />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_FAMILY) {
     return (
@@ -71,26 +81,52 @@ export function PortfolioPage(): React.JSX.Element {
     return <PhotoGallery category='Годовасие' photos={oneYearPhotos} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PHOTO_BOOKS) {
-    return <PhotoGallery video={booksVideo1} category='Фотокниги' photos={photoBookPhotos} />;
+    return (
+      <PhotoGallery
+        video={booksVideo1}
+        category='Фотокниги'
+        photos={photoBookPhotos}
+      />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_EXTRACTS) {
     return <CategoryExtracts />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_TOWNEXTRA) {
     return (
-      <PhotoGallery video={extractsTownVideo1} category='Городские роддома' photos={extractsTownPhotos} />
+      <PhotoGallery
+        video={extractsTownVideo1}
+        category='Городские роддома'
+        photos={extractsTownPhotos}
+      />
     );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_CKB) {
-    return <PhotoGallery video={extractsCKBVideo1} category='Роддом ЦКБ' photos={extractsCKBPhotos} />;
+    return (
+      <PhotoGallery
+        video={extractsCKBVideo1}
+        category='Роддом ЦКБ'
+        photos={extractsCKBPhotos}
+      />
+    );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_LAPINO) {
     return (
-      <PhotoGallery video={extractsLapinoVideo1} category='Роддом Лапино' photos={extractsLapinoPhotos} />
+      <PhotoGallery
+        video={extractsLapinoVideo1}
+        category='Роддом Лапино'
+        photos={extractsLapinoPhotos}
+      />
     );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_MD) {
-    return <PhotoGallery video={extractsMDVideo1} category='MD GROUP' photos={extractsMDPhotos} />;
+    return (
+      <PhotoGallery
+        video={extractsMDVideo1}
+        category='MD GROUP'
+        photos={extractsMDPhotos}
+      />
+    );
   }
   return <PhotoGallery category='Беременность' photos={pregnancyHomePhotos} />;
 }

@@ -150,6 +150,9 @@
       no-repeat;
     background-size: cover;
   }
+  .mainPage_link {
+    bottom: 100px;
+  }
   .downArrow {
     width: 32px;
     height: 32px;

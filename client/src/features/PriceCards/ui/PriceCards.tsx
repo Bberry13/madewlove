@@ -16,12 +16,14 @@ type PriceCardsProps = {
   cards: PriceCardData[]; 
   onCardClick?: (path: string) => void; 
   className?: string;  
+  title?: string;
 };
 
 export function PriceCards({
   cards,
   onCardClick,
   className = "",
+  title = "Прайс",
 }: PriceCardsProps): React.JSX.Element {
   const navigate = useNavigate();
 
@@ -33,7 +35,8 @@ export function PriceCards({
     }
   };
 
-  return (
+  return (<>
+    <h2 className={styles.priceCardsTitle}>{title}</h2>
     <div className={`${styles.priceCardsContainer} ${className}`}>
       {cards.map((card) => (
         <div key={card.key} className={styles.priceCard}>
@@ -59,6 +62,7 @@ export function PriceCards({
         </div>
       ))}
     </div>
+    </>
   );
 }
 

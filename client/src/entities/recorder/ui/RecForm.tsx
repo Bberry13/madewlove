@@ -7,6 +7,8 @@ import styles from './RecordingForm.module.css';
 import { useNavigate } from 'react-router';
 import SuccessModal from './SuccessModal';
 
+const FORM_STORAGE_KEY = 'recorder_form_draft';
+
 export const RecordingForm = (): React.JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ export const RecordingForm = (): React.JSX.Element => {
     reset,
     setValue,
     control,
+    watch,
   } = useForm<TypeRecording>();
 
   const allChecked = useWatch({
@@ -27,6 +30,35 @@ export const RecordingForm = (): React.JSX.Element => {
     name: 'agreeAll',
     defaultValue: false,
   });
+
+  // Восстановление черновика при монтировании
+  useEffect(() => {
+    const draft = localStorage.getItem(FORM_STORAGE_KEY);
+    if (draft) {
+      try {
+        const parsed = JSON.parse(draft);
+        Object.entries(parsed).forEach(([key, value]) => {
+          if (
+            typeof value === 'string' ||
+            typeof value === 'boolean' ||
+            typeof value === 'undefined'
+          ) {
+            setValue(key as keyof TypeRecording, value);
+          }
+        });
+      } catch {
+        // ignore
+      }
+    }
+  }, [setValue]);
+
+  // Сохраняем черновик при каждом изменении
+  useEffect(() => {
+    const subscription = watch((values) => {
+      localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(values));
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   const MAX_SUBMISSIONS = 5;
   const STORAGE_KEY = 'recording_submissions';
@@ -68,7 +100,9 @@ export const RecordingForm = (): React.JSX.Element => {
       reset();
       setModalOpen(true);
       setTextModal('Форма успешно отправлена!');
-    } if (result.meta?.requestStatus === 'rejected') {
+      localStorage.removeItem(FORM_STORAGE_KEY); // Очищаем черновик после отправки
+    }
+    if (result.meta?.requestStatus === 'rejected') {
       setModalOpen(true);
       const message =
         result.payload?.message || 'Произошла ошибка при отправке формы.';
@@ -224,7 +258,11 @@ export const RecordingForm = (): React.JSX.Element => {
           Записаться
         </button>
       </form>
-      <SuccessModal open={modalOpen} onClose={() => setModalOpen(false)} textModal={textModal} />
+      <SuccessModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        textModal={textModal}
+      />
     </>
   );
 };

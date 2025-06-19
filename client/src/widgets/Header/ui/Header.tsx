@@ -115,7 +115,7 @@ export function Header(): JSX.Element {
             </svg>
           </div>
         )}
-        <button className={styles.backButton} onClick={() => navigate(-1)}>
+        <button className={`${styles.backButton} ${!menuOpen ? styles.backButtonOpen : ''}`} onClick={() => navigate(-1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="30px"

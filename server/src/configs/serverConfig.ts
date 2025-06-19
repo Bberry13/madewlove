@@ -4,6 +4,7 @@ import cors from 'cors';
 import corsConfig from './corsConfig.js';
 import cookieParser from 'cookie-parser';
 
+
 const serverConfig = (app: express.Application) => {
   // Разрешаем запросы с других адресов (доменов), если они разрешены в настройках (corsConfig)
   // Это нужно, чтобы, например, фронтенд на другом порту мог общаться с этим сервером

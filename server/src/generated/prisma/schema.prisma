@@ -20,16 +20,70 @@ model Username {
   updatedAt        DateTime  @updatedAt
 }
 
-model PricePost {
-  id            Int      @id @default(autoincrement())
-  package_title String
-  price_title   String
-  info_body     String
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-}
-
 enum Role {
   USER
   ADMIN
+}
+
+model MetaData {
+  Id                    Int      @id @default(autoincrement())
+  title                 String?  @db.Text
+  description           String?  @db.Text
+  keywords              String?  @db.Text
+  author_name           String?  @db.Text
+  nataliaBase           String?  @db.Text
+  alternates            String?  @db.Text
+  openGraph_title       String?  @db.Text
+  openGraph_description String?  @db.Text
+  openGraph_url         String?  @db.Text
+  openGraph_siteName    String?  @db.Text
+  themeColor            String?  @db.Text
+  icons_icon            String?  @db.Text
+  icons_shortcut        String?  @db.Text
+  icons_apple           String?  @db.Text
+  other_geo_region      String?  @map("other_geo.region") @db.Text
+  other_geo_placename   String?  @map("other_geo.placename") @db.Text
+  other_geo_position    String?  @map("other_geo.position") @db.Text
+  other_ICBM            String?  @map("other_ICBM") @db.Text
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model FAQ {
+  Id        Int      @id @default(autoincrement())
+  question  String?  @db.Text
+  answers   String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SERVICE {
+  Id          Int      @id @default(autoincrement())
+  service     String?  @db.Text
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MY_WORK {
+  Id           Int      @id @default(autoincrement())
+  title        String?  @db.Text
+  square       String?  @db.Text
+  quantity     String?  @db.Text
+  time         String?  @db.Text
+  success_work String?  @db.Text
+  image        String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model CONTACTS {
+  Id        Int      @id @default(autoincrement())
+  email     String?  @db.Text
+  tel       String?  @db.Text
+  address   String?  @db.Text
+  whatsapp  String?  @db.Text
+  telegram  String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

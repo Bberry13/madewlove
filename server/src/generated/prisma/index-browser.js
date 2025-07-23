@@ -132,65 +132,11 @@ exports.Prisma.UsernameScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.MetaDataScalarFieldEnum = {
-  Id: 'Id',
-  title: 'title',
-  description: 'description',
-  keywords: 'keywords',
-  author_name: 'author_name',
-  nataliaBase: 'nataliaBase',
-  alternates: 'alternates',
-  openGraph_title: 'openGraph_title',
-  openGraph_description: 'openGraph_description',
-  openGraph_url: 'openGraph_url',
-  openGraph_siteName: 'openGraph_siteName',
-  themeColor: 'themeColor',
-  icons_icon: 'icons_icon',
-  icons_shortcut: 'icons_shortcut',
-  icons_apple: 'icons_apple',
-  other_geo_region: 'other_geo_region',
-  other_geo_placename: 'other_geo_placename',
-  other_geo_position: 'other_geo_position',
-  other_ICBM: 'other_ICBM',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.FAQScalarFieldEnum = {
-  Id: 'Id',
-  question: 'question',
-  answers: 'answers',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.SERVICEScalarFieldEnum = {
-  Id: 'Id',
-  service: 'service',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.MY_WORKScalarFieldEnum = {
-  Id: 'Id',
-  title: 'title',
-  square: 'square',
-  quantity: 'quantity',
-  time: 'time',
-  success_work: 'success_work',
-  image: 'image',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CONTACTSScalarFieldEnum = {
-  Id: 'Id',
-  email: 'email',
-  tel: 'tel',
-  address: 'address',
-  whatsapp: 'whatsapp',
-  telegram: 'telegram',
+exports.Prisma.PricePostScalarFieldEnum = {
+  id: 'id',
+  package_title: 'package_title',
+  price_title: 'price_title',
+  info_body: 'info_body',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -212,52 +158,10 @@ exports.Prisma.UsernameOrderByRelevanceFieldEnum = {
   twoFACode: 'twoFACode'
 };
 
-exports.Prisma.MetaDataOrderByRelevanceFieldEnum = {
-  title: 'title',
-  description: 'description',
-  keywords: 'keywords',
-  author_name: 'author_name',
-  nataliaBase: 'nataliaBase',
-  alternates: 'alternates',
-  openGraph_title: 'openGraph_title',
-  openGraph_description: 'openGraph_description',
-  openGraph_url: 'openGraph_url',
-  openGraph_siteName: 'openGraph_siteName',
-  themeColor: 'themeColor',
-  icons_icon: 'icons_icon',
-  icons_shortcut: 'icons_shortcut',
-  icons_apple: 'icons_apple',
-  other_geo_region: 'other_geo_region',
-  other_geo_placename: 'other_geo_placename',
-  other_geo_position: 'other_geo_position',
-  other_ICBM: 'other_ICBM'
-};
-
-exports.Prisma.FAQOrderByRelevanceFieldEnum = {
-  question: 'question',
-  answers: 'answers'
-};
-
-exports.Prisma.SERVICEOrderByRelevanceFieldEnum = {
-  service: 'service',
-  description: 'description'
-};
-
-exports.Prisma.MY_WORKOrderByRelevanceFieldEnum = {
-  title: 'title',
-  square: 'square',
-  quantity: 'quantity',
-  time: 'time',
-  success_work: 'success_work',
-  image: 'image'
-};
-
-exports.Prisma.CONTACTSOrderByRelevanceFieldEnum = {
-  email: 'email',
-  tel: 'tel',
-  address: 'address',
-  whatsapp: 'whatsapp',
-  telegram: 'telegram'
+exports.Prisma.PricePostOrderByRelevanceFieldEnum = {
+  package_title: 'package_title',
+  price_title: 'price_title',
+  info_body: 'info_body'
 };
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',
@@ -266,11 +170,7 @@ exports.Role = exports.$Enums.Role = {
 
 exports.Prisma.ModelName = {
   Username: 'Username',
-  MetaData: 'MetaData',
-  FAQ: 'FAQ',
-  SERVICE: 'SERVICE',
-  MY_WORK: 'MY_WORK',
-  CONTACTS: 'CONTACTS'
+  PricePost: 'PricePost'
 };
 
 /**

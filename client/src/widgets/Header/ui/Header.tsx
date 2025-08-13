@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import logo from '@/assets/Header/Header_Logo.png';
 import styles from './styles.module.css';
+import clsx from 'clsx';
 import { useNavigate, useLocation } from 'react-router';
 
 interface NavItem {
@@ -63,12 +64,18 @@ export function Header(): React.JSX.Element {
       <img
         src={logo}
         alt="logo"
-        className={!menuOpen ? styles.header__logo_mini : styles.header__logo}
+        className={!menuOpen ? styles.header__logo : styles.header__logo_hide}
         onClick={() => handleNavigation('/')}
       />
-      <header className={menuOpen ? styles.header_open : styles.header}>
+      <header 
+        className={clsx(styles.header, {
+          [styles.header_open]: menuOpen,
+        })}
+      >
         <div
-          className={menuOpen ? styles.header__logo_open : styles.header__logo}
+          className={clsx(styles.header__logo, {
+            [styles.header__logo_open]: menuOpen,
+          })}
           onClick={() => handleNavigation('/')}
         >
           <img src={logo} alt="logo" />
@@ -76,7 +83,7 @@ export function Header(): React.JSX.Element {
 
         <nav
           ref={menuRef}
-          className={`${styles.navMenu} ${menuOpen ? styles.open : ''}`}
+          className={styles.navMenu}
         >
           {navItems.map((item) => (
             <div
@@ -90,11 +97,11 @@ export function Header(): React.JSX.Element {
             </div>
           ))}
         </nav>
-
-        {!menuOpen ? (
+      </header>
+      {!menuOpen ? (
           <div
             ref={burgerRef}
-            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+            className={styles.burger}
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             <span className={styles.bar}></span>
@@ -114,18 +121,17 @@ export function Header(): React.JSX.Element {
             </svg>
           </div>
         )}
-        <button className={`${styles.backButton} ${!menuOpen ? styles.backButtonOpen : ''}`} onClick={() => navigate(-1)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="30px"
-            viewBox="0 -960 960 960"
-            width="30px"
-            fill="#e3e3e3"
-          >
-            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
-          </svg>
-        </button>
-      </header>
+      <button className={styles.backButton} onClick={() => navigate(-1)}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="30px"
+          viewBox="0 -960 960 960"
+          width="30px"
+          fill="#e3e3e3"
+        >
+          <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+        </svg>
+      </button>
     </>
   );
 }

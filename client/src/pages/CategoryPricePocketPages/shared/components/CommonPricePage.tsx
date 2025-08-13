@@ -369,9 +369,7 @@ export function CommonPricePage({
         <div className={styles.additionalInfo}>
           <div className={styles.divider} />
           <h3>{additionalInfo.title}</h3>
-          {additionalInfo.title1 && (
-            <h3>{additionalInfo.title1}</h3>
-          )}
+          {additionalInfo.title1 && <h3>{additionalInfo.title1}</h3>}
           {additionalInfo.items && (
             <ul>
               {additionalInfo.items.map((item, index) => (

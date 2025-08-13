@@ -5,6 +5,8 @@ import { useLocation } from 'react-router';
 import { CategoryExtracts } from './CategoryExtracts';
 import {
   pregnancyHomePhotos,
+  pregnancyStandardPhotos,
+  pregnancyPremiumPhotos,
   birthPhotos,
   newbornClassicPhotos,
   newbornNaturalPhotos,
@@ -41,14 +43,15 @@ export function PortfolioPage(): React.JSX.Element {
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PREGNANCY) {
     return (
       <PhotoGallery
-        video={[pregnancyVideo1, pregnancyVideo2, pregnancyVideo3]}
         category='Беременность'
-        photos={pregnancyHomePhotos}
+        homePhotos={pregnancyHomePhotos}
+        standardPhotos={pregnancyStandardPhotos}
+        premiumPhotos={pregnancyPremiumPhotos}
       />
     );
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_BIRTH) {
-    return <PhotoGallery category='Рождение' photos={birthPhotos} />;
+    return <PhotoGallery category='Рождение' photos={birthPhotos} video={[pregnancyVideo1, pregnancyVideo2, pregnancyVideo3]} />;
   }
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_NEWBORN) {
     return (

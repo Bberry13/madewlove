@@ -102,11 +102,11 @@ export const titlesPortfolioCards = [
   {
     key: 'pregnancy',
     title: 'Беременность',
-    title1: 'Пакет PREMIUM',
+    title1: 'Пакет HOME',
     photo1: photosPortfolio,
     title2: 'Пакет STANDART',
     photo2: photosPortfolio,
-    title3: 'Пакет HOME',
+    title3: 'Пакет PREMIUM',
     photo3: photosPortfolio,
   },
   {
@@ -173,10 +173,11 @@ export const titlesPortfolioCards = [
 
 // Беременность
 const pregnancyPhotoModules = import.meta.glob(
-  '../../../assets/Pregnancy/Photos/Home/*.jpg',
+  '../../../assets/Pregnancy/Photos/*.jpg',
   { eager: true, import: 'default' }
 ) as Record<string, string>;
-export const pregnancyHomePhotos = Object.entries(pregnancyPhotoModules)
+
+const allPregnancyPhotos = Object.entries(pregnancyPhotoModules)
   .sort(([a], [b]) => {
     const getNumber = (str: string) => Number(str.match(/\((\d+)\)/)?.[1]) || 0;
     return getNumber(a) - getNumber(b);
@@ -185,6 +186,28 @@ export const pregnancyHomePhotos = Object.entries(pregnancyPhotoModules)
     src: value,
     title: key.split('/').pop() || '',
   }));
+  allPregnancyPhotos.forEach(photo => {
+    if (/home/i.test(photo.title)) {
+      console.log('Home matched:', photo.title);
+    }
+    if (/standard/i.test(photo.title)) {
+      console.log('Standard matched:', photo.title);
+    }
+    if (/premium/i.test(photo.title)) {
+      console.log('Premium matched:', photo.title);
+    }
+  });
+export const pregnancyHomePhotos = allPregnancyPhotos.filter(photo =>
+  photo.title.toLowerCase().includes('home')
+);
+
+export const pregnancyStandardPhotos = allPregnancyPhotos.filter(photo =>
+  photo.title.toLowerCase().includes('standard')
+);
+
+export const pregnancyPremiumPhotos = allPregnancyPhotos.filter(photo =>
+  photo.title.toLowerCase().includes('premium')
+);
 
 // Рождение
 const birthPhotoModules = import.meta.glob(

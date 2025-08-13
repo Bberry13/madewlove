@@ -40,11 +40,10 @@
 }
 
 .priceCard {
-  /* max-height: 900px;
-  max-width: 400px; */
-  width: 30%;
-  /* height: 30%; */
-  min-height: 480px;
+  width: 30%; /* вернули ширину */
+  min-width: 320px; /* не сжимается на desktop */
+  max-width: 400px;
+  min-height: 480px; /* было 480px изначально */
   background: rgba(34, 30, 24, 0.85);
   border-radius: 24px;
   overflow: hidden;
@@ -52,7 +51,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 0 0 20px 0;
+  padding: 0 0 20px 0; /* было 20px изначально */
   align-items: center;
 }
 
@@ -67,11 +66,12 @@
 }
 
 .cardImage {
-  border-radius: 24px;
   width: 100%;
-  height: 100%;
+  height: 100%; /* вернули height: 100% для desktop */
   object-fit: cover;
+  border-radius: 24px;
   display: block;
+  /* убрали margin и box-shadow для desktop */
 }
 
 .cardTitle {
@@ -447,37 +447,56 @@
 }
 
 @media (max-width: 768px) {
+  .additionalInfo h3 {
+    font-size: 14px;
+  }
+  .additionalInfo li {
+    font-size: 13px;
+  }
+  .additionalInfo p {
+    font-size: 13px;
+  }
   .pregnancyIntro p {
     font-size: 14px;
   }
+  .infoItem {
+    font-size: 13px;
+  }
+  .intro p {
+    font-size: 12px;
+  }
   .priceCard {
     width: 100%;
-    height: 100%;
-    min-height: unset;
+    min-width: unset;
+    max-width: 100%;
+    margin: 0 0 24px 0;
+    padding: 0 0 8px 0;
+    min-height: 240px;
   }
-
+  .cardImage {
+    height: 160px;
+    margin: 12px 0 8px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  .cardTitle {
+    font-size: 20px;
+  }
+  .priceTitle {
+    font-size: 18px;
+  }
+  .infoBody {
+    font-size: 13px;
+  }
+  /* FAQ аккордеон */
+  .faqTitle {
+    font-size: 12px;
+  }
   .page {
     margin: 0px 16px;
   }
 
   .pregnancyPriceContainer {
     grid-template-columns: 1fr;
-  }
-
-  .cardTitle {
-    font-size: 20px;
-  }
-
-  .priceTitle {
-    font-size: 18px;
-  }
-
-  .infoItem {
-    font-size: 14px;
-  }
-
-  .additionalInfo h3 {
-    font-size: 20px;
   }
 
   .cardButton {

@@ -16,6 +16,9 @@ interface VideoItem {
 interface PhotoGalleryProps {
   category: string;
   photos?: PhotoItem[];
+  homePhotos?: PhotoItem[];
+  standardPhotos?: PhotoItem[];
+  premiumPhotos?: PhotoItem[];
   classicPhotos?: PhotoItem[];
   naturalPhotos?: PhotoItem[];
   homeStudioPhotos?: PhotoItem[];
@@ -26,6 +29,9 @@ interface PhotoGalleryProps {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   category,
   photos,
+  homePhotos,
+  standardPhotos,
+  premiumPhotos,
   classicPhotos,
   naturalPhotos,
   homeStudioPhotos,
@@ -83,6 +89,11 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
           {renderMasonry(streetPhotos, 'Street', 'street')}
         </>
       )}
+
+       {/* Новые категории */}
+      {homePhotos && renderMasonry(homePhotos, 'Home', 'home-photos')}
+      {standardPhotos && renderMasonry(standardPhotos, 'Standard', 'standard-photos')}
+      {premiumPhotos && renderMasonry(premiumPhotos, 'Premium', 'premium-photos')}
 
       {/* Для обычных категорий */}
       {photos && renderMasonry(photos)}

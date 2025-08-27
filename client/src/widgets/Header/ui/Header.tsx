@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  type MouseEvent,
-} from 'react';
+import React, { useState, useEffect, useRef, type MouseEvent } from 'react';
 import logo from '@/assets/Header/Header_Logo.png';
 import styles from './styles.module.css';
 import clsx from 'clsx';
@@ -58,16 +53,18 @@ export function Header(): React.JSX.Element {
       );
     };
   }, []);
-
+  console.log('МЕНЮОУПЕН', menuOpen);
   return (
     <>
       <img
         src={logo}
-        alt="logo"
-        className={!menuOpen ? styles.header__logo : styles.header__logo_hide}
+        alt='logo'
+        className={clsx(styles.header__logo, styles.header__logo_pc, {
+          [styles.header__logo_hide]: menuOpen,
+        })}
         onClick={() => handleNavigation('/')}
       />
-      <header 
+      <header
         className={clsx(styles.header, {
           [styles.header_open]: menuOpen,
         })}
@@ -78,13 +75,10 @@ export function Header(): React.JSX.Element {
           })}
           onClick={() => handleNavigation('/')}
         >
-          <img src={logo} alt="logo" />
+          <img src={logo} alt='logo' />
         </div>
 
-        <nav
-          ref={menuRef}
-          className={styles.navMenu}
-        >
+        <nav ref={menuRef} className={styles.navMenu}>
           {navItems.map((item) => (
             <div
               key={item.path}
@@ -99,37 +93,37 @@ export function Header(): React.JSX.Element {
         </nav>
       </header>
       {!menuOpen ? (
-          <div
-            ref={burgerRef}
-            className={styles.burger}
-            onClick={() => setMenuOpen((prev) => !prev)}
+        <div
+          ref={burgerRef}
+          className={styles.burger}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+        </div>
+      ) : (
+        <div className={styles.burgerOpen} onClick={() => setMenuOpen(false)}>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            height='30px'
+            viewBox='0 -960 960 960'
+            width='30px'
+            fill='#ede5dd'
           >
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-            <span className={styles.bar}></span>
-          </div>
-        ) : (
-          <div className={styles.burgerOpen} onClick={() => setMenuOpen(false)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="30px"
-              viewBox="0 -960 960 960"
-              width="30px"
-              fill="#ede5dd"
-            >
-              <path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
-            </svg>
-          </div>
-        )}
+            <path d='m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z' />
+          </svg>
+        </div>
+      )}
       <button className={styles.backButton} onClick={() => navigate(-1)}>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="30px"
-          viewBox="0 -960 960 960"
-          width="30px"
-          fill="#e3e3e3"
+          xmlns='http://www.w3.org/2000/svg'
+          height='30px'
+          viewBox='0 -960 960 960'
+          width='30px'
+          fill='#e3e3e3'
         >
-          <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+          <path d='m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z' />
         </svg>
       </button>
     </>

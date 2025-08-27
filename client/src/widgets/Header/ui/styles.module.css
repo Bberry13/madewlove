@@ -15,7 +15,7 @@
 }
 
 .header__logo {
-  display: none;
+  display: block;
   width: 91px;
   height: 44px;
   cursor: pointer;
@@ -108,6 +108,10 @@
   .header {
     left: 50%;
   }
+
+  .header__logo_pc {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -135,12 +139,13 @@
   }
   
   .header__logo {
-    display: block;
     position: absolute;
     top: 26px;
     left: 50%;
     transform: translateX(-50%);
   }
+
+  
 
   .header__logo_open {
     position: static;

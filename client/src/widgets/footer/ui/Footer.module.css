@@ -63,8 +63,9 @@
 }
 .footerIcons {
   display: flex;
-  gap: 28px;
   justify-content: flex-end;
+  gap: 28px;
+  margin-right:82px;
 }
 .footerIcon {
   display: flex;
@@ -124,6 +125,17 @@
   }
   .footerIcons {
     gap: 18px;
-    justify-content: center;
+    margin-right: 0px;
+    transform: translateY(-90px);
   }
+  .footerDetails {
+  color: #bdb7b0;
+  font-size: 0.98rem;
+  margin-top: 8px;
+  margin-bottom: 60px;
+  line-height: 1.5;
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
 }

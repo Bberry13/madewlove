@@ -230,6 +230,8 @@ export function CommonPricePage({
     }
   };
 
+  const noteLines = additionalInfo?.note.split('\n');
+
   return (
     <div className={styles.page}>
       <div className={styles.mainTitle}>
@@ -377,7 +379,14 @@ export function CommonPricePage({
               ))}
             </ul>
           )}
-          <p>{additionalInfo.note}</p>
+          <p>
+            {noteLines?.map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                {idx < noteLines.length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </p>
         </div>
       )}
       {introText && (

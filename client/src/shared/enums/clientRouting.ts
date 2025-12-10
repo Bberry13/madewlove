@@ -28,7 +28,7 @@ export enum CLIENT_ROUTING {
   PORTFOLIO_FAMILY = "/portfolio/family",
   PORTFOLIO_ONE_YEAR = "/portfolio/one-year",
   PORTFOLIO_PHOTO_BOOKS = "/portfolio/photo-books",
-  
+
   PORTFOLIO_EXTRACTS = "/portfolio/extracts",
   PORTFOLIO_CKB = "/portfolio/extracts/ckb",
   PORTFOLIO_LAPINO = "/portfolio/extracts/lapino",

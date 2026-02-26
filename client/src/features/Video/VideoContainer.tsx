@@ -57,7 +57,7 @@ const VideoContainerComponent = ({ onScrollToCompany }: VideoContainerProps): JS
           onClick={onScrollToCompany}
           style={{ cursor: 'pointer' }}
         >
-          <img src={downArrow} alt="downArrow" className={styles.downArrow} />
+          <img src={downArrow} alt="downArrow" className={styles.downArrow} loading="lazy" decoding="async" />
           <p className={styles.mainPage_link_text}>Узнать о нас больше</p>
         </div>
       </div>

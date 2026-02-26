@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Masonry from '@mui/lab/Masonry';
 import styles from './PhotoGallery.module.css';
 import { VKVideoPlayer } from '@/pages/PortfolioPage/ui/VKVideoPlayer';
@@ -6,6 +6,7 @@ import { VKVideoPlayer } from '@/pages/PortfolioPage/ui/VKVideoPlayer';
 interface PhotoItem {
   src: string;
   title: string;
+  preview?: string; // легкая превьюшка (LQIP), если есть
 }
 
 interface VideoItem {
@@ -38,31 +39,79 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   streetPhotos,
   video,
 }) => {
+  const [activePhoto, setActivePhoto] = useState<PhotoItem | null>(null);
+  const [loadedMap, setLoadedMap] = useState<Record<string, boolean>>({});
+  const PRIORITY_COUNT = 12;
+  let renderCounter = 0;
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActivePhoto(null);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   const renderMasonry = (
     photoArray: PhotoItem[],
     title?: string,
     anchorId?: string
-  ) => (
-    <div key={title || 'main'} className={styles.masonryContainer}>
-      {title && (
-        <h2 id={anchorId} className={styles.sectionTitle}>
-          {title}
-        </h2>
-      )}
-      <Masonry columns={{ xs: 2, sm: 3, md: 4 }} spacing={2}>
-        {photoArray.map((item, idx) => (
-          <div key={idx} className={styles.photoItem}>
-            <img
-              src={item.src}
-              alt={item.title}
-              className={styles.photoImage}
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </Masonry>
-    </div>
-  );
+  ) => {
+    return (
+      <div key={anchorId || title || 'main'} className={styles.masonryContainer}>
+        {title && (
+          <h2 id={anchorId} className={styles.sectionTitle}>
+            {title}
+          </h2>
+        )}
+        <Masonry columns={{ xs: 2, sm: 3, md: 4 }} spacing={2}>
+          {photoArray.map((item, idx) => {
+            const loaded = item.preview ? loadedMap[item.src] : true;
+            const isPriority = renderCounter < PRIORITY_COUNT;
+            renderCounter += 1;
+            return (
+              <div key={idx} className={styles.photoItem}>
+                <div className={styles.photoFrame}>
+                  {item.preview && (
+                    <img
+                      src={item.preview}
+                      alt=""
+                      aria-hidden
+                      className={`${styles.photoPreview} ${
+                        loaded ? styles.photoPreviewHidden : ''
+                      }`}
+                      loading="lazy"
+                    />
+                  )}
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className={`${styles.photoImage} ${
+                        loaded ? styles.photoImageLoaded : ''
+                      }`}
+                      loading={isPriority ? 'eager' : 'lazy'}
+                      fetchpriority={isPriority ? 'high' : undefined}
+                      onLoad={() =>
+                        setLoadedMap((prev) => ({ ...prev, [item.src]: true }))
+                      }
+                    onClick={() => setActivePhoto(item)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActivePhoto(item);
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </Masonry>
+      </div>
+    );
+  };
 
   return (
     <div className={styles.galleryContainer}>
@@ -107,6 +156,31 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
           <>
           </>
         )
+      )}
+      {activePhoto && (
+        <div
+          className={styles.lightbox}
+          onClick={() => setActivePhoto(null)}
+          role="presentation"
+        >
+          <div
+            className={styles.lightboxContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className={styles.lightboxClose}
+              onClick={() => setActivePhoto(null)}
+              aria-label="Закрыть"
+            >
+              ×
+            </button>
+            <img
+              src={activePhoto.src}
+              alt={activePhoto.title}
+              className={styles.lightboxImage}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

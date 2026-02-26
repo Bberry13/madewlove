@@ -59,6 +59,7 @@ export function Header(): React.JSX.Element {
       <img
         src={logo}
         alt='logo'
+        loading='lazy'
         className={clsx(styles.header__logo, styles.header__logo_pc, {
           [styles.header__logo_hide]: menuOpen,
         })}
@@ -75,7 +76,7 @@ export function Header(): React.JSX.Element {
           })}
           onClick={() => handleNavigation('/')}
         >
-          <img src={logo} alt='logo' />
+          <img src={logo} alt='logo' loading='lazy' />
         </div>
 
         <nav ref={menuRef} className={styles.navMenu}>

@@ -44,6 +44,7 @@ export function PriceCards({
             <img
               src={card.photo}
               alt={card.title}
+              loading="lazy"
               className={styles.cardImage}
             />
             <div className={styles.overlay}>

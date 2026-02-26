@@ -1,6 +1,5 @@
 import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
-import PhotoGallery from '@/features/PhotoGallery/ui/PhotoGallery';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { useLocation } from 'react-router';
 import { CategoryExtracts } from './CategoryExtracts';
 import {
@@ -21,6 +20,8 @@ import {
   extractsTownPhotos,
 } from '../model';
 
+const PhotoGallery = lazy(() => import('@/features/PhotoGallery/ui/PhotoGallery'));
+
 export function PortfolioPage(): React.JSX.Element {
   const location = useLocation();
   //pregnancy
@@ -40,6 +41,19 @@ export function PortfolioPage(): React.JSX.Element {
   const baptismVideo1 = { ownerId: -231076513, videoId: '456239024' };
   //Books
   const booksVideo1 = { ownerId: -231076513, videoId: '456239025' };
+
+  const renderGallery = (node: React.ReactNode) => (
+    <Suspense
+      fallback={
+        <div style={{ color: '#e3c7a3', textAlign: 'center', padding: '120px 0' }}>
+          Загружаем галерею…
+        </div>
+      }
+    >
+      {node}
+    </Suspense>
+  );
+  const renderPage = () => {
   if (location.pathname === CLIENT_ROUTING.PORTFOLIO_PREGNANCY) {
     return (
       <PhotoGallery
@@ -132,4 +146,7 @@ export function PortfolioPage(): React.JSX.Element {
     );
   }
   return <PhotoGallery category='Беременность' photos={pregnancyHomePhotos} />;
+  };
+
+  return renderGallery(renderPage());
 }

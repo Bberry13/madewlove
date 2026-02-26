@@ -71,7 +71,11 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({
         {priceGroup.map((price: TypePrice) => (
           <div key={price.id} className={styles.priceCard}>
             <div className={styles.imageContainer}>
-              <img src={photos[photoIndex]} alt={price.package_title} />
+              <img
+                src={photos[photoIndex]}
+                alt={price.package_title}
+                loading="lazy"
+              />
             </div>
             <h2 className={styles.cardTitle}>{price.package_title}</h2>
             <h3 className={styles.priceTitle}>{price.price_title}</h3>

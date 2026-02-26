@@ -255,6 +255,7 @@ export function CommonPricePage({
                 <img
                   src={photos[index % photos.length]}
                   alt={price.package_title}
+                  loading='lazy'
                   className={styles.cardImage}
                 />
               </div>

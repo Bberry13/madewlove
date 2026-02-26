@@ -17,6 +17,7 @@ export default function ReviewsPage(): React.JSX.Element {
           <img
             src={review.avatar}
             alt="avatar"
+            loading="lazy"
             className={styles.reviewAvatar}
           />
           <div className={styles.reviewBubble}>{review.text}</div>

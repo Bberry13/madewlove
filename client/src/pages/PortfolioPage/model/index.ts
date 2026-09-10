@@ -1,4 +1,8 @@
 import { photosPortfolio } from '@/assets/MainPage/Photos';
+import SectionPriceExtractsCKB from '@/assets/MainPage/Photos/SectionPriceExtractsCKB.jpg';
+import SectionExtractsLapino from '@/assets/MainPage/Photos/SectionExtractsLapino.jpg';
+import SectionExtractsMdGroup from '@/assets/MainPage/Photos/SectionExtractsMdGroup.jpg';
+import SectionExtractsTownExtra from '@/assets/MainPage/Photos/SectionExtractsTownExtra.jpg';
 import MainPagePricePregnancy from '@/assets/MainPage/Photos/mainPage_Price_Pregnancy.jpg'
 import MainPagePriceBirth from '@/assets/MainPage/Photos/mainPage_Price_Birth.jpg'
 import MainPagePriceExtracts from '@/assets/MainPage/Photos/mainPage_Price_Extracts.jpg'
@@ -71,28 +75,28 @@ export const portfolioCardsDataExtracts = [
   {
     key: 'ckb',
     title: 'Роддом ЦКБ',
-    photo: photosPortfolio[2],
+    photo: SectionPriceExtractsCKB,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/extracts/ckb',
   },
   {
     key: 'lapino',
     title: 'Роддом Лапино',
-    photo: photosPortfolio[2],
+    photo: SectionExtractsLapino,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/extracts/lapino',
   },
   {
     key: 'md',
     title: 'Роддом MD GROUP',
-    photo: photosPortfolio[2],
+    photo: SectionExtractsMdGroup,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/extracts/md',
   },
   {
     key: 'townextra',
     title: 'Городские роддоа',
-    photo: photosPortfolio[2],
+    photo: SectionExtractsTownExtra,
     buttonText: 'Посмотреть все работы',
     path: '/portfolio/extracts/townextra',
   },

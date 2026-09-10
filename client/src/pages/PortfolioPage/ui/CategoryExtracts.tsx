@@ -4,6 +4,9 @@ import { PriceCards } from '@/features/PriceCards/ui/PriceCards'
 
 export function CategoryExtracts(): React.JSX.Element {
   return (
-    <PriceCards cards={portfolioCardsDataExtracts} />
+    <PriceCards
+      title="Выберите роддом"
+      cards={portfolioCardsDataExtracts}
+    />
   )
 }

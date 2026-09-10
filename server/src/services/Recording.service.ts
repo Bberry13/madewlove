@@ -1,4 +1,9 @@
 import nodemailer from 'nodemailer';
+import dns from 'node:dns';
+
+// smtp.mail.ru publishes IPv4 and IPv6 addresses, but the production VPS
+// has no working IPv6 route. Prefer IPv4 to avoid ENETUNREACH.
+dns.setDefaultResultOrder('ipv4first');
 
 export class RecordingService {
   static async sendMessage({

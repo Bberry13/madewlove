@@ -1,34 +1,34 @@
-import mainPagePhoto1 from "@/assets/MainPage/Photos/mainPagePhoto1.jpg";
-import mainPagePhoto2 from "@/assets/MainPage/Photos/mainPagePhoto2.jpg";
-import mainPagePhoto3 from "@/assets/MainPage/Photos/mainPagePhoto3.jpg";
-import mainPagePhoto4 from "@/assets/MainPage/Photos/mainPagePhoto4.jpg";
+import SectionPriceExtractsCKB from "@/assets/MainPage/Photos/SectionPriceExtractsCKB.jpg";
+import SectionExtractsLapino from "@/assets/MainPage/Photos/SectionExtractsLapino.jpg";
+import SectionExtractsMdGroup from "@/assets/MainPage/Photos/SectionExtractsMdGroup.jpg";
+import SectionExtractsTownExtra from "@/assets/MainPage/Photos/SectionExtractsTownExtra.jpg";
 
 export const extractsCardsData = [
   {
     key: "ckb",
     title: "Роддом ЦКБ",
-    photo: mainPagePhoto1,
+    photo: SectionPriceExtractsCKB,
     buttonText: "Выбрать",
     path: "/price/extracts/ckb",
   },
   {
     key: "lapino",
     title: "Роддом Лапино",
-    photo: mainPagePhoto2,
+    photo: SectionExtractsLapino,
     buttonText: "Выбрать",
     path: "/price/extracts/lapino",
   },
   {
     key: "md",
     title: "MD GROUP",
-    photo: mainPagePhoto3,
+    photo: SectionExtractsMdGroup,
     buttonText: "Выбрать",
     path: "/price/extracts/md",
   },
   {
     key: "townextra",
     title: "Городские роддома",
-    photo: mainPagePhoto4,
+    photo: SectionExtractsTownExtra,
     buttonText: "Выбрать",
     path: "/price/extracts/townextra",
   },

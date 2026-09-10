@@ -91,6 +91,10 @@ export function PortfolioPage(): React.JSX.Element {
         category='Семейная фотосессия'
         homeStudioPhotos={familyHomeStudioPhotos}
         streetPhotos={familyStreetPhotos}
+        extraSections={[
+          { id: 'new-year', title: 'Новогодний', photos: familyHomeStudioPhotos },
+          { id: 'reportage', title: 'Репортаж', photos: familyStreetPhotos },
+        ]}
       />
     );
   }

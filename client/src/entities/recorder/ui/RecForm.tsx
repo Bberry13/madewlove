@@ -106,8 +106,10 @@ export const RecordingForm = (): React.JSX.Element => {
       setModalOpen(true);
       const message =
         result.payload?.message || 'Произошла ошибка при отправке формы.';
-      setTextModal(`Ошибка: Возможно у вас включен VPN`);
-      console.log(message);
+      setTextModal(
+        'Не удалось отправить форму. Попробуйте ещё раз или свяжитесь с нами по телефону.',
+      );
+      console.error('Ошибка отправки формы:', message);
     }
   };
 

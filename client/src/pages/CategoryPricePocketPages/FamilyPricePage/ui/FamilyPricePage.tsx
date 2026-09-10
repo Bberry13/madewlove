@@ -13,4 +13,3 @@ export function FamilyPricePage(): React.JSX.Element {
     />
   );
 }
-

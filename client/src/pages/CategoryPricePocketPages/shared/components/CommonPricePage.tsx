@@ -110,7 +110,7 @@ export function CommonPricePage({
     return <div className={styles.error}>Ошибка: {error}</div>;
   }
 
-  const priceGroup = prices[priceGroupIndex];
+  const priceGroup = prices[priceGroupIndex] ?? [];
 
   const handleEditClick = (price: TypePrice) => {
     let infoBodyArray: string[] = [];
@@ -207,6 +207,13 @@ export function CommonPricePage({
         anchor = '#home-studio';
       } else if (packageTitleLower.includes('street')) {
         anchor = '#street';
+      } else if (
+        packageTitleLower.includes('новогод') ||
+        packageTitleLower.includes('new year')
+      ) {
+        anchor = '#new-year';
+      } else if (packageTitleLower.includes('репортаж')) {
+        anchor = '#reportage';
       }
     }
     // Для всех остальных категорий (беременность, рождение, крещение и т.д.) - без якорей

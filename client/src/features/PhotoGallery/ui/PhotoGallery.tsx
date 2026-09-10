@@ -9,6 +9,12 @@ interface PhotoItem {
   preview?: string; // легкая превьюшка (LQIP), если есть
 }
 
+interface ExtraSection {
+  id: string;
+  title: string;
+  photos: PhotoItem[];
+}
+
 interface VideoItem {
   ownerId: number;
   videoId: string;
@@ -24,6 +30,7 @@ interface PhotoGalleryProps {
   naturalPhotos?: PhotoItem[];
   homeStudioPhotos?: PhotoItem[];
   streetPhotos?: PhotoItem[];
+  extraSections?: ExtraSection[];
   video?: VideoItem[] | VideoItem;
 }
 
@@ -37,6 +44,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   naturalPhotos,
   homeStudioPhotos,
   streetPhotos,
+  extraSections,
   video,
 }) => {
   const [activePhoto, setActivePhoto] = useState<PhotoItem | null>(null);
@@ -90,7 +98,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
                         loaded ? styles.photoImageLoaded : ''
                       }`}
                       loading={isPriority ? 'eager' : 'lazy'}
-                      fetchpriority={isPriority ? 'high' : undefined}
+                      fetchPriority={isPriority ? 'high' : undefined}
                       onLoad={() =>
                         setLoadedMap((prev) => ({ ...prev, [item.src]: true }))
                       }
@@ -143,6 +151,10 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
       {homePhotos && renderMasonry(homePhotos, 'Home', 'home-photos')}
       {standardPhotos && renderMasonry(standardPhotos, 'Standard', 'standard-photos')}
       {premiumPhotos && renderMasonry(premiumPhotos, 'Premium', 'premium-photos')}
+      {extraSections &&
+        extraSections.map((section) =>
+          renderMasonry(section.photos, section.title, section.id)
+        )}
 
       {/* Для обычных категорий */}
       {photos && renderMasonry(photos)}

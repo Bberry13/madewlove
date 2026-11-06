@@ -26,6 +26,10 @@ app.use('/api/auth', authRouter); // <== если это не внутри index
 const __dirname = path.resolve();
 const clientBuildPath = path.join('/root/madewlove/client/dist'); // или 'build'
 
+app.get('/vipiski', (_req, res) => {
+  res.redirect(301, '/');
+});
+
 app.use(express.static(clientBuildPath));
 
 // Если путь не начинается с /api — отдаём index.html

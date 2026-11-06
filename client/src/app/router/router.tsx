@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import { Layout } from '@/app/layout/layout';
 import { CLIENT_ROUTING } from '@/shared/enums/clientRouting';
 import React, { useLayoutEffect } from 'react';
@@ -133,6 +133,7 @@ export function RouterProvider(): React.JSX.Element {
     <Routes>
       <Route path={CLIENT_ROUTING.MAIN} element={<Layout />}>
         <Route index element={<MainPage />} />
+        <Route path="/vipiski" element={<Navigate to={CLIENT_ROUTING.MAIN} replace />} />
         <Route path={CLIENT_ROUTING.SIGN_IN} element={<SignInPage />} />
         <Route path={CLIENT_ROUTING.SIGN_UP} element={<SignUpPage />} />
         <Route path={CLIENT_ROUTING.PRICE_POST} element={<PricePage />} />

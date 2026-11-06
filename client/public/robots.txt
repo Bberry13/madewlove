@@ -1,15 +1,10 @@
-# Разрешаем всем роботам сканировать сайт
-
 User-agent: *
-Disallow: /
-Disallow: /admin/
-Disallow: /profile/
+Disallow: /admin
+Disallow: /profile
+Disallow: /sign-in
+Disallow: /sign-up
 Disallow: /login
 Disallow: /register
 Disallow: /api/
 
-# Указываем путь к карте сайта
 Sitemap: https://madewlove.ru/sitemap.xml
-
-# Дополнительно можно указать, где находится хост (для Яндекса)
-Host: https://madewlove.ru

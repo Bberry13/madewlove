@@ -1,21 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://madewlove.ru/</loc>
-    <lastmod>2025-06-14</lastmod>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://madewlove.ru/gallery</loc>
-    <lastmod>2025-06-14</lastmod>
-    <priority>0.8</priority>
+    <loc>https://madewlove.ru/oferta</loc>
   </url>
   <url>
-    <loc>https://madewlove.ru/services/newborn</loc>
-    <lastmod>2025-06-14</lastmod>
-    <priority>0.9</priority>
+    <loc>https://madewlove.ru/contacts</loc>
   </url>
-  <!-- Добавьте остальные важные страницы -->
+  <url>
+    <loc>https://madewlove.ru/politics</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/reviews</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/pregnancy</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/birth</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/newborn</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/baptism</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/family</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/one-year</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/photo-books</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/extracts</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/extracts/ckb</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/extracts/lapino</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/extracts/md</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/price/extracts/townextra</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/pregnancy</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/birth</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/newborn</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/baptism</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/family</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/one-year</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/photo-books</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/extracts</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/extracts/ckb</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/extracts/lapino</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/extracts/md</loc>
+  </url>
+  <url>
+    <loc>https://madewlove.ru/portfolio/extracts/townextra</loc>
+  </url>
 </urlset>

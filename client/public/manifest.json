@@ -3,14 +3,9 @@
   "name": "MadewLove — Семейный фотограф",
   "icons": [
     {
-      "src": "/logo-192.png",
+      "src": "/favicon.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/logo-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "1254x1254"
     }
   ],
   "start_url": ".",
@@ -18,4 +13,4 @@
   "background_color": "#18120e",
   "theme_color": "#18120e",
   "orientation": "portrait-primary"
-} 
+}

@@ -38,8 +38,8 @@ const VideoContainerComponent = ({ onScrollToCompany }: VideoContainerProps): JS
         <div className={styles.mainPage_content}>
           <h1 className={styles.mainPage_title}>Ваш семейный фотограф</h1>
           <p className={styles.mainPage_subtitle}>
-            От первых минут жизни до больших праздников — мы рядом,
-            <br /> чтобы сохранить главное
+            Made With Love — фото- и видеосъёмка в Москве и Московской области.
+            <br /> От первых минут жизни до больших семейных праздников
           </p>
           <button
             className={styles.mainPage_button}
